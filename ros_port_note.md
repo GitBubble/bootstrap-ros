@@ -97,6 +97,7 @@ cp ./lib/.llibs/libgmock_main.so /usr/lib
 
 tinyxml 2.6.2 compiled:
 change makefile
+
 `${LIB}: ${OBJS}
         ${CXX} -o $@ ${LDFLAGS} ${OBJS}`
 make
@@ -109,6 +110,9 @@ sh install.sh
 default installed to /usr/local/bin
 change location : by ->  sh make.sh --prefix=/usr --fancy
 
+pkg-config compiled:
+step1: compile pkg-config/glib/ (require aclocal-1.15   yum install automake wont make in centos cause its version is 1.13.4 )
+step:build pkg-config itself
 
 I have done some port test on centos. the following work has been done
  
