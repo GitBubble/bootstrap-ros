@@ -89,6 +89,13 @@ lz4-0.0.r131 compiled:
 make -j32
 cp programs/lz4 /usr/bin
 
+google-mock-1.7.0 complied:  
+./configure --prefix=/usr  
+make install is not supported 
+cp ./lib/.libs/libgmock.so /usr/lib
+cp ./lib/.llibs/libgmock_main.so /usr/lib
+
+
 
 I have done some port test on centos. the following work has been done
  
