@@ -95,6 +95,11 @@ make install is not supported
 cp ./lib/.libs/libgmock.so /usr/lib
 cp ./lib/.llibs/libgmock_main.so /usr/lib
 
+tinyxml 2.6.2 compiled:
+change makefile
+`${LIB}: ${OBJS}
+        ${CXX} -o $@ ${LDFLAGS} ${OBJS}`
+make
 
 
 I have done some port test on centos. the following work has been done
