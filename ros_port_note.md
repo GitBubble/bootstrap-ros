@@ -75,13 +75,15 @@ cp so to /usr/lib/gtest
 cp h to /usr/include  
 
 
-console_bridge compile:
+console_bridge compiled with gtest:
+yum -y install epel-release  (optional)
 copy gtest src to /usr/src/gtest/src
 cmake -DCMAKE_INSTALL_PREFIX=/usr
+make -j32 && make install
 
-
-console_bridge-0.3.2 details:     
-x  yum -y install epel-release
+log4cxx-0.10.0 compiled:
+./configure --prefix=/usr
+make -j32 && make install
 
 
 I have done some port test on centos. the following work has been done
