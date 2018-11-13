@@ -26,27 +26,56 @@ yaml https://raw.githubusercontent.com/ros/rosdistro/master/kinetic/distribution
 
 #download now ....
 rosinstall_generator ros_comm --rosdistro kinetic --deps --wet-only --tar > kinetic-ros_comm-wet.rosinstall  
-wstool init -j8 src kinetic-ros_comm-wet.rosinstall   
+wstool init -j8 src kinetic-ros _comm-wet.rosinstall   
 
 # if you are in a virtual machine, you would like to have vboxtool , a gcc/gcc-g++/make is required 
  yum install "kernel-devel-uname-r == $(uname -r)"
- 
+
+
 centos which derived from redhat, can use lots RPM source from EPEL.
-`yum -y install epel-release
- yum -y install python-pip
- yum install libjpeg-turbo-devel
- yum install glib-devel
- yum install patch
- `
+ yum -y install libtool ( will install autoconf,automake,m4,perl...etc...  
+ yum -y install gcc gcc-g++ make
+ -- apr compile ready
+ -- apr-util compile ready
+ -- cmake 3.5.1 compile ready
+ -- bzip2 compile ready
+ 
+ 
+ 
+ 
+ 
+ yum -y install epel-release   
+ yum -y install python-pip   
+ yum install libjpeg-turbo-devel  
+ yum install glib-devel  
+ yum install patch  
+
+libool detail: 
+to analysiz libtool dependencies
+ Installing:
+ libtool              2.4.2-22.el7_3 
+Installing for dependencies:
+ autoconf            2.69-11.el7  
+ automake            1.13.4-3.el7
+ m4                  1.4.16-10.el7
+ perl-Data-Dumper    2.145-3.el7
+ perl-Test-Harness   3.28-3.el7 
+ perl-Thread-Queue   3.02-2.el7
+
+cmake detail:
+ ./configure --prefix=/usr/
+ gmake
+ make install 
+
 
 I have done some port test on centos. the following work has been done
  
 1, python packages are portable on most of the linux platform.
-yum install pip   
-pip install empy
-pip install setuptools==40.5.0
-pip install jinja2
-pip install ipapython
+yum install pip      
+pip install empy   
+pip install setuptools==40.5.0  
+pip install jinja2  
+pip install ipapython   
 
 2, extract the source 
 for a in $(ls  *.tar.gz ); do tar xzvf $a; done    
