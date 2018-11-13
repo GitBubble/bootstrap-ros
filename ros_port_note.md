@@ -106,6 +106,7 @@ seems sbcl need itself to build
 yum install sbcl  
 sh make.sh
 sh install.sh
+default installed to /usr/local/bin
 
 I have done some port test on centos. the following work has been done
  
