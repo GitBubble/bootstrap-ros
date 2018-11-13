@@ -28,6 +28,9 @@ yaml https://raw.githubusercontent.com/ros/rosdistro/master/kinetic/distribution
 rosinstall_generator ros_comm --rosdistro kinetic --deps --wet-only --tar > kinetic-ros_comm-wet.rosinstall  
 wstool init -j8 src kinetic-ros_comm-wet.rosinstall   
 
+# if you are in a virtual machine, you would like to have vboxtool , a gcc/gcc-g++/make is required 
+ yum install "kernel-devel-uname-r == $(uname -r)"
+ 
 centos which derived from redhat, can use lots RPM source from EPEL.
 `yum -y install epel-release
  yum -y install python-pip
@@ -61,3 +64,6 @@ yum install boost-devel
 yum install tinyxml  
 yum install tinyxml-devel  
 yum install gtest  
+
+
+
