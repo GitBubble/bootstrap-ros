@@ -101,6 +101,11 @@ change makefile
         ${CXX} -o $@ ${LDFLAGS} ${OBJS}`
 make
 
+sbcl compiled:  
+seems sbcl need itself to build  
+yum install sbcl  
+sh make.sh
+sh install.sh
 
 I have done some port test on centos. the following work has been done
  
