@@ -32,20 +32,21 @@ wstool init -j8 src kinetic-ros _comm-wet.rosinstall
  yum install "kernel-devel-uname-r == $(uname -r)"
 
 
-centos which derived from redhat, can use lots RPM source from EPEL.
- yum -y install libtool ( will install autoconf,automake,m4,perl...etc...  
- yum -y install gcc gcc-g++ make
- -- apr compile ready
- -- apr-util compile ready
- -- cmake 3.5.1 compile ready
- -- bzip2 compile ready
+centos which derived from redhat, can use lots RPM source from EPEL.  
+ yum -y install libtool ( will install autoconf,automake,m4,perl...etc...    
+ yum -y install gcc gcc-g++ make   
+ -- # apr compile ready   
+ -- # apr-util compile ready   
+ -- # cmake 3.5.1 compile ready  
+ -- # bzip2 compile ready   
+ -- # 
+ -- # 
  
  
  
  
- 
- yum -y install epel-release   
- yum -y install python-pip   
+ yum -y install epel-release    
+ yum -y install python-pip    
  yum install libjpeg-turbo-devel  
  yum install glib-devel  
  yum install patch  
@@ -66,6 +67,21 @@ cmake detail:
  ./configure --prefix=/usr/
  gmake
  make install 
+
+gtest build:
+make install is not supported for gtest ..   
+change cmakefile to generate libs  
+cp so to /usr/lib/gtest   
+cp h to /usr/include  
+
+
+console_bridge compile:
+copy gtest src to /usr/src/gtest/src
+cmake -DCMAKE_INSTALL_PREFIX=/usr
+
+
+console_bridge-0.3.2 details:     
+x  yum -y install epel-release
 
 
 I have done some port test on centos. the following work has been done
