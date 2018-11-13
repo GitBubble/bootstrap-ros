@@ -46,18 +46,18 @@ pip install jinja2
 pip install ipapython
 
 2, extract the source 
-for a in $(ls  *.tar.gz ); do tar xzvf $a; done
-for a in $(ls  *.bz2 ); do tar xjf $a; done
-for a in $(ls  *.xz ); do tar xJf $a; done
-gzip -d pkg-config_0.29.1-0ubuntu1.diff.gz
-patch -p1 -i  pkg-config_0.29.1-0ubuntu1.diff
+for a in $(ls  *.tar.gz ); do tar xzvf $a; done    
+for a in $(ls  *.bz2 ); do tar xjf $a; done    
+for a in $(ls  *.xz ); do tar xJf $a; done    
+gzip -d pkg-config_0.29.1-0ubuntu1.diff.gz   
+patch -p1 -i  pkg-config_0.29.1-0ubuntu1.diff   
 
 3, build the other binaries from source
 
-currently use from rpm source include(to be compile from source)
-yum install zlib-devel
-yum install libyaml-devel
-yum install boost-devel
-yum install tinyxml
-yum install tinyxml-devel
-yum install gtest
+currently use from rpm source include(to be compile from source)   
+yum install zlib-devel   
+yum install libyaml-devel  
+yum install boost-devel  
+yum install tinyxml  
+yum install tinyxml-devel  
+yum install gtest  
