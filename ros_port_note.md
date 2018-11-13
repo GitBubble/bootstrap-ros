@@ -85,6 +85,10 @@ log4cxx-0.10.0 compiled:
 ./configure --prefix=/usr
 make -j32 && make install
 
+lz4-0.0.r131 compiled:
+make -j32
+cp programs/lz4 /usr/bin
+
 
 I have done some port test on centos. the following work has been done
  
