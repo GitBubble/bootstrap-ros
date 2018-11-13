@@ -107,6 +107,8 @@ yum install sbcl
 sh make.sh
 sh install.sh
 default installed to /usr/local/bin
+change location : by ->  sh make.sh --prefix=/usr --fancy
+
 
 I have done some port test on centos. the following work has been done
  
