@@ -51,7 +51,7 @@ centos which derived from redhat, can use lots RPM source from EPEL.
  yum install glib-devel  
  yum install patch  
 
-libool detail: 
+## libool detail: 
 to analysiz libtool dependencies
  Installing:
  libtool              2.4.2-22.el7_3 
@@ -63,46 +63,46 @@ Installing for dependencies:
  perl-Test-Harness   3.28-3.el7 
  perl-Thread-Queue   3.02-2.el7
 
-cmake detail:
- ./configure --prefix=/usr/
- gmake
- make install 
+## cmake detail:
+ ./configure --prefix=/usr/  
+ gmake  
+ make install  
 
-gtest build:
+## gtest build:
 make install is not supported for gtest ..   
 change cmakefile to generate libs  
-cp so to /usr/lib/gtest   
-cp h to /usr/include  
+cp so to /usr/lib/gtest    
+cp h to /usr/include   
 
 
-console_bridge compiled with gtest:
-yum -y install epel-release  (optional)
-copy gtest src to /usr/src/gtest/src
-cmake -DCMAKE_INSTALL_PREFIX=/usr
-make -j32 && make install
+## console_bridge compiled with gtest:
+yum -y install epel-release  (optional)  
+copy gtest src to /usr/src/gtest/src  
+cmake -DCMAKE_INSTALL_PREFIX=/usr  
+make -j32 && make install  
 
-log4cxx-0.10.0 compiled:
-./configure --prefix=/usr
-make -j32 && make install
-
-lz4-0.0.r131 compiled:
-make -j32
-cp programs/lz4 /usr/bin
-
-google-mock-1.7.0 complied:  
+## log4cxx-0.10.0 compiled:
 ./configure --prefix=/usr  
-make install is not supported 
-cp ./lib/.libs/libgmock.so /usr/lib
-cp ./lib/.llibs/libgmock_main.so /usr/lib
+make -j32 && make install  
 
-tinyxml 2.6.2 compiled:
+## lz4-0.0.r131 compiled:
+make -j32  
+cp programs/lz4 /usr/bin   
+
+## google-mock-1.7.0 complied:  
+./configure --prefix=/usr     
+make install is not supported   
+cp ./lib/.libs/libgmock.so /usr/lib   
+cp ./lib/.llibs/libgmock_main.so /usr/lib   
+
+## tinyxml 2.6.2 compiled:
 change makefile
+  
+`${LIB}: ${OBJS}  
+        ${CXX} -o $@ ${LDFLAGS} ${OBJS}`   
+make   
 
-`${LIB}: ${OBJS}
-        ${CXX} -o $@ ${LDFLAGS} ${OBJS}`
-make
-
-sbcl compiled:  
+## sbcl compiled:  
 seems sbcl need itself to build  
 yum install sbcl  
 sh make.sh
@@ -110,9 +110,12 @@ sh install.sh
 default installed to /usr/local/bin
 change location : by ->  sh make.sh --prefix=/usr --fancy
 
-pkg-config compiled:
+## pkg-config compiled:
 step1: compile pkg-config/glib/ (require aclocal-1.15   yum install automake wont make in centos cause its version is 1.13.4 )
 step:build pkg-config itself
+
+# Now python time
+
 
 I have done some port test on centos. the following work has been done
  
