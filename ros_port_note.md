@@ -119,12 +119,27 @@ step:build pkg-config itself
 python setup.py install 
 
 ## defusedxml  
-yum install python2-pip  (8.1.2-6.el7 ,
-pip install setuptools==40.5.0
-yum install python-devel
-python setup.py install  
-(there is a patch here ...need i patch it manually ?   
+yum install python2-pip  (8.1.2-6.el7 ,   
+pip install setuptools==40.5.0   
+yum install python-devel  
+python setup.py install     
+(there is a patch here ...need i patch it manually ?     
 
+## nose-1.3.7
+python setup.py install
+
+## paramiko-1.16.0
+pip install ecdsa>=0.11
+pip install pycrypto>=2.1,!=2.4
+python setup.py install
+
+
+
+## pillow 3.1.2
+yum install libjpeg-turbo-devel
+yum install zlib  ( zlib-1.2.7-17.e17
+yum install zlib-devel  ( 1.2.7-17.el7
+python setup.py install
 
 I have done some port test on centos. the following work has been done
  
