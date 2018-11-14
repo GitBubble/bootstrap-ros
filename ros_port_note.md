@@ -115,6 +115,15 @@ step1: compile pkg-config/glib/ (require aclocal-1.15   yum install automake won
 step:build pkg-config itself
 
 # Now python time
+## empy
+python setup.py install 
+
+## defusedxml  
+yum install python2-pip  (8.1.2-6.el7 ,
+pip install setuptools==40.5.0
+yum install python-devel
+python setup.py install  
+(there is a patch here ...need i patch it manually ?   
 
 
 I have done some port test on centos. the following work has been done
