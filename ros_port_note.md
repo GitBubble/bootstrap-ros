@@ -74,6 +74,13 @@ change cmakefile to generate libs
 cp so to /usr/lib/gtest    
 cp h to /usr/include   
 
+## bzip2 build:
+sudo rm /usr/bin/bzip2 /usr/bin/bunzip2 /usr/bin/bzcat /usr/bin/bzip2recover
+make -f Makefile-libbz2_so
+*modify Makefile install path to /usr
+make 
+make install (this will copy header to /usr/include and will be used by boost etc 
+
 
 ## console_bridge compiled with gtest:
 yum -y install epel-release  (optional)  
@@ -155,7 +162,16 @@ pip install catkin-tools
  ...collecting  six>=1.5 -> six-1.11.0-py2.py3-none-any.whl  
  ...collecting  futures-3.2.0-py2-none-any.whl  
  
- 
+but boost is requested
+
+## compile boost-1.58
+require bzip2.h
+./bootstrap.sh
+./b2
+cp -r ./boost/ /usr/include
+cp -r ./stage/lib /usr/lib
+
+
  
 I have done some port test on centos. the following work has been done
  
