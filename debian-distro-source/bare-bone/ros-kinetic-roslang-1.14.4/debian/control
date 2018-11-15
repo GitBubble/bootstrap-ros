@@ -1,0 +1,13 @@
+Source: ros-kinetic-roslang
+Section: misc
+Priority: extra
+Maintainer: Dirk Thomas <dthomas@osrfoundation.org>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-catkin
+Homepage: http://ros.org/wiki/roslang
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-roslang
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kinetic-catkin, ros-kinetic-genmsg
+Description: roslang is a common package that all ROS client libraries depend on.
+ This is mainly used to find client libraries (via 'rospack depends-on1 roslang').

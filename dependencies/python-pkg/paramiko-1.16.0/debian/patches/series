@@ -1,0 +1,8 @@
+0001-Localize-generated-documentation.patch
+0002-Allow-overriding-test-client-connect-kwargs-in-Trans.patch
+0003-Initial-tests-proving-CVE-2018-7750-1175.patch
+0004-Fixes-CVE-2018-7750-1175.patch
+0010-git-c1233679c44-change-order-of-preferred-kex-and-hmac-algorithms.patch
+0011-git-b395444062e-Reorder-cipher-and-key-preferences-to-make-more-sense.patch
+CVE-2018-1000805-pre.patch
+CVE-2018-1000805.patch

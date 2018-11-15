@@ -1,0 +1,7 @@
+/usr/lib64/libconsole_bridge.so.0.2
+/usr/lib64/libconsole_bridge.so
+/usr/include/console_bridge/console.h
+/usr/include/console_bridge/exportdecl.h
+/usr/lib64/console_bridge/cmake/console_bridge-config.cmake
+/usr/lib64/console_bridge/cmake/console_bridge-config-version.cmake
+/usr/lib64/pkgconfig/console_bridge.pc

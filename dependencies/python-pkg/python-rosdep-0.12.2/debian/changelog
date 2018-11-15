@@ -1,0 +1,5 @@
+python-rosdep (0.12.2-1) oneiric precise quantal raring saucy trusty utopic vivid wily xenial yakkety zesty artful bionic wheezy jessie stretch buster; urgency=low
+
+  * source package automatically created by stdeb 0.8.5
+
+ -- Tully Foote, Ken Conley <tfoote@osrfoundation.org>  Wed, 21 Mar 2018 16:42:08 -0700

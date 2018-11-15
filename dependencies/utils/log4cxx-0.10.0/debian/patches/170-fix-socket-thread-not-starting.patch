@@ -1,0 +1,75 @@
+Description: The thread that needs to do the reconnection is never started.
+Bug-Ubuntu: https://bugs.launchpad.net/bugs/785134
+Author: Peter Soetens <peter@thesourceworks.com>
+
+Index: b/src/main/cpp/socketappenderskeleton.cpp
+===================================================================
+--- a/src/main/cpp/socketappenderskeleton.cpp
++++ b/src/main/cpp/socketappenderskeleton.cpp
+@@ -28,7 +28,6 @@
+ #include <log4cxx/helpers/transcoder.h>
+ #include <log4cxx/helpers/bytearrayoutputstream.h>
+ 
+-
+ using namespace log4cxx;
+ using namespace log4cxx::helpers;
+ using namespace log4cxx::net;
+@@ -130,8 +129,13 @@
+ void SocketAppenderSkeleton::fireConnector()
+ {
+         synchronized sync(mutex);
+-        if (thread.isActive()) {
+-                thread.run(monitor, this);
++        if ( !thread.isAlive() ) {
++             LogLog::debug(LOG4CXX_STR( "Connector thread not alive: starting monitor."));
++             try {
++                  thread.run(monitor, this);
++             } catch( ThreadException& te ) {
++                  LogLog::error(LOG4CXX_STR("Monitor not started: "), te );
++             }
+         }
+ }
+ 
+Index: b/src/main/cpp/threadcxx.cpp
+===================================================================
+--- a/src/main/cpp/threadcxx.cpp
++++ b/src/main/cpp/threadcxx.cpp
+@@ -57,6 +57,11 @@
+ 
+ void Thread::run(Runnable start, void* data) {
+ #if APR_HAS_THREADS
++        // Try to join first if previous instance did exit
++        if ( isActive() && !isAlive() ) {
++             join();
++        }
++        // now we're ready to create the thread again
+         //
+         //    if attempting a second run method on the same Thread object
+         //         throw an exception
+@@ -77,6 +82,9 @@
+         if (stat != APR_SUCCESS) {
+                 throw ThreadException(stat);
+         }
++	// we need to set alive here already, since we use isAlive() to check
++	// if run() has been called in a thread-safe way.
++	apr_atomic_set32(&alive, 0xFFFFFFFF);
+ #else
+         throw ThreadException(LOG4CXX_STR("APR_HAS_THREADS is not true"));
+ #endif
+@@ -96,10 +104,12 @@
+     LaunchPackage* package = (LaunchPackage*) data;
+     ThreadLocal& tls = getThreadLocal();
+     tls.set(package->getThread());
+-    LaunchStatus alive(&package->getThread()->alive);
+-    void* retval = (package->getRunnable())(thread, package->getData());
+-    apr_thread_exit(thread, 0);
+-    return retval;
++    {
++      (package->getRunnable())(thread, package->getData());
++      package->getThread()->ending();
++    }
++    apr_thread_exit(thread, 0); // this function never returns !
++    return 0;
+ }
+ #endif
+ 

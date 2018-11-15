@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/gtest_xml_output_unittest_.dir/test/gtest_xml_output_unittest_.cc.o  -o gtest_xml_output_unittest_  -L/home/arthur/ros_varient/sim-install/gtest-1.7.0/src -rdynamic libgtest.so -lpthread -Wl,-rpath,/home/arthur/ros_varient/sim-install/gtest-1.7.0/src:/home/arthur/ros_varient/sim-install/gtest-1.7.0 

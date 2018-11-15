@@ -1,0 +1,13 @@
+Source: ros-kinetic-rosboost-cfg
+Section: misc
+Priority: extra
+Maintainer: Dirk Thomas <dthomas@osrfoundation.org>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-catkin
+Homepage: http://ros.org/wiki/rosboost_cfg
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-rosboost-cfg
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, 
+Description: Contains scripts used by the rosboost-cfg tool for determining cflags/lflags/etc.
+ of boost on your system

@@ -1,0 +1,16 @@
+setup.py
+rospkg.egg-info/PKG-INFO
+rospkg.egg-info/SOURCES.txt
+rospkg.egg-info/dependency_links.txt
+rospkg.egg-info/entry_points.txt
+rospkg.egg-info/requires.txt
+rospkg.egg-info/top_level.txt
+test/test_rospkg_catkin_packages.py
+test/test_rospkg_common.py
+test/test_rospkg_distro.py
+test/test_rospkg_distro_vcs_config.py
+test/test_rospkg_environment.py
+test/test_rospkg_manifest.py
+test/test_rospkg_os_detect.py
+test/test_rospkg_packages.py
+test/test_rospkg_stacks.py

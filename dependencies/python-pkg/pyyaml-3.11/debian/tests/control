@@ -1,0 +1,8 @@
+# 2015-12-01 barry@debian.org: These tests are related to bug #806826.  This
+# code point is higher than upstream pyyaml supports, but with the quilt
+# patch, it will work.  Unfortunately, we have not been able to correctly add
+# a unittest for the problem, so DEP-8 will have to do.
+
+Tests: python2.sh
+
+Tests: python3.sh

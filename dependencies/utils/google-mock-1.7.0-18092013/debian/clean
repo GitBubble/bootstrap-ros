@@ -1,0 +1,12 @@
+test/*.pyc
+core
+gtest/test/*.pyc
+gtest/scripts/*.pyc
+gtest/core
+scripts/generator/cpp/*.pyc
+fused-src/*.cc
+fused-src/gmock/*.h
+fused-src/gtest/*.h
+gtest/fused-src/gtest/*.cc
+gtest/fused-src/gtest/*.h
+debian/substvars

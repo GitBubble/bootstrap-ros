@@ -1,0 +1,24 @@
+#!/usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+export OSLO_PACKAGE_VERSION=$(shell dpkg-parsechangelog | sed -n -e 's/^Version: //p' | sed -e 's/^[[:digit:]]*://' -e 's/[-].*//')
+export PYBUILD_NAME=mock
+
+%:
+	dh $@ --with python2,python3,sphinxdoc --buildsystem=pybuild
+
+override_dh_auto_build:
+	dh_auto_build
+	PYTHONPATH=. sphinx-build -b html -N docs/ docs/.build/html
+
+override_dh_installchangelogs:
+	dh_installchangelogs -- docs/changelog.txt
+
+override_dh_compress:
+	dh_compress -X.js -X.html -X.txt
+
+override_dh_clean:
+	rm -rf docs/.build
+	dh_clean

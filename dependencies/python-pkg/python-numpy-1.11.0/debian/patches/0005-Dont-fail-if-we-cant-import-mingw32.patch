@@ -1,0 +1,29 @@
+From b8d77609b794aea3c7c33dd40c139a61ba4737fe Mon Sep 17 00:00:00 2001
+From: Sandro Tosi <morph@debian.org>
+Date: Sun, 10 Jan 2016 22:16:03 +0000
+Subject: Dont fail if we cant import mingw32
+
+This is required for the Debian version helper, which reads core.setup_common and
+executes it, without using all the Python import machinery. This way we will
+skip the requirement to have the whole numpy module working while we only care
+(at this point) for the API/ABI versions.
+---
+ numpy/core/setup_common.py | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/numpy/core/setup_common.py b/numpy/core/setup_common.py
+index ba7521e..764ad03 100644
+--- a/numpy/core/setup_common.py
++++ b/numpy/core/setup_common.py
+@@ -6,7 +6,10 @@ import warnings
+ import copy
+ import binascii
+ 
+-from numpy.distutils.misc_util import mingw32
++try:
++    from numpy.distutils.misc_util import mingw32
++except:
++    mingw32 = lambda *args, **kwargs: None
+ 
+ 
+ #-------------------

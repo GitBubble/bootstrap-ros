@@ -1,0 +1,33 @@
+Description: Enable death tests on Free BSD
+Origin: https://groups.google.com/d/msg/googletestframework/VyEPBMcQG6I/x_M09IWbR2QJ
+Author: Roger Leigh
+Last-Update: 2015-06-23
+
+--- a/include/gtest/internal/gtest-port.h.orig	2014-08-16 09:30:13.114359210 +0100
++++ b/include/gtest/internal/gtest-port.h	2014-08-16 09:32:56.496223003 +0100
+@@ -92,6 +92,7 @@
+ // the given platform; otherwise undefined):
+ //   GTEST_OS_AIX      - IBM AIX
+ //   GTEST_OS_CYGWIN   - Cygwin
++//   GTEST_OS_FREEBSD  - FreeBSD
+ //   GTEST_OS_HPUX     - HP-UX
+ //   GTEST_OS_LINUX    - Linux
+ //     GTEST_OS_LINUX_ANDROID - Google Android
+@@ -248,6 +249,8 @@
+ #   define GTEST_OS_IOS_SIMULATOR 1
+ #  endif
+ # endif
++#elif defined __FreeBSD__
++# define GTEST_OS_FREEBSD 1
+ #elif defined __linux__
+ # define GTEST_OS_LINUX 1
+ # if defined __ANDROID__
+@@ -646,7 +649,7 @@
+      (GTEST_OS_MAC && !GTEST_OS_IOS) || GTEST_OS_IOS_SIMULATOR || \
+      (GTEST_OS_WINDOWS_DESKTOP && _MSC_VER >= 1400) || \
+      GTEST_OS_WINDOWS_MINGW || GTEST_OS_AIX || GTEST_OS_HPUX || \
+-     GTEST_OS_OPENBSD || GTEST_OS_QNX)
++     GTEST_OS_FREEBSD || GTEST_OS_OPENBSD || GTEST_OS_QNX)
+ # define GTEST_HAS_DEATH_TEST 1
+ # include <vector>  // NOLINT
+ #endif

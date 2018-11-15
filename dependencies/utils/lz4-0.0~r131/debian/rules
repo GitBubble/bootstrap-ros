@@ -1,0 +1,64 @@
+#!/usr/bin/make -f
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+CPPFLAGS:= $(shell dpkg-buildflags --get CPPFLAGS)
+CFLAGS:= $(shell dpkg-buildflags --get CFLAGS) $(CPPFLAGS)
+CXXFLAGS:= $(shell dpkg-buildflags --get CXXFLAGS) $(CPPFLAGS)
+LDFLAGS:= $(shell dpkg-buildflags --get LDFLAGS)
+
+CFLAGS := $(filter-out -O%, $(CFLAGS)) -O3
+CXXFLAGS := $(filter-out -O%, $(CXXFLAGS)) -O3
+
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+DEB_HOST_GNU_TYPE ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
+PREFIX:= /usr
+
+#use_pgo := yes
+
+ifeq ($(origin CC),default)
+CC := $(DEB_HOST_GNU_TYPE)-gcc
+endif
+
+export CFLAGS
+export CPPFLAGS
+export LDFLAGS
+export PREFIX
+
+disable_test=0
+# BTS: #755170
+# sparc: out of memory
+ifneq (,$(findstring $(DEB_HOST_ARCH),sparc))
+disable_test=1
+endif
+ifneq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
+disable_test=1
+endif
+
+%:
+	dh $@
+
+override_dh_auto_build:
+ifeq ($(use_pgo),yes)
+	$(MAKE) CC=$(CC) CFLAGS="$(CFLAGS) -fprofile-generate"
+	$(MAKE) CC=$(CC) test
+	$(MAKE) CC=$(CC) clean
+	$(MAKE) CC=$(CC) CFLAGS="$(CFLAGS) -fprofile-use"
+else
+	dh_auto_build -- CC=$(CC)
+endif
+
+override_dh_auto_install:
+	dh_auto_install -- CC=$(CC)
+
+override_dh_install:
+	make install DESTDIR=$$(pwd)/debian/tmp LIBDIR=$(DESTDIR)/usr/lib/$(DEB_HOST_MULTIARCH) CC=$(CC)
+	dh_install
+
+override_dh_auto_test:
+ifeq "$(disable_test)" "0"
+	time make test
+endif
+
+override_dh_strip:
+	dh_strip -a --dbg-package=liblz4-1-dbg

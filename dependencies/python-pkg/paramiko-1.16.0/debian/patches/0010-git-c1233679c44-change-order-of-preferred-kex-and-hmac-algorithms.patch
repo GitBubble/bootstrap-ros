@@ -1,0 +1,37 @@
+commit c1233679c448b445ec991710d259eec0a9f64b61
+Author: Fabien Tassin <fta@ubuntu.com>
+Subject: transport: change order of preferred kex and hmac algorithms
+
+Bug: https://bugs.launchpad.net/ubuntu/+source/paramiko/+bug/1728607
+
+Backport from https://github.com/paramiko/paramiko/commit/c1233679c448b445ec991710d259eec0a9f64b61
+Index: paramiko-1.16.0/paramiko/transport.py
+===================================================================
+--- paramiko-1.16.0.orig/paramiko/transport.py
++++ paramiko-1.16.0/paramiko/transport.py
+@@ -112,10 +112,10 @@ class Transport (threading.Thread, Closi
+     _preferred_macs = (
+         'hmac-sha2-256',
+         'hmac-sha2-512',
++        'hmac-sha1',
+         'hmac-md5',
+         'hmac-sha1-96',
+         'hmac-md5-96',
+-        'hmac-sha1',
+     )
+     _preferred_keys = (
+         'ssh-rsa',
+@@ -123,10 +123,10 @@ class Transport (threading.Thread, Closi
+         'ecdsa-sha2-nistp256',
+     )
+     _preferred_kex =  (
+-        'diffie-hellman-group1-sha1',
+-        'diffie-hellman-group14-sha1',
+-        'diffie-hellman-group-exchange-sha1',
+         'diffie-hellman-group-exchange-sha256',
++        'diffie-hellman-group-exchange-sha1',
++        'diffie-hellman-group14-sha1',
++        'diffie-hellman-group1-sha1',
+     )
+     _preferred_compression = ('none',)
+ 

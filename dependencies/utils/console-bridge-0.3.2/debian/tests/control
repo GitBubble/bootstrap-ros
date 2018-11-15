@@ -1,0 +1,2 @@
+Tests: build
+Depends: libconsole-bridge-dev, build-essential

@@ -1,0 +1,2 @@
+# Upstream does not provide PGP signatures for its release tarballs.
+python-mock source: debian-watch-may-check-gpg-signature

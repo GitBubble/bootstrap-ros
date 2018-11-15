@@ -1,0 +1,9 @@
+gtest (1.6.0-1) unstable; urgency=low
+  
+  Use of precompiled libgtest is no longer recommended.  See README.Debian
+  for instructions on using gtest with your projects.  The precompiled
+  shared library has been removed and the static library will be removed
+  in a future upload.
+  
+  The script gtest-config is no longer supplied since upstream's
+  autoconfigure-based build is deprecated.

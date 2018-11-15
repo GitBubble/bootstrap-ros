@@ -1,0 +1,126 @@
+From: Brad King <brad.king@kitware.com>
+Date: Fri, 1 Apr 2016 14:26:08 +0000 (-0400)
+Subject: Rename local target lookup methods to clarify purpose
+X-Git-Url: https://cmake.org/gitweb?p=cmake.git;a=commitdiff_plain;h=0e44f4894f23d5eccd8d360f3420c832f9433a20
+
+Rename local target lookup methods to clarify purpose
+
+Rename methods:
+
+* `cmMakefile::Find{ => LocalNonAlias}Target`
+* `cmLocalGenerator::Find{ => LocalNonAlias}GeneratorTarget`
+
+These names clarify that they are for directory-local target names
+and do not consider alias targets.
+---
+
+diff --git a/Source/cmFLTKWrapUICommand.cxx b/Source/cmFLTKWrapUICommand.cxx
+index d17d664..c64e813 100644
+--- a/Source/cmFLTKWrapUICommand.cxx
++++ b/Source/cmFLTKWrapUICommand.cxx
+@@ -117,7 +117,7 @@ void cmFLTKWrapUICommand::FinalPass()
+   // people should add the srcs to the target themselves, but the old command
+   // didn't support that, so check and see if they added the files in and if
+   // they didn;t then print a warning and add then anyhow
+-  cmTarget* target = this->Makefile->FindTarget(this->Target);
++  cmTarget* target = this->Makefile->FindLocalNonAliasTarget(this->Target);
+   if(!target)
+     {
+     std::string msg =
+diff --git a/Source/cmInstallCommand.cxx b/Source/cmInstallCommand.cxx
+index 2d78a41..7e72a8a 100644
+--- a/Source/cmInstallCommand.cxx
++++ b/Source/cmInstallCommand.cxx
+@@ -381,7 +381,7 @@ bool cmInstallCommand::HandleTargetsMode(std::vector<std::string> const& args)
+       return false;
+       }
+     // Lookup this target in the current directory.
+-    if(cmTarget* target=this->Makefile->FindTarget(*targetIt))
++    if(cmTarget* target=this->Makefile->FindLocalNonAliasTarget(*targetIt))
+       {
+       // Found the target.  Check its type.
+       if(target->GetType() != cmState::EXECUTABLE &&
+diff --git a/Source/cmInstallTargetGenerator.cxx b/Source/cmInstallTargetGenerator.cxx
+index 5e88fa2..b93fb8d 100644
+--- a/Source/cmInstallTargetGenerator.cxx
++++ b/Source/cmInstallTargetGenerator.cxx
+@@ -446,7 +446,7 @@ cmInstallTargetGenerator::GetInstallFilename(cmGeneratorTarget const* target,
+ 
+ void cmInstallTargetGenerator::Compute(cmLocalGenerator* lg)
+ {
+-  this->Target = lg->FindGeneratorTarget(this->TargetName);
++  this->Target = lg->FindLocalNonAliasGeneratorTarget(this->TargetName);
+ }
+ 
+ //----------------------------------------------------------------------------
+diff --git a/Source/cmLocalGenerator.cxx b/Source/cmLocalGenerator.cxx
+index 6153fbd..586e4c6 100644
+--- a/Source/cmLocalGenerator.cxx
++++ b/Source/cmLocalGenerator.cxx
+@@ -485,7 +485,7 @@ private:
+   std::string Name;
+ };
+ 
+-cmGeneratorTarget* cmLocalGenerator::FindGeneratorTarget(
++cmGeneratorTarget* cmLocalGenerator::FindLocalNonAliasGeneratorTarget(
+     const std::string& name) const
+ {
+   std::vector<cmGeneratorTarget*>::const_iterator ti =
+@@ -1828,7 +1828,7 @@ cmLocalGenerator::FindGeneratorTargetToUse(const std::string& name) const
+     return *imported;
+     }
+ 
+-  if(cmGeneratorTarget* t = this->FindGeneratorTarget(name))
++  if(cmGeneratorTarget* t = this->FindLocalNonAliasGeneratorTarget(name))
+     {
+     return t;
+     }
+diff --git a/Source/cmLocalGenerator.h b/Source/cmLocalGenerator.h
+index 68e7667..b673a85 100644
+--- a/Source/cmLocalGenerator.h
++++ b/Source/cmLocalGenerator.h
+@@ -129,7 +129,8 @@ public:
+   void AddImportedGeneratorTarget(cmGeneratorTarget* gt);
+   void AddOwnedImportedGeneratorTarget(cmGeneratorTarget* gt);
+ 
+-  cmGeneratorTarget* FindGeneratorTarget(const std::string& name) const;
++  cmGeneratorTarget*
++    FindLocalNonAliasGeneratorTarget(const std::string& name) const;
+   cmGeneratorTarget* FindGeneratorTargetToUse(const std::string& name) const;
+ 
+   /**
+diff --git a/Source/cmMakefile.cxx b/Source/cmMakefile.cxx
+index 598f8c4..df687d0 100644
+--- a/Source/cmMakefile.cxx
++++ b/Source/cmMakefile.cxx
+@@ -4058,7 +4058,7 @@ std::vector<std::string> cmMakefile::GetPropertyKeys() const
+   return this->StateSnapshot.GetDirectory().GetPropertyKeys();
+ }
+ 
+-cmTarget* cmMakefile::FindTarget(const std::string& name) const
++cmTarget* cmMakefile::FindLocalNonAliasTarget(const std::string& name) const
+ {
+   cmTargets::iterator i = this->Targets.find( name );
+   if ( i != this->Targets.end() )
+@@ -4235,7 +4235,7 @@ cmTarget* cmMakefile::FindTargetToUse(const std::string& name,
+     }
+ 
+   // Look for a target built in this directory.
+-  if(cmTarget* t = this->FindTarget(name))
++  if(cmTarget* t = this->FindLocalNonAliasTarget(name))
+     {
+     return t;
+     }
+diff --git a/Source/cmMakefile.h b/Source/cmMakefile.h
+index a69c705..45f2efb 100644
+--- a/Source/cmMakefile.h
++++ b/Source/cmMakefile.h
+@@ -388,7 +388,7 @@ public:
+     }
+   std::vector<cmTarget*> GetImportedTargets() const;
+ 
+-  cmTarget* FindTarget(const std::string& name) const;
++  cmTarget* FindLocalNonAliasTarget(const std::string& name) const;
+ 
+   /** Find a target to use in place of the given name.  The target
+       returned may be imported or built within the project.  */

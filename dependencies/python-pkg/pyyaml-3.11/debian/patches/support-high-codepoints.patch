@@ -1,0 +1,97 @@
+From ce6f328b074bee1e81c1f7caaf05815330a24e1e Mon Sep 17 00:00:00 2001
+From: Barry Warsaw <barry@python.org>
+Date: Tue, 1 Dec 2015 18:15:20 -0500
+Subject: =?UTF-8?q?Fix=20support=20for=20codepoints=20over=200xffff=20acco?=
+ =?UTF-8?q?rding=20to=20the=20spec.=20=20Given=20by=20John=0AR.=20Lenton.?=
+ =?UTF-8?q?=20=20Closes:=20#806826.?=
+
+Patch-Name: support-high-codepoints.patch
+---
+ lib/yaml/emitter.py  | 7 ++++++-
+ lib/yaml/reader.py   | 9 +++++++--
+ lib3/yaml/emitter.py | 3 ++-
+ lib3/yaml/reader.py  | 2 +-
+ 4 files changed, 16 insertions(+), 5 deletions(-)
+
+diff --git a/lib/yaml/emitter.py b/lib/yaml/emitter.py
+index e5bcdcc..9b4d5f0 100644
+--- a/lib/yaml/emitter.py
++++ b/lib/yaml/emitter.py
+@@ -8,9 +8,13 @@
+ 
+ __all__ = ['Emitter', 'EmitterError']
+ 
++import sys
++
+ from error import YAMLError
+ from events import *
+ 
++has_ucs4 = sys.maxunicode > 0xffff
++
+ class EmitterError(YAMLError):
+     pass
+ 
+@@ -701,7 +705,8 @@ class Emitter(object):
+                 line_breaks = True
+             if not (ch == u'\n' or u'\x20' <= ch <= u'\x7E'):
+                 if (ch == u'\x85' or u'\xA0' <= ch <= u'\uD7FF'
+-                        or u'\uE000' <= ch <= u'\uFFFD') and ch != u'\uFEFF':
++                        or u'\uE000' <= ch <= u'\uFFFD'
++                        or ((not has_ucs4) or (u'\U00010000' <= ch < u'\U0010ffff'))) and ch != u'\uFEFF':
+                     unicode_characters = True
+                     if not self.allow_unicode:
+                         special_characters = True
+diff --git a/lib/yaml/reader.py b/lib/yaml/reader.py
+index 3249e6b..0b95f47 100644
+--- a/lib/yaml/reader.py
++++ b/lib/yaml/reader.py
+@@ -19,7 +19,9 @@ __all__ = ['Reader', 'ReaderError']
+ 
+ from error import YAMLError, Mark
+ 
+-import codecs, re
++import codecs, re, sys
++
++has_ucs4 = sys.maxunicode > 0xffff
+ 
+ class ReaderError(YAMLError):
+ 
+@@ -134,7 +136,10 @@ class Reader(object):
+                 self.encoding = 'utf-8'
+         self.update(1)
+ 
+-    NON_PRINTABLE = re.compile(u'[^\x09\x0A\x0D\x20-\x7E\x85\xA0-\uD7FF\uE000-\uFFFD]')
++    if has_ucs4:
++        NON_PRINTABLE = re.compile(u'[^\x09\x0A\x0D\x20-\x7E\x85\xA0-\uD7FF\uE000-\uFFFD\U00010000-\U0010ffff]')
++    else:
++        NON_PRINTABLE = re.compile(u'[^\x09\x0A\x0D\x20-\x7E\x85\xA0-\uD7FF\uE000-\uFFFD]')
+     def check_printable(self, data):
+         match = self.NON_PRINTABLE.search(data)
+         if match:
+diff --git a/lib3/yaml/emitter.py b/lib3/yaml/emitter.py
+index 34cb145..1f8ed92 100644
+--- a/lib3/yaml/emitter.py
++++ b/lib3/yaml/emitter.py
+@@ -698,7 +698,8 @@ class Emitter:
+                 line_breaks = True
+             if not (ch == '\n' or '\x20' <= ch <= '\x7E'):
+                 if (ch == '\x85' or '\xA0' <= ch <= '\uD7FF'
+-                        or '\uE000' <= ch <= '\uFFFD') and ch != '\uFEFF':
++                        or '\uE000' <= ch <= '\uFFFD'
++                        or '\U00010000' <= ch < '\U0010ffff') and ch != '\uFEFF':
+                     unicode_characters = True
+                     if not self.allow_unicode:
+                         special_characters = True
+diff --git a/lib3/yaml/reader.py b/lib3/yaml/reader.py
+index f70e920..5764f2d 100644
+--- a/lib3/yaml/reader.py
++++ b/lib3/yaml/reader.py
+@@ -134,7 +134,7 @@ class Reader(object):
+                 self.encoding = 'utf-8'
+         self.update(1)
+ 
+-    NON_PRINTABLE = re.compile('[^\x09\x0A\x0D\x20-\x7E\x85\xA0-\uD7FF\uE000-\uFFFD]')
++    NON_PRINTABLE = re.compile('[^\x09\x0A\x0D\x20-\x7E\x85\xA0-\uD7FF\uE000-\uFFFD\U00010000-\U0010ffff]')
+     def check_printable(self, data):
+         match = self.NON_PRINTABLE.search(data)
+         if match:

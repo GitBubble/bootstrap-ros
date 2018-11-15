@@ -1,0 +1,26 @@
+Description: Disable plot_directive and ignore any import errors when
+ importing matplotlib.  python-matplotlib is in universe and cannot be used
+ as a dependency.
+Author: Barry Warsaw <barry@ubuntu.com>
+Bug-Ubuntu: https://launchpad.net/bugs/664276
+--- a/doc/source/conf.py
++++ b/doc/source/conf.py
+@@ -21,8 +21,7 @@ sys.path.insert(0, os.path.abspath('../sphinxext'))
+ 
+ extensions = ['sphinx.ext.autodoc', 'sphinx.ext.pngmath', 'numpydoc',
+               'sphinx.ext.intersphinx', 'sphinx.ext.coverage',
+-              'sphinx.ext.doctest', 'sphinx.ext.autosummary',
+-              'matplotlib.sphinxext.plot_directive']
++              'sphinx.ext.doctest', 'sphinx.ext.autosummary']
+ 
+ # Add any paths that contain templates here, relative to this directory.
+ templates_path = ['_templates']
+@@ -210,7 +209,7 @@ intersphinx_mapping = {'http://docs.python.org/dev': None}
+ phantom_import_file = 'dump.xml'
+ 
+ # Make numpydoc to generate plots for example sections
+-numpydoc_use_plots = True
++numpydoc_use_plots = False
+ 
+ # -----------------------------------------------------------------------------
+ # Autosummary

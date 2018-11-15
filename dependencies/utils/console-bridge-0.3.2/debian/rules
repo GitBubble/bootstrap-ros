@@ -1,0 +1,15 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+.PHONY: override_dh_auto_clean override_dh_strip
+
+%:
+	dh  $@ --parallel
+
+override_dh_auto_clean:
+	rm -f console_bridge-config.cmake
+	rm -f console_bridge.pc
+	dh_auto_clean --
+
+override_dh_strip:
+	dh_strip -a --dbg-package=libconsole-bridge0.2v5-dbg

@@ -1,0 +1,80 @@
+#!/usr/bin/make -f
+
+buildvers := $(shell pyversions -sv)
+build3vers := $(shell py3versions -sv)
+
+%:
+	dh $@ --with python2, --with python3, --with quilt
+
+override_dh_auto_build:
+
+override_dh_auto_install:
+	# Move generated _yaml.c aside so we can regenerate it during build
+	mv $(CURDIR)/ext/_yaml.c $(CURDIR)/upstream.yaml.c
+
+	dh_install -ppython-yaml 
+	set -e && for i in $(buildvers); do \
+	  python$$i ./setup.py install --install-layout=deb --root $(CURDIR)/debian/python-yaml; \
+	done
+
+	dh_install -ppython-yaml-dbg
+	set -e && for i in $(buildvers); do \
+	  python$$i-dbg ./setup.py install --install-layout=deb --root $(CURDIR)/debian/python-yaml-dbg; \
+	done
+
+	dh_install -ppython3-yaml
+	set -e && for i in $(build3vers); do \
+	  python$$i ./setup.py install --install-layout=deb --root $(CURDIR)/debian/python3-yaml; \
+	done
+
+	dh_install -ppython3-yaml-dbg
+	set -e && for i in $(build3vers); do \
+	  python$$i-dbg ./setup.py install --install-layout=deb --root $(CURDIR)/debian/python3-yaml-dbg; \
+	done
+
+ifeq (,$(findstring nocheck,$(DEB_BUILD_OPTIONS)))
+	set -e && for i in $(buildvers); do \
+	  echo "-- running tests for "$$i" plain --" ; \
+	  python$$i -c "import sys ; sys.path.insert(0, 'debian/python-yaml/usr/lib/python$$i/dist-packages/'); \
+	      sys.path.insert(0, 'tests/lib'); import test_all; test_all.main([])";\
+	done
+
+	set -e && for i in $(buildvers); do \
+	  echo "-- running tests for "$$i" debug --" ; \
+	  python$$i-dbg -c "import sys ; sys.path.insert(0, 'debian/python-yaml-dbg/usr/lib/python$$i/dist-packages/'); \
+	      sys.path.insert(0, 'tests/lib'); import test_all; test_all.main([])";\
+	done
+
+	set -e && for i in $(build3vers); do \
+	  echo "-- running tests for "$$i" plain --" ; \
+	  python$$i -c "import sys ; sys.path.insert(0, 'debian/python3-yaml/usr/lib/python3/dist-packages/'); \
+	      sys.path.insert(0, 'tests/lib3'); import test_all; test_all.main([])";\
+	done
+
+	set -e && for i in $(build3vers); do \
+	  echo "-- running tests for "$$i" debug --" ; \
+	  python$$i -c "import sys ; sys.path.insert(0, 'debian/python3-yaml-dbg/usr/lib/python3/dist-packages/'); \
+	      sys.path.insert(0, 'tests/lib3'); import test_all; test_all.main([])";\
+	done
+endif
+
+	# Put upstream _yaml.c back where we found it
+	mv $(CURDIR)/upstream.yaml.c $(CURDIR)/ext/_yaml.c
+
+override_dh_installdocs:
+	cp $(CURDIR)/CHANGES $(CURDIR)/changelog
+	dh_installdocs
+	rm  $(CURDIR)/changelog
+
+override_dh_installdeb:
+	rm -rf $(CURDIR)/debian/python-yaml-dbg/usr/share/doc/python-yaml-dbg
+	ln -s python-yaml debian/python-yaml-dbg/usr/share/doc/python-yaml-dbg
+	rm -rf $(CURDIR)/debian/python3-yaml-dbg/usr/lib/python3/dist-packages/yaml
+	rm -rf $(CURDIR)/debian/python3-yaml-dbg/usr/share/doc/python3-yaml-dbg
+	ln -s python3-yaml debian/python3-yaml-dbg/usr/share/doc/python3-yaml-dbg
+
+	dh_installdeb
+
+override_dh_clean:
+	dh_clean
+	rm -rf $(CURDIR)/build

@@ -1,0 +1,29 @@
+Description: Use system packaged gtest
+Author: Jose Luis Rivero <jrivero@osrfoundation.org>
+Last-Update: 2015-07-15
+
+diff --git a/test/CMakeLists.txt b/test/CMakeLists.txt
+index 7cf97f9..975c487 100644
+--- a/test/CMakeLists.txt
++++ b/test/CMakeLists.txt
+@@ -1,7 +1,6 @@
+ include_directories (
+-  ${PROJECT_SOURCE_DIR}/test/gtest/include
+-  ${PROJECT_SOURCE_DIR}/test/gtest
+-  ${PROJECT_SOURCE_DIR}/test
++  /usr/include
++  /usr/src/gtest
+ )
+ 
+ link_directories(
+@@ -10,8 +9,8 @@ link_directories(
+ 
+ 
+ # Build gtest
+-add_library(gtest STATIC gtest/src/gtest-all.cc)
+-add_library(gtest_main STATIC gtest/src/gtest_main.cc)
++add_library(gtest STATIC /usr/src/gtest/src/gtest-all.cc)
++add_library(gtest_main STATIC /usr/src/gtest/src/gtest_main.cc)
+ target_link_libraries(gtest_main gtest)
+ 
+ execute_process(COMMAND cmake -E remove_directory ${CMAKE_BINARY_DIR}/test_results)

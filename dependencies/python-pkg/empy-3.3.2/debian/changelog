@@ -1,0 +1,100 @@
+empy (3.3.2-1build1) wily; urgency=medium
+
+  * No-change rebuild for python3.5 transition
+
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Wed, 22 Jul 2015 06:44:50 +0000
+
+empy (3.3.2-1) unstable; urgency=medium
+
+  * New upstream release
+  * Update patch to remove hardcoded path in doc.html
+  * Remove patch for python3 support. It is implemented in upstream sources
+  * Update standards version to 3.9.6, no changes required
+
+ -- Jose Luis Rivero <jrivero@osrfoundation.org>  Thu, 09 Oct 2014 22:49:04 +0000
+
+empy (3.3-9) unstable; urgency=medium
+
+  * Make both empy versions, python2 and python3, coinstallable. The binary
+    empy provided by python3 is now renaming under the empy3. This allow to
+    run empy on python2 code (using empy executable) or on python3 code
+    (using empy3 executable). (Closes: #755113).
+
+ -- Jose Luis Rivero <jrivero@osrfoundation.org>  Mon, 21 Jul 2014 02:00:52 +0200
+
+empy (3.3-8) unstable; urgency=medium
+
+  [ Jose Luis Rivero ]
+  * Include patch to support python3. Thanks to Dirk Thomas. (Closes: #732101)
+  * Add python3-empy: update debian/control, add manpages and dir files.
+  * Add build depends on dh-python, python-setuptools, python3-all and
+    python3-setuptools.
+  * Update debian/rules:
+   - stop calling setup.sh manually and use pybuild.
+   - replace cp command with install.
+
+  [ Ana Guerrero Lopez ]
+  * Add examples to python3-empy.
+  * Add conflicts between python-empy and python3-empy since they both
+    install the same binary and manpage.
+  * Update to standards-Version 3.9.5, no changes required.
+
+ -- Ana Beatriz Guerrero Lopez <ana@debian.org>  Thu, 16 Jan 2014 22:57:52 +0100
+
+empy (3.3-7) unstable; urgency=low
+
+  * Full packaging revamp, it was about time!
+    - Now using debian/control field for the homepage.
+      (Closes: #615387, #615456)
+    - It should work with 'pip' now. (Closes: #695581)
+    - Stop using dh_python. (Closes: #715297)
+  * Remove Conflicts/Replaces, after 3 releases they are surely not needed
+    anymore ;)
+
+ -- Ana Beatriz Guerrero Lopez <ana@debian.org>  Sun, 14 Jul 2013 19:16:31 +0200
+
+empy (3.3-6) unstable; urgency=low
+
+  * Switching from python-central to python-support.
+  * Removing debhelper from Build-Depends-Indep.
+  * First upload as DD, yay! 
+
+ -- Ana Beatriz Guerrero Lopez <ana@debian.org>  Wed, 18 Oct 2006 21:30:16 +0200
+
+empy (3.3-5) unstable; urgency=high
+
+  * Adding Conflicts and Replaces fields to avoid conflicts with old version, 
+    before new python policy. (Closes: #376179).
+
+ -- Ana Beatriz Guerrero Lopez <ana@ekaia.org>  Fri, 30 Jun 2006 19:57:28 +0200
+
+empy (3.3-4) unstable; urgency=low
+
+  * Converted to the new Python policy. (Closes: #373421).
+
+ -- Ana Beatriz Guerrero Lopez <ana@ekaia.org>  Sat, 17 Jun 2006 17:04:15 +0200
+
+empy (3.3-3) unstable; urgency=low
+
+  * Bumped standards-version to 3.7.2, no changes required. 
+  * New maintainer's email address.
+  * Improved copyright file and added copyright of the debian packaging.
+  * Raised debhelper compat level to 5.
+
+ -- Ana Beatriz Guerrero Lopez <ana@ekaia.org>  Mon, 15 May 2006 17:34:03 +0200
+
+empy (3.3-2) unstable; urgency=low
+
+  * Fixed a typo and improved copyright file. 
+  * Changed control file: changed descriptions and removed unnecesary dependencies. 
+    These changes fixed bug #324199 (Closes: #324199).  
+  * Added Section field in control file to package python-empy-doc.
+
+ -- Ana Beatriz Guerrero Lopez <anja_isbilia@yahoo.es>  Tue, 23 Aug 2005 12:59:17 +0000
+
+empy (3.3-1) unstable; urgency=low
+
+  * Initial release. Closes: #322909
+
+ -- Ana Beatriz Guerrero Lopez <anja_isbilia@yahoo.es>  Wed, 10 Aug 2005 05:52:20 +0000
+

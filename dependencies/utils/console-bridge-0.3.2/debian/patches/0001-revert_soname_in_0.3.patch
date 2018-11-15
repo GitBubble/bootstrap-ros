@@ -1,0 +1,26 @@
+Description: workaround to keep ABI 0.2 in 0.3 version
+ Set SOVERSION to 0.2 since the ABI is stable between 0.2 and 0.3
+Bug: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=811498
+Author: Jose Luis Rivero <jrivero@osrfoundation.org>
+Last-Update: 2016-20-01
+Forwarded: not-needed
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 2f8cc4d..1584a92 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -38,8 +38,13 @@ if(NOT DEFINED BUILD_SHARED_LIBS)
+ endif()
+ 
+ add_library(${PROJECT_NAME} src/console.cpp)
+-set_target_properties(${PROJECT_NAME} PROPERTIES SOVERSION
++
++if (${CONSOLE_BRIDGE_MAJOR_VERSION}.${CONSOLE_BRIDGE_MINOR_VERSION} EQUAL 0.3)
++  set_target_properties(${PROJECT_NAME} PROPERTIES SOVERSION 0.2)
++else()
++  set_target_properties(${PROJECT_NAME} PROPERTIES SOVERSION
+                ${CONSOLE_BRIDGE_MAJOR_VERSION}.${CONSOLE_BRIDGE_MINOR_VERSION})
++endif()
+ 
+ install(TARGETS ${PROJECT_NAME}
+   ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}

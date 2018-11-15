@@ -1,0 +1,53 @@
+.\"                                      Hey, EMACS: -*- nroff -*-
+.\" First parameter, NAME, should be all caps
+.\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
+.\" other parameters are allowed: see man(7), man(1)
+.TH EMPY 1 
+.\" Please adjust this date whenever revising the manpage.
+.\"
+.\" Some roff macros, for reference:
+.\" .nh        disable hyphenation
+.\" .hy        enable hyphenation
+.\" .ad l      left justify
+.\" .ad b      justify to both left and right margins
+.\" .nf        disable filling
+.\" .fi        enable filling
+.\" .br        insert line break
+.\" .sp <n>    insert n+1 empty lines
+.\" for manpage-specific macros, see man(7)
+.SH NAME
+empy \-  A powerful and robust templating system for Python
+.SH SYNOPSIS
+empy [options] [<filename, or  '-' for stdin>  [<argument>]]
+.br
+.SH DESCRIPTION
+This manual page documents briefly the
+.B empy
+command.
+.PP
+.\" TeX users may be more comfortable with the \fB<whatever>\fP and
+.\" \fI<whatever>\fP escape sequences to invode bold face and italics, 
+.\" respectively.
+\fBEmPy\fP is a system for embedding Python expressions and statements in template text; it takes an EmPy source file, processes it, and produces output. This is accomplished via expansions, which are special signals to the EmPy system and are set off by a special prefix (by default the at sign, @).
+.TP
+EmPy can expand arbitrary Python expressions and statements in this way, as well as a variety of special forms. Textual data not explicitly delimited in this way is sent unaffected to the output, allowing Python to be used in effect as a markup language. Also supported are callbacks via hooks, recording and playback via diversions, and dynamic, chainable filters. The system is highly configurable via command line options and embedded commands. 
+
+.SH OPTIONS
+These programs follow the usual GNU command line syntax, with long
+options starting with two dashes (`-').
+A summary of options is included below.
+For a complete description, see the Info files.
+.TP
+.B \-h, \-\-help
+Show summary of options.
+.TP
+.B \-v, \-\-version
+Show version of program.
+.SH SEE ALSO
+.BR python (1).
+.br
+.SH AUTHOR
+EmPy was written by Erik Max Francis <software@alcyone.com>.
+.PP
+This manual page was written by Ana Beatriz Guerrero Lopez,
+for the Debian project (but may be used by others).

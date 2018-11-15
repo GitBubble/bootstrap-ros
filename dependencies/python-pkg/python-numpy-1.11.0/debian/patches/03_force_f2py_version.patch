@@ -1,0 +1,23 @@
+From 486358c607772ce424933df7455eafb2f0af9f35 Mon Sep 17 00:00:00 2001
+From: SVN-Git Migration <python-modules-team@lists.alioth.debian.org>
+Date: Sun, 11 Oct 2015 10:12:15 -0700
+Subject: force generation f2py postfixed with interpreter version
+
+Patch-Name: 03_force_f2py_version.patch
+---
+ numpy/f2py/setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/numpy/f2py/setup.py b/numpy/f2py/setup.py
+index 3204129..0ca45ec 100644
+--- a/numpy/f2py/setup.py
++++ b/numpy/f2py/setup.py
+@@ -55,7 +55,7 @@ def configuration(parent_package='', top_path=None):
+     config.make_svn_version_py()
+ 
+     def generate_f2py_py(build_dir):
+-        f2py_exe = 'f2py' + os.path.basename(sys.executable)[6:]
++        f2py_exe = 'f2py'+sys.version[:3]
+         if f2py_exe[-4:] == '.exe':
+             f2py_exe = f2py_exe[:-4] + '.py'
+         if 'bdist_wininst' in sys.argv and f2py_exe[-3:] != '.py':

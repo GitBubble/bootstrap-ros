@@ -1,0 +1,34 @@
+Description: Add GTEST_ATTRIBUTE_UNUSED_ to the dummy variable generated
+  in INSTANTIATE_TEST_CASE_P.
+
+Origin: https://github.com/google/googletest/commit/683886c5676dca2e8198bbf5f735f79387d10fc6
+Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/gtest/+bug/1521177
+Applied-Upstream: commit:683886c5676dca2e8198bbf5f735f79387d10fc6
+Author: kosak <kosak@google.com>
+
+diff --git a/include/gtest/gtest-param-test.h b/include/gtest/gtest-param-test.h
+index adcc49b..0b61629 100644
+--- a/include/gtest/gtest-param-test.h
++++ b/include/gtest/gtest-param-test.h
+@@ -1394,7 +1394,7 @@ internal::CartesianProductHolder10<Generator1, Generator2, Generator3,
+                       GTEST_TEST_CLASS_NAME_(test_case_name, test_name)>()); \
+       return 0; \
+     } \
+-    static int gtest_registering_dummy_; \
++    static int gtest_registering_dummy_ GTEST_ATTRIBUTE_UNUSED_; \
+     GTEST_DISALLOW_COPY_AND_ASSIGN_(\
+         GTEST_TEST_CLASS_NAME_(test_case_name, test_name)); \
+   }; \
+diff --git a/include/gtest/gtest-param-test.h.pump b/include/gtest/gtest-param-test.h.pump
+index 55ddd2d..8033f49 100644
+--- a/include/gtest/gtest-param-test.h.pump
++++ b/include/gtest/gtest-param-test.h.pump
+@@ -460,7 +460,7 @@ internal::CartesianProductHolder$i<$for j, [[Generator$j]]> Combine(
+                       GTEST_TEST_CLASS_NAME_(test_case_name, test_name)>()); \
+       return 0; \
+     } \
+-    static int gtest_registering_dummy_; \
++    static int gtest_registering_dummy_ GTEST_ATTRIBUTE_UNUSED_; \
+     GTEST_DISALLOW_COPY_AND_ASSIGN_(\
+         GTEST_TEST_CLASS_NAME_(test_case_name, test_name)); \
+   }; \

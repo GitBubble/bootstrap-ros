@@ -1,0 +1,24 @@
+	Use of precompiled libgtest Not Recommended
+	-------------------------------------------
+
+The Google C++ Testing Framework uses conditional compilation for some
+things.  Because of the C++ "One Definition Rule", gtest must be
+compiled with exactly the same flags as your C++ code under test.
+Because this is hard to manage, upstream no longer recommends using
+precompiled libraries [1].
+
+
+	Using GTest with your project
+	-----------------------------
+
+See the upsream README for instructions on using gtest with your
+project.  The sources for libgtest are installed into /usr/src/gtest
+along with CMakeLists.txt for use with cmake.
+
+See /usr/share/doc/libgtest-dev/examples for a complete example 
+including a sample makefile.
+
+
+[1] http://groups.google.com/group/googletestframework/browse_thread/thread/668eff1cebf5309d
+
+ -- Steve M. Robbins <smr@debian.org>, Sat, 21 Apr 2012 17:00:56 -0500

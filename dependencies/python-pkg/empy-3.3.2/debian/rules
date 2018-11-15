@@ -1,0 +1,16 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+export DH_OPTIONS
+export PYBUILD_NAME=empy
+
+%:
+	dh $@ --with python2,python3 --buildsystem=pybuild
+
+override_dh_auto_install:
+	dh_auto_install
+
+        # version 2 provides the binary using just empy
+	install -m 755 em.py $(CURDIR)/debian/python-empy/usr/bin/empy
+        # version 3 provides the binary under the name empy3
+	install -m 755 em.py $(CURDIR)/debian/python3-empy/usr/bin/empy3

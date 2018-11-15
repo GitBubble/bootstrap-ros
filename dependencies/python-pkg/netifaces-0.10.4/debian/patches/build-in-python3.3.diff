@@ -1,0 +1,842 @@
+Index: netifaces/netifaces.c
+===================================================================
+--- netifaces.orig/netifaces.c	2013-12-13 01:17:20.210600845 +0100
++++ netifaces/netifaces.c	2013-12-13 01:17:20.206600845 +0100
+@@ -1,5 +1,19 @@
+ #include <Python.h>
+ 
++#if PY_MAJOR_VERSION >= 3
++
++#define IS_PY3K
++
++#  define PyText_FromUTF8 PyUnicode_FromString
++#  define PyInt_FromLong PyLong_FromLong
++
++#else // Python 2.x
++
++#  define PyText_FromUTF8 PyString_FromString
++// obviously, PyInt_FromLong is PyInt_FromLong
++
++#endif
++
+ #ifndef WIN32
+ 
+ #  include <sys/types.h>
+@@ -171,8 +185,6 @@
+ #    define AF_LINK  -1000
+ #  endif
+ #  define HAVE_AF_LINK 0
+-#elif defined(__GNU__)
+-#  define HAVE_AF_LINK 0
+ #else
+ #  define HAVE_AF_LINK 1
+ #endif
+@@ -506,7 +518,7 @@
+       }
+       *--ptr = '\0';
+ 
+-      hwaddr = PyString_FromString (buffer);
++      hwaddr = PyText_FromUTF8 (buffer);
+       dict = PyDict_New ();
+ 
+       if (!dict) {
+@@ -544,7 +556,7 @@
+       if (iRet)
+         continue;
+ 
+-      addr = PyString_FromString (buffer);
++      addr = PyText_FromUTF8 (buffer);
+ 
+       /* Find the netmask, where possible */
+       if (family == AF_INET) {
+@@ -615,7 +627,7 @@
+                                      &dwLen);
+ 
+           if (iRet == 0)
+-            mask = PyString_FromString (buffer);
++            mask = PyText_FromUTF8 (buffer);
+           
+           dwLen = sizeof (buffer);
+           iRet = WSAAddressToString ((SOCKADDR *)&bcastAddr,
+@@ -625,7 +637,7 @@
+                                      &dwLen);
+ 
+           if (iRet == 0)
+-            bcast = PyString_FromString (buffer);
++            bcast = PyText_FromUTF8 (buffer);
+           else
+             printf ("%d\n", iRet);
+ 
+@@ -699,7 +711,7 @@
+                                      &dwLen);
+ 
+           if (iRet == 0)
+-            mask = PyString_FromString (buffer);
++            mask = PyText_FromUTF8 (buffer);
+           
+           dwLen = sizeof (buffer);
+           iRet = WSAAddressToString ((SOCKADDR *)&bcastAddr,
+@@ -709,7 +721,7 @@
+                                      &dwLen);
+ 
+           if (iRet == 0)
+-            bcast = PyString_FromString (buffer);
++            bcast = PyText_FromUTF8 (buffer);
+ 
+           break;
+         }
+@@ -777,13 +789,13 @@
+       continue;  
+ 
+     if (string_from_sockaddr (addr->ifa_addr, buffer, sizeof (buffer)) == 0)
+-      pyaddr = PyString_FromString (buffer);
++      pyaddr = PyText_FromUTF8 (buffer);
+ 
+     if (string_from_sockaddr (addr->ifa_netmask, buffer, sizeof (buffer)) == 0)
+-      netmask = PyString_FromString (buffer);
++      netmask = PyText_FromUTF8 (buffer);
+ 
+     if (string_from_sockaddr (addr->ifa_broadaddr, buffer, sizeof (buffer)) == 0)
+-      braddr = PyString_FromString (buffer);
++      braddr = PyText_FromUTF8 (buffer);
+ 
+     PyObject *dict = PyDict_New();
+ 
+@@ -842,7 +854,7 @@
+     found = TRUE;
+ 
+     if (string_from_sockaddr ((struct sockaddr *)&ifr.CNAME(ifr_addr), buffer, sizeof (buffer)) == 0) {
+-      PyObject *hwaddr = PyString_FromString (buffer);
++      PyObject *hwaddr = PyText_FromUTF8 (buffer);
+       PyObject *dict = PyDict_New ();
+ 
+       if (!hwaddr || !dict) {
+@@ -874,7 +886,7 @@
+     found = TRUE;
+ 
+     if (string_from_sockaddr ((struct sockaddr *)&ifr.CNAME(ifr_addr), buffer, sizeof (buffer)) == 0)
+-      addr = PyString_FromString (buffer);
++      addr = PyText_FromUTF8 (buffer);
+   }
+ #endif
+ 
+@@ -887,7 +899,7 @@
+     found = TRUE;
+ 
+     if (string_from_sockaddr ((struct sockaddr *)&ifr.CNAME(ifr_addr), buffer, sizeof (buffer)) == 0)
+-      netmask = PyString_FromString (buffer);
++      netmask = PyText_FromUTF8 (buffer);
+   }
+ #endif
+ 
+@@ -913,7 +925,7 @@
+     found = TRUE;
+ 
+     if (string_from_sockaddr ((struct sockaddr *)&ifr.CNAME(ifr_addr), buffer, sizeof (buffer)) == 0)
+-      braddr = PyString_FromString (buffer);
++      braddr = PyText_FromUTF8 (buffer);
+   }
+ #endif
+ 
+@@ -926,7 +938,7 @@
+     found = TRUE;
+ 
+     if (string_from_sockaddr ((struct sockaddr *)&ifr.CNAME(ifr_addr), buffer, sizeof (buffer)) == 0)
+-      dstaddr = PyString_FromString (buffer);
++      dstaddr = PyText_FromUTF8 (buffer);
+   }
+ #endif
+ 
+@@ -1020,7 +1032,7 @@
+   }
+ 
+   for (pInfo = pAdapterAddresses; pInfo; pInfo = pInfo->Next) {
+-    PyObject *ifname = (PyObject *)PyString_FromString (pInfo->AdapterName);
++    PyObject *ifname = (PyObject *)PyText_FromUTF8 (pInfo->AdapterName);
+ 
+     PyList_Append (result, ifname);
+     Py_DECREF (ifname);
+@@ -1042,7 +1054,7 @@
+ 
+   for (addr = addrs; addr; addr = addr->ifa_next) {
+     if (!prev_name || strncmp (addr->ifa_name, prev_name, IFNAMSIZ) != 0) {
+-      PyObject *ifname = PyString_FromString (addr->ifa_name);
++      PyObject *ifname = PyText_FromUTF8 (addr->ifa_name);
+     
+       if (!PySequence_Contains (result, ifname))
+         PyList_Append (result, ifname);
+@@ -1110,7 +1122,7 @@
+                                                           + ifc.CNAME(ifc_len));
+   while (pfreq < pfreqend) {
+     if (!prev_name || strncmp (prev_name, pfreq->CNAME(ifr_name), IFNAMSIZ) != 0) {
+-      PyObject *name = PyString_FromString (pfreq->CNAME(ifr_name));
++      PyObject *name = PyText_FromUTF8 (pfreq->CNAME(ifr_name));
+ 
+       if (!PySequence_Contains (result, name))
+         PyList_Append (result, name);
+@@ -1152,8 +1164,28 @@
+   { NULL, NULL, 0, NULL }
+ };
+ 
+-PyMODINIT_FUNC
+-initnetifaces (void)
++#ifdef IS_PY3K
++
++struct module_state {
++  PyObject *error;
++};
++
++static struct PyModuleDef moduledef = {
++  PyModuleDef_HEAD_INIT,
++  "netifaces",
++  NULL,
++  sizeof(struct module_state),
++  methods,
++  NULL,
++  NULL, //  ext_traverse,
++  NULL, //  ext_clear,
++  NULL
++};
++
++#endif
++
++static PyObject *
++netifaces_init (void)
+ {
+   PyObject *address_family_dict;
+   PyObject *m;
+@@ -1164,304 +1196,308 @@
+   WSAStartup(MAKEWORD (2, 2), &wsad);
+ #endif
+ 
++#ifndef IS_PY3K
+   m = Py_InitModule ("netifaces", methods);
++#else
++  m = PyModule_Create (&moduledef);
++#endif
+ 
+   /* Address families (auto-detect using #ifdef) */
+   address_family_dict = PyDict_New();
+ #ifdef AF_UNSPEC  
+   PyModule_AddIntConstant (m, "AF_UNSPEC", AF_UNSPEC);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_UNSPEC),
+-          PyString_FromString("AF_UNSPEC"));
++          PyText_FromUTF8("AF_UNSPEC"));
+ #endif
+ #ifdef AF_UNIX
+   PyModule_AddIntConstant (m, "AF_UNIX", AF_UNIX);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_UNIX),
+-          PyString_FromString("AF_UNIX"));
++          PyText_FromUTF8("AF_UNIX"));
+ #endif
+ #ifdef AF_FILE
+   PyModule_AddIntConstant (m, "AF_FILE", AF_FILE);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_FILE),
+-          PyString_FromString("AF_FILE"));
++          PyText_FromUTF8("AF_FILE"));
+ #endif
+ #ifdef AF_INET
+   PyModule_AddIntConstant (m, "AF_INET", AF_INET);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_INET),
+-          PyString_FromString("AF_INET"));
++          PyText_FromUTF8("AF_INET"));
+ #endif
+ #ifdef AF_AX25
+   PyModule_AddIntConstant (m, "AF_AX25", AF_AX25);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_AX25),
+-          PyString_FromString("AF_AX25"));
++          PyText_FromUTF8("AF_AX25"));
+ #endif
+ #ifdef AF_IMPLINK  
+   PyModule_AddIntConstant (m, "AF_IMPLINK", AF_IMPLINK);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_IMPLINK),
+-          PyString_FromString("AF_IMPLINK"));
++          PyText_FromUTF8("AF_IMPLINK"));
+ #endif
+ #ifdef AF_PUP  
+   PyModule_AddIntConstant (m, "AF_PUP", AF_PUP);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_PUP),
+-          PyString_FromString("AF_PUP"));
++          PyText_FromUTF8("AF_PUP"));
+ #endif
+ #ifdef AF_CHAOS
+   PyModule_AddIntConstant (m, "AF_CHAOS", AF_CHAOS);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_CHAOS),
+-          PyString_FromString("AF_CHAOS"));
++          PyText_FromUTF8("AF_CHAOS"));
+ #endif
+ #ifdef AF_NS
+   PyModule_AddIntConstant (m, "AF_NS", AF_NS);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_NS),
+-          PyString_FromString("AF_NS"));
++          PyText_FromUTF8("AF_NS"));
+ #endif
+ #ifdef AF_ISO
+   PyModule_AddIntConstant (m, "AF_ISO", AF_ISO);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_ISO),
+-          PyString_FromString("AF_ISO"));
++          PyText_FromUTF8("AF_ISO"));
+ #endif
+ #ifdef AF_ECMA
+   PyModule_AddIntConstant (m, "AF_ECMA", AF_ECMA);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_ECMA),
+-          PyString_FromString("AF_ECMA"));
++          PyText_FromUTF8("AF_ECMA"));
+ #endif
+ #ifdef AF_DATAKIT
+   PyModule_AddIntConstant (m, "AF_DATAKIT", AF_DATAKIT);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_DATAKIT),
+-          PyString_FromString("AF_DATAKIT"));
++          PyText_FromUTF8("AF_DATAKIT"));
+ #endif
+ #ifdef AF_CCITT
+   PyModule_AddIntConstant (m, "AF_CCITT", AF_CCITT);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_CCITT),
+-          PyString_FromString("AF_CCITT"));
++          PyText_FromUTF8("AF_CCITT"));
+ #endif
+ #ifdef AF_SNA
+   PyModule_AddIntConstant (m, "AF_SNA", AF_SNA);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_SNA),
+-          PyString_FromString("AF_SNA"));
++          PyText_FromUTF8("AF_SNA"));
+ #endif
+ #ifdef AF_DECnet
+   PyModule_AddIntConstant (m, "AF_DECnet", AF_DECnet);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_DECnet),
+-          PyString_FromString("AF_DECnet"));
++          PyText_FromUTF8("AF_DECnet"));
+ #endif
+ #ifdef AF_DLI
+   PyModule_AddIntConstant (m, "AF_DLI", AF_DLI);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_DLI),
+-          PyString_FromString("AF_DLI"));
++          PyText_FromUTF8("AF_DLI"));
+ #endif
+ #ifdef AF_LAT
+   PyModule_AddIntConstant (m, "AF_LAT", AF_LAT);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_LAT),
+-          PyString_FromString("AF_LAT"));
++          PyText_FromUTF8("AF_LAT"));
+ #endif
+ #ifdef AF_HYLINK
+   PyModule_AddIntConstant (m, "AF_HYLINK", AF_HYLINK);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_HYLINK),
+-          PyString_FromString("AF_HYLINK"));
++          PyText_FromUTF8("AF_HYLINK"));
+ #endif
+ #ifdef AF_APPLETALK
+   PyModule_AddIntConstant (m, "AF_APPLETALK", AF_APPLETALK);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_APPLETALK),
+-          PyString_FromString("AF_APPLETALK"));
++          PyText_FromUTF8("AF_APPLETALK"));
+ #endif
+ #ifdef AF_ROUTE
+   PyModule_AddIntConstant (m, "AF_ROUTE", AF_ROUTE);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_ROUTE),
+-          PyString_FromString("AF_ROUTE"));
++          PyText_FromUTF8("AF_ROUTE"));
+ #endif
+ #ifdef AF_LINK
+   PyModule_AddIntConstant (m, "AF_LINK", AF_LINK);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_LINK),
+-          PyString_FromString("AF_LINK"));
++          PyText_FromUTF8("AF_LINK"));
+ #endif
+ #ifdef AF_PACKET
+   PyModule_AddIntConstant (m, "AF_PACKET", AF_PACKET);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_PACKET),
+-          PyString_FromString("AF_PACKET"));
++          PyText_FromUTF8("AF_PACKET"));
+ #endif
+ #ifdef AF_COIP
+   PyModule_AddIntConstant (m, "AF_COIP", AF_COIP);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_COIP),
+-          PyString_FromString("AF_COIP"));
++          PyText_FromUTF8("AF_COIP"));
+ #endif
+ #ifdef AF_CNT
+   PyModule_AddIntConstant (m, "AF_CNT", AF_CNT);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_CNT),
+-          PyString_FromString("AF_CNT"));
++          PyText_FromUTF8("AF_CNT"));
+ #endif
+ #ifdef AF_IPX
+   PyModule_AddIntConstant (m, "AF_IPX", AF_IPX);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_IPX),
+-          PyString_FromString("AF_IPX"));
++          PyText_FromUTF8("AF_IPX"));
+ #endif
+ #ifdef AF_SIP
+   PyModule_AddIntConstant (m, "AF_SIP", AF_SIP);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_SIP),
+-          PyString_FromString("AF_SIP"));
++          PyText_FromUTF8("AF_SIP"));
+ #endif
+ #ifdef AF_NDRV
+   PyModule_AddIntConstant (m, "AF_NDRV", AF_NDRV);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_NDRV),
+-          PyString_FromString("AF_NDRV"));
++          PyText_FromUTF8("AF_NDRV"));
+ #endif
+ #ifdef AF_ISDN
+   PyModule_AddIntConstant (m, "AF_ISDN", AF_ISDN);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_ISDN),
+-          PyString_FromString("AF_ISDN"));
++          PyText_FromUTF8("AF_ISDN"));
+ #endif
+ #ifdef AF_INET6
+   PyModule_AddIntConstant (m, "AF_INET6", AF_INET6);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_INET6),
+-          PyString_FromString("AF_INET6"));
++          PyText_FromUTF8("AF_INET6"));
+ #endif
+ #ifdef AF_NATM
+   PyModule_AddIntConstant (m, "AF_NATM", AF_NATM);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_NATM),
+-          PyString_FromString("AF_NATM"));
++          PyText_FromUTF8("AF_NATM"));
+ #endif
+ #ifdef AF_SYSTEM
+   PyModule_AddIntConstant (m, "AF_SYSTEM", AF_SYSTEM);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_SYSTEM),
+-          PyString_FromString("AF_SYSTEM"));
++          PyText_FromUTF8("AF_SYSTEM"));
+ #endif
+ #ifdef AF_NETBIOS
+   PyModule_AddIntConstant (m, "AF_NETBIOS", AF_NETBIOS);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_NETBIOS),
+-          PyString_FromString("AF_NETBIOS"));
++          PyText_FromUTF8("AF_NETBIOS"));
+ #endif
+ #ifdef AF_NETBEUI
+   PyModule_AddIntConstant (m, "AF_NETBEUI", AF_NETBEUI);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_NETBEUI),
+-          PyString_FromString("AF_NETBEUI"));
++          PyText_FromUTF8("AF_NETBEUI"));
+ #endif
+ #ifdef AF_PPP
+   PyModule_AddIntConstant (m, "AF_PPP", AF_PPP);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_PPP),
+-          PyString_FromString("AF_PPP"));
++          PyText_FromUTF8("AF_PPP"));
+ #endif
+ #ifdef AF_ATM
+   PyModule_AddIntConstant (m, "AF_ATM", AF_ATM);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_ATM),
+-          PyString_FromString("AF_ATM"));
++          PyText_FromUTF8("AF_ATM"));
+ #endif
+ #ifdef AF_ATMPVC
+   PyModule_AddIntConstant (m, "AF_ATMPVC", AF_ATMPVC);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_ATMPVC),
+-          PyString_FromString("AF_ATMPVC"));
++          PyText_FromUTF8("AF_ATMPVC"));
+ #endif
+ #ifdef AF_ATMSVC
+   PyModule_AddIntConstant (m, "AF_ATMSVC", AF_ATMSVC);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_ATMSVC),
+-          PyString_FromString("AF_ATMSVC"));
++          PyText_FromUTF8("AF_ATMSVC"));
+ #endif
+ #ifdef AF_NETGRAPH
+   PyModule_AddIntConstant (m, "AF_NETGRAPH", AF_NETGRAPH);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_NETGRAPH),
+-          PyString_FromString("AF_NETGRAPH"));
++          PyText_FromUTF8("AF_NETGRAPH"));
+ #endif
+ #ifdef AF_VOICEVIEW
+   PyModule_AddIntConstant (m, "AF_VOICEVIEW", AF_VOICEVIEW);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_VOICEVIEW),
+-          PyString_FromString("AF_VOICEVIEW"));
++          PyText_FromUTF8("AF_VOICEVIEW"));
+ #endif
+ #ifdef AF_FIREFOX
+   PyModule_AddIntConstant (m, "AF_FIREFOX", AF_FIREFOX);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_FIREFOX),
+-          PyString_FromString("AF_FIREFOX"));
++          PyText_FromUTF8("AF_FIREFOX"));
+ #endif
+ #ifdef AF_UNKNOWN1
+   PyModule_AddIntConstant (m, "AF_UNKNOWN1", AF_UNKNOWN1);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_UNKNOWN1),
+-          PyString_FromString("AF_UNKNOWN1"));
++          PyText_FromUTF8("AF_UNKNOWN1"));
+ #endif
+ #ifdef AF_BAN
+   PyModule_AddIntConstant (m, "AF_BAN", AF_BAN);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_BAN),
+-          PyString_FromString("AF_BAN"));
++          PyText_FromUTF8("AF_BAN"));
+ #endif
+ #ifdef AF_CLUSTER
+   PyModule_AddIntConstant (m, "AF_CLUSTER", AF_CLUSTER);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_CLUSTER),
+-          PyString_FromString("AF_CLUSTER"));
++          PyText_FromUTF8("AF_CLUSTER"));
+ #endif
+ #ifdef AF_12844
+   PyModule_AddIntConstant (m, "AF_12844", AF_12844);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_12844),
+-          PyString_FromString("AF_12844"));
++          PyText_FromUTF8("AF_12844"));
+ #endif
+ #ifdef AF_IRDA
+   PyModule_AddIntConstant (m, "AF_IRDA", AF_IRDA);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_IRDA),
+-          PyString_FromString("AF_IRDA"));
++          PyText_FromUTF8("AF_IRDA"));
+ #endif
+ #ifdef AF_NETDES
+   PyModule_AddIntConstant (m, "AF_NETDES", AF_NETDES);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_NETDES),
+-          PyString_FromString("AF_NETDES"));
++          PyText_FromUTF8("AF_NETDES"));
+ #endif
+ #ifdef AF_NETROM
+   PyModule_AddIntConstant (m, "AF_NETROM", AF_NETROM);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_NETROM),
+-          PyString_FromString("AF_NETROM"));
++          PyText_FromUTF8("AF_NETROM"));
+ #endif
+ #ifdef AF_BRIDGE
+   PyModule_AddIntConstant (m, "AF_BRIDGE", AF_BRIDGE);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_BRIDGE),
+-          PyString_FromString("AF_BRIDGE"));
++          PyText_FromUTF8("AF_BRIDGE"));
+ #endif
+ #ifdef AF_X25
+   PyModule_AddIntConstant (m, "AF_X25", AF_X25);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_X25),
+-          PyString_FromString("AF_X25"));
++          PyText_FromUTF8("AF_X25"));
+ #endif
+ #ifdef AF_ROSE
+   PyModule_AddIntConstant (m, "AF_ROSE", AF_ROSE);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_ROSE),
+-          PyString_FromString("AF_ROSE"));
++          PyText_FromUTF8("AF_ROSE"));
+ #endif
+ #ifdef AF_SECURITY
+   PyModule_AddIntConstant (m, "AF_SECURITY", AF_SECURITY);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_SECURITY),
+-          PyString_FromString("AF_SECURITY"));
++          PyText_FromUTF8("AF_SECURITY"));
+ #endif
+ #ifdef AF_KEY
+   PyModule_AddIntConstant (m, "AF_KEY", AF_KEY);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_KEY),
+-          PyString_FromString("AF_KEY"));
++          PyText_FromUTF8("AF_KEY"));
+ #endif
+ #ifdef AF_NETLINK
+   PyModule_AddIntConstant (m, "AF_NETLINK", AF_NETLINK);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_NETLINK),
+-          PyString_FromString("AF_NETLINK"));
++          PyText_FromUTF8("AF_NETLINK"));
+ #endif
+ #ifdef AF_ASH
+   PyModule_AddIntConstant (m, "AF_ASH", AF_ASH);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_ASH),
+-          PyString_FromString("AF_ASH"));
++          PyText_FromUTF8("AF_ASH"));
+ #endif
+ #ifdef AF_ECONET
+   PyModule_AddIntConstant (m, "AF_ECONET", AF_ECONET);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_ECONET),
+-          PyString_FromString("AF_ECONET"));
++          PyText_FromUTF8("AF_ECONET"));
+ #endif
+ #ifdef AF_SNA
+   PyModule_AddIntConstant (m, "AF_SNA", AF_SNA);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_SNA),
+-          PyString_FromString("AF_SNA"));
++          PyText_FromUTF8("AF_SNA"));
+ #endif
+ #ifdef AF_PPPOX
+   PyModule_AddIntConstant (m, "AF_PPPOX", AF_PPPOX);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_PPPOX),
+-          PyString_FromString("AF_PPPOX"));
++          PyText_FromUTF8("AF_PPPOX"));
+ #endif
+ #ifdef AF_WANPIPE
+   PyModule_AddIntConstant (m, "AF_WANPIPE", AF_WANPIPE);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_WANPIPE),
+-          PyString_FromString("AF_WANPIPE"));
++          PyText_FromUTF8("AF_WANPIPE"));
+ #endif
+ #ifdef AF_BLUETOOTH
+   PyModule_AddIntConstant (m, "AF_BLUETOOTH", AF_BLUETOOTH);
+   PyDict_SetItem(address_family_dict, PyInt_FromLong(AF_BLUETOOTH),
+-          PyString_FromString("AF_BLUETOOTH"));
++          PyText_FromUTF8("AF_BLUETOOTH"));
+ #endif
+   PyModule_AddObject(m, "address_families", address_family_dict);
+ 
+@@ -1470,4 +1506,20 @@
+ #define STR(x)  _STR(x)
+ 
+   PyModule_AddStringConstant(m, "version", STR(NETIFACES_VERSION));
++
++  return m;
+ }
++
++#ifdef IS_PY3K
++PyMODINIT_FUNC
++PyInit_netifaces (void)
++{
++  return netifaces_init();
++}
++#else
++PyMODINIT_FUNC
++initnetifaces (void)
++{
++  netifaces_init();
++}
++#endif
+Index: netifaces/setup.py
+===================================================================
+--- netifaces.orig/setup.py	2013-12-13 01:17:20.210600845 +0100
++++ netifaces/setup.py	2013-12-13 01:19:14.242595543 +0100
+@@ -1,3 +1,5 @@
++#!/usr/bin/env python
++
+ import setuptools
+ import os
+ import sys
+@@ -7,6 +9,57 @@
+ from distutils.errors import *
+ import pickle
+ 
++if sys.version_info[0] == 3:
++    import builtins
++    print_ = getattr(builtins, "print")
++    del builtins
++else:
++    def print_(*args, **kwargs):
++        """The new-style print function."""
++        fp = kwargs.pop("file", sys.stdout)
++        if fp is None:
++            return
++        def write(data):
++            if not isinstance(data, basestring):
++                data = str(data)
++            fp.write(data)
++        want_unicode = False
++        sep = kwargs.pop("sep", None)
++        if sep is not None:
++            if isinstance(sep, unicode):
++                want_unicode = True
++            elif not isinstance(sep, str):
++                raise TypeError("sep must be None or a string")
++        end = kwargs.pop("end", None)
++        if end is not None:
++            if isinstance(end, unicode):
++                want_unicode = True
++            elif not isinstance(end, str):
++                raise TypeError("end must be None or a string")
++        if kwargs:
++            raise TypeError("invalid keyword arguments to print()")
++        if not want_unicode:
++            for arg in args:
++                if isinstance(arg, unicode):
++                    want_unicode = True
++                    break
++        if want_unicode:
++            newline = unicode("\n")
++            space = unicode(" ")
++        else:
++            newline = "\n"
++            space = " "
++        if sep is None:
++            sep = space
++        if end is None:
++            end = newline
++        for i, arg in enumerate(args):
++            if i:
++                write(sep)
++            write(arg)
++        write(end)
++
++
+ __version__ = "0.8"
+ 
+ # Disable hard links, otherwise building distributions fails on OS X
+@@ -47,7 +100,7 @@
+         if os.path.exists(name):
+             os.unlink(name)
+         thefile = open(name, 'w')
+-        print >>thefile, contents
++        print_(contents, file=thefile)
+         thefile.close()
+ 
+         sys.stdout.flush()
+@@ -97,7 +150,7 @@
+         # things to test for features is slow
+         cache_file = os.path.join(self.build_temp, 'config.cache')
+         if os.path.exists(cache_file):
+-            myfile = open(cache_file, 'r')
++            myfile = open(cache_file, 'rb')
+             try:
+                 results = pickle.load(myfile)
+             finally:
+@@ -107,7 +160,7 @@
+ 
+         self.conftestidx = 0
+         
+-        print "checking for getifaddrs...",
++        print_("checking for getifaddrs...", end=' ')
+ 
+         result = results.get('have_getifaddrs', None)
+         if result is not None:
+@@ -137,14 +190,14 @@
+                 result = False
+ 
+         if result:
+-            print "found. %s" % cached
++            print("found. %s" % cached)
+             self.compiler.define_macro('HAVE_GETIFADDRS', 1)
+         else:
+-            print "not found. %s" % cached
++            print("not found. %s" % cached)
+ 
+         results['have_getifaddrs'] = result
+ 
+-        print "checking for getnameinfo...",
++        print_("checking for getnameinfo...", end=' ')
+ 
+         result = results.get('have_getnameinfo', None)
+         if result is not None:
+@@ -185,15 +238,15 @@
+                 result = False
+ 
+         if result:
+-            print "found. %s" % cached
++            print("found. %s" % cached)
+             self.compiler.define_macro('HAVE_GETNAMEINFO', 1)
+         else:
+-            print "not found. %s" % cached
++            print("not found. %s" % cached)
+ 
+         results['have_getnameinfo'] = result
+ 
+         if not results['have_getifaddrs']:
+-            print "checking for socket IOCTLs...",
++            print_("checking for socket IOCTLs...", end=' ')
+ 
+             result = results.get('have_socket_ioctls', None)
+             if result is not None:
+@@ -249,16 +302,16 @@
+                         result.append(ioctl)
+ 
+             if result:
+-                print "%r. %s" % (result, cached)
++                print("%r. %s" % (result, cached))
+                 for ioctl in result:
+                     self.compiler.define_macro('HAVE_%s' % ioctl, 1)
+                 self.compiler.define_macro('HAVE_SOCKET_IOCTLS', 1)
+             else:
+-                print "not found. %s" % cached
++                print("not found. %s" % cached)
+ 
+             results['have_socket_ioctls'] = result
+ 
+-        print "checking for optional header files...",
++        print_("checking for optional header files...", end=' ')
+ 
+         result = results.get('have_headers', None)
+         if result is not None:
+@@ -288,17 +341,17 @@
+                     result.append(header)
+ 
+         if result:
+-            print "%s. %s" % (' '.join(result), cached)
++            print("%s. %s" % (' '.join(result), cached))
+             for header in result:
+                 macro = header.upper().replace('.', '_').replace('/', '_')
+                 self.compiler.define_macro('HAVE_%s' % macro, 1)
+         else:
+-            print "none found. %s" % cached
++            print("none found. %s" % cached)
+ 
+         optional_headers = result
+         results['have_headers'] = result
+ 
+-        print "checking whether struct sockaddr has a length field...",
++        print_("checking whether struct sockaddr has a length field...", end=' ')
+ 
+         result = results.get('have_sockaddr_sa_len', None)
+         if result is not None:
+@@ -321,10 +374,10 @@
+             result = self.test_build(testrig)
+ 
+         if result:
+-            print 'yes. %s' % cached
++            print('yes. %s' % cached)
+             self.compiler.define_macro('HAVE_SOCKADDR_SA_LEN', 1)
+         else:
+-            print 'no. %s' % cached
++            print('no. %s' % cached)
+ 
+         results['have_sockaddr_sa_len'] = result
+ 
+@@ -334,7 +387,7 @@
+             # however, unfortunately, getifaddrs() doesn't return the
+             # lengths, because they're in the sa_len field on just about
+             # everything but Linux.
+-            print "checking which sockaddr_xxx structs are defined...",
++            print_("checking which sockaddr_xxx structs are defined...", end=' ')
+             
+             result = results.get('have_sockaddrs', None)
+             if result is not None:
+@@ -374,17 +427,17 @@
+                         result.append(sockaddr)
+                 
+             if result:
+-                print '%s. %s' % (' '.join(result), cached)
++                print('%s. %s' % (' '.join(result), cached))
+                 for sockaddr in result:
+                     self.compiler.define_macro('HAVE_SOCKADDR_%s' \
+                                                % sockaddr.upper(), 1)
+             else:
+-                print 'none! %s' % cached
++                print('none! %s' % cached)
+ 
+             results['have_sockaddrs'] = result
+ 
+        # Save the results to our config.cache file
+-        myfile = open(cache_file, 'w')
++        myfile = open(cache_file, 'wb')
+         try:
+             pickle.dump(results, myfile)
+         finally:
+@@ -399,6 +452,9 @@
+        description="Portable network interface information.",
+        license="MIT License",
+        long_description="""\
++(Python 3.x compatibility added by Kevin Kelley <kelleyk@kelleyk.net>.
++The functionality of the module should remain unchanged.)
++
+ netifaces provides a (hopefully portable-ish) way for Python programmers to
+ get access to a list of the network interfaces on the local machine, and to
+ obtain the addresses of those network interfaces.
+@@ -414,9 +470,14 @@
+        author_email='alastair@alastairs-place.net',
+        url='http://alastairs-place.net/netifaces',
+        classifiers=[
+-    'Development Status :: 4 - Beta',
+-    'Intended Audience :: Developers',
+-    'License :: OSI Approved :: MIT License',
+-    'Topic :: System :: Networking',
+-    ],
++        'Development Status :: 4 - Beta',
++        'Intended Audience :: Developers',
++        'License :: OSI Approved :: MIT License',
++        'Topic :: System :: Networking',
++        'Programming Language :: Python',
++        'Programming Language :: Python :: 2',
++        'Programming Language :: Python :: 2.7',
++        'Programming Language :: Python :: 3',
++        'Programming Language :: Python :: 3.2',
++        ],
+        ext_modules=[iface_mod])

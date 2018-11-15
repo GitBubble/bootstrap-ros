@@ -1,0 +1,84 @@
+From e222f5ce50ecc60535c50e94cd6b00385399d35c Mon Sep 17 00:00:00 2001
+From: SVN-Git Migration <python-modules-team@lists.alioth.debian.org>
+Date: Thu, 8 Oct 2015 13:35:54 -0700
+Subject: size_t_not_int.diff
+
+pyyaml FTBFS on the s390x buildd.  It seems this is due to using int
+where the libyaml API uses size_t.  I tested the attached patch in
+zelenka.d.o's sid chroot, and at least the python2 build/test worked (it
+failed with the same error as the buildd pre-patching).
+Patch by Julien Cristau <jcristau@debian.org>
+Add to the pyyaml package by Scott Kitterman <scott@kitterman.com>
+http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=676536
+
+Patch-Name: size_t_not_int.diff
+---
+ ext/_yaml.pxd | 14 +++++++-------
+ ext/_yaml.pyx |  4 ++--
+ 2 files changed, 9 insertions(+), 9 deletions(-)
+
+diff --git a/ext/_yaml.pxd b/ext/_yaml.pxd
+index f47f459..1c8b725 100644
+--- a/ext/_yaml.pxd
++++ b/ext/_yaml.pxd
+@@ -86,15 +86,15 @@ cdef extern from "_yaml.h":
+         YAML_MAPPING_END_EVENT
+ 
+     ctypedef int yaml_read_handler_t(void *data, char *buffer,
+-            int size, int *size_read) except 0
++            size_t size, size_t *size_read) except 0
+ 
+     ctypedef int yaml_write_handler_t(void *data, char *buffer,
+-            int size) except 0
++            size_t size) except 0
+ 
+     ctypedef struct yaml_mark_t:
+-        int index
+-        int line
+-        int column
++        size_t index
++        size_t line
++        size_t column
+     ctypedef struct yaml_version_directive_t:
+         int major
+         int minor
+@@ -113,7 +113,7 @@ cdef extern from "_yaml.h":
+         char *suffix
+     ctypedef struct _yaml_token_scalar_data_t:
+         char *value
+-        int length
++        size_t length
+         yaml_scalar_style_t style
+     ctypedef struct _yaml_token_version_directive_data_t:
+         int major
+@@ -152,7 +152,7 @@ cdef extern from "_yaml.h":
+         char *anchor
+         char *tag
+         char *value
+-        int length
++        size_t length
+         int plain_implicit
+         int quoted_implicit
+         yaml_scalar_style_t style
+diff --git a/ext/_yaml.pyx b/ext/_yaml.pyx
+index 5158fb4..83eca65 100644
+--- a/ext/_yaml.pyx
++++ b/ext/_yaml.pyx
+@@ -905,7 +905,7 @@ cdef class CParser:
+                 raise error
+         return 1
+ 
+-cdef int input_handler(void *data, char *buffer, int size, int *read) except 0:
++cdef int input_handler(void *data, char *buffer, size_t size, size_t *read) except 0:
+     cdef CParser parser
+     parser = <CParser>data
+     if parser.stream_cache is None:
+@@ -1515,7 +1515,7 @@ cdef class CEmitter:
+             self.ascend_resolver()
+         return 1
+ 
+-cdef int output_handler(void *data, char *buffer, int size) except 0:
++cdef int output_handler(void *data, char *buffer, size_t size) except 0:
+     cdef CEmitter emitter
+     emitter = <CEmitter>data
+     if emitter.dump_unicode == 0:

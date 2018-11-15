@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/arthur/ros_varient/sim-install/console-bridge-0.3.2/test/console_TEST.cc
+cassert
+-
+gtest/gtest.h
+-
+console_bridge/console.h
+-
+
+include/console_bridge/console.h
+string
+-
+exportdecl.h
+include/console_bridge/exportdecl.h
+
+include/console_bridge/exportdecl.h
+

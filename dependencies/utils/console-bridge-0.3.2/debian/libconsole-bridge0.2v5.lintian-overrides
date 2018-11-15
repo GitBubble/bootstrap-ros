@@ -1,0 +1,2 @@
+# There is no ABI change from 0.2 to 0.3, keep the same package name
+libconsole-bridge0.2v5: package-name-doesnt-match-sonames libconsole-bridge0.3

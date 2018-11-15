@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/gtest_dll_test_.dir/test/gtest_all_test.cc.o  -o gtest_dll_test_  -L/home/arthur/ros_varient/sim-install/gtest-1.7.0/src -rdynamic libgtest_dll.so -lpthread -Wl,-rpath,/home/arthur/ros_varient/sim-install/gtest-1.7.0/src:/home/arthur/ros_varient/sim-install/gtest-1.7.0 

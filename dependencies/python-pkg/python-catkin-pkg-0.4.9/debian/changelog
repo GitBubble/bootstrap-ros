@@ -1,0 +1,5 @@
+python-catkin-pkg (0.4.9-100) trusty utopic vivid wily xenial yakkety zesty artful bionic jessie stretch buster; urgency=low
+
+  * source package automatically created by stdeb 0.8.5
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Wed, 17 Oct 2018 20:13:41 +0000

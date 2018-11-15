@@ -1,0 +1,40 @@
+console-bridge (0.3.2-1) unstable; urgency=medium
+
+  * Imported Upstream version 0.3.2
+    (Closes: #812297)
+  * Declare Replaces+Break on libconsole-bridge0.2
+    (Closes: #813177)
+
+ -- Jose Luis Rivero <jrivero@osrfoundation.org>  Thu, 04 Feb 2016 01:17:30 +0000
+
+console-bridge (0.3.0-3) unstable; urgency=medium
+
+  * Include cmake module in -dev package
+    Patch by Jochen Sprickerhof <debian-bts@jochen.sprickerhof.de>
+    (Closes: #812083)
+
+ -- Jose Luis Rivero <jrivero@osrfoundation.org>  Wed, 20 Jan 2016 23:13:17 +0000
+
+console-bridge (0.3.0-2) unstable; urgency=medium
+
+  * Fix package name lost in update by using a symlink libconsole-bridge0.2
+  * Patch to implement 0.2 ABI and keep the 0.3 library installed
+    (Closes: #811498)
+
+ -- Jose Luis Rivero <jrivero@osrfoundation.org>  Wed, 20 Jan 2016 17:27:35 +0100
+
+console-bridge (0.3.0-1) unstable; urgency=medium
+
+  * Imported Upstream version 0.3.0
+    No real ABI change from 0.2 to 0.3 so keep the same
+    package names.
+  * Don't need boost anymore
+  * Remove patches merged upstream
+
+ -- Jose Luis Rivero <jrivero@osrfoundation.org>  Fri, 15 Jan 2016 20:26:51 +0000
+
+console-bridge (0.2.5-1) unstable; urgency=low
+
+  * Import new upstream version 0.2.5 (Closes: #714760).
+
+ -- Jose Luis Rivero <jrivero@osrfoundation.org>  Wed, 4 Dec 2013 00:45:15 +0100

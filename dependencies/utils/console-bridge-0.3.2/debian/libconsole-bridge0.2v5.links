@@ -1,0 +1,2 @@
+#! /usr/bin/dh-exec
+usr/lib/${DEB_HOST_MULTIARCH}/libconsole_bridge.so.0.2 usr/lib/${DEB_HOST_MULTIARCH}/libconsole_bridge.so.0.3

@@ -1,0 +1,28 @@
+#!/bin/sh
+# autopkgtest check: Build and run a program against console-bridge,
+# to verify that the headers and pkg-config file are installed
+# correctly
+# (C) 2013 Thomas Moulard
+# Author: Thomas Moulard <thomas.moulard@gmail.com>
+
+set -e
+
+WORKDIR=$(mktemp -d)
+trap "rm -rf $WORKDIR" 0 INT QUIT ABRT PIPE TERM
+cd $WORKDIR
+cat <<EOF > consolebridgetest.cpp
+#include <console_bridge/console.h>
+
+int main()
+{
+    logInform ("test");
+    return 0;
+}
+EOF
+
+g++ -o consolebridgetest consolebridgetest.cpp \
+    `pkg-config --cflags --libs console_bridge`
+echo "build: OK"
+[ -x consolebridgetest ]
+./consolebridgetest
+echo "run: OK"

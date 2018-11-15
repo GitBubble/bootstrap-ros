@@ -1,0 +1,11 @@
+# see git-dpm(1) from git-dpm package
+ce6f328b074bee1e81c1f7caaf05815330a24e1e
+ce6f328b074bee1e81c1f7caaf05815330a24e1e
+b2559d98f7c8e416b74a8c84bc93bf7b7fa4f6b4
+b2559d98f7c8e416b74a8c84bc93bf7b7fa4f6b4
+pyyaml_3.11.orig.tar.gz
+1a2d5df8b31124573efb9598ec6d54767f3c4cd4
+248685
+debianTag="debian/%e%v"
+patchedTag="patched/%e%v"
+upstreamTag="upstream/%e%u"

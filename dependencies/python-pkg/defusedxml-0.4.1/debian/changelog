@@ -1,0 +1,27 @@
+defusedxml (0.4.1-2ubuntu0.16.04.1) xenial-security; urgency=medium
+
+  * No change rebuild for xenial in support of recent python-pysaml2
+    security update.
+
+ -- Leonidas S. Barbosa <leo.barbosa@canonical.com>  Thu, 31 Aug 2017 15:10:25 -0300
+
+defusedxml (0.4.1-2build1) wily; urgency=medium
+
+  * No-change rebuild for python3.5 transition
+
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Wed, 22 Jul 2015 06:34:34 +0000
+
+defusedxml (0.4.1-2) unstable; urgency=medium
+
+  * Added Python 3 support.
+  * Bumped Standards-Version to 3.9.5 (no changes needed)
+  * Updated VCS-* fields to canonical locations. 
+  * Added watch file.
+
+ -- Nikolaus Rath <Nikolaus@rath.org>  Sun, 29 Jun 2014 16:38:39 -0700
+
+defusedxml (0.4.1-1) unstable; urgency=low
+
+  * Initial release. (Closes: #705691)
+
+ -- Luke Faraone <lfaraone@debian.org>  Thu, 18 Apr 2013 11:15:53 -0400

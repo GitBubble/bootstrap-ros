@@ -1,0 +1,25 @@
+commit b395444062e82953d417a4da9157667c2e05d758
+Author: Fabien Tassin <fta@ubuntu.com>
+Subject: Reorder cipher and key preferences to make more sense
+
+Bug: https://bugs.launchpad.net/ubuntu/+source/paramiko/+bug/1728607
+
+[Patch differs from upstream in that paramiko 1.16 does not support
+ssh-ed25519, so not changing the key algorithm priority -- sbeattie]
+
+Backport from https://github.com/paramiko/paramiko/commit/b395444062e82953d417a4da9157667c2e05d758
+Index: paramiko-1.16.0/paramiko/transport.py
+===================================================================
+--- paramiko-1.16.0.orig/paramiko/transport.py
++++ paramiko-1.16.0/paramiko/transport.py
+@@ -102,9 +102,9 @@ class Transport (threading.Thread, Closi
+         'aes192-ctr',
+         'aes256-ctr',
+         'aes128-cbc',
+-        'blowfish-cbc',
+         'aes192-cbc',
+         'aes256-cbc',
++        'blowfish-cbc',
+         '3des-cbc',
+         'arcfour128',
+         'arcfour256',

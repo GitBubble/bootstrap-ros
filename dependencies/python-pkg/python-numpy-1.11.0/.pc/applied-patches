@@ -1,0 +1,7 @@
+03_force_f2py_version.patch
+10_use_local_python.org_object.inv_sphinx.diff
+python3-soabi.patch
+adapt_swig_docs_to_debian.patch
+0005-Dont-fail-if-we-cant-import-mingw32.patch
+0006-disable-asserts-on-ppc-with-broken-malloc-only-longd.patch
+20_disable-plot-extension.patch

@@ -1,0 +1,12 @@
+fix_apr-config.patch
+ship_find_apr.m4.patch
+fix-apr.pc.patch
+hurd_path_max.patch
+fix_doxygen.patch
+omit_extra_libs.patch
+hurd_shm_flock.patch
+dont_override_external_buildflags
+libtoolize_check.patch
+apr_mcast_v6.patch
+debug_testpoll_failure.patch
+use_fcntl_locking.patch

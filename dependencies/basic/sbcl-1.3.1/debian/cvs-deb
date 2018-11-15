@@ -1,0 +1,2 @@
+#!/bin/sh
+CVSROOT=`cat CVS/Root` cvs-buildpackage -F -uc -us -rfakeroot

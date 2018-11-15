@@ -1,0 +1,187 @@
+#!/usr/bin/make -f
+
+LOCALE_PATH=debian/tmpdir/usr/lib/locale
+LOCALE_NAME=en_US
+LOCALE_CHARSET=UTF-8
+HOME=$(CURDIR)
+export HOME
+export DH_VERBOSE=1
+
+# This has to be exported to make some magic below work.
+export DH_OPTIONS
+
+export sbcl_arch=$(shell dpkg-architecture -qDEB_BUILD_ARCH |sed s/i386/x86/)
+ARCH=$(shell dpkg-architecture -qDEB_BUILD_ARCH)
+ifeq (${ARCH},powerpc)
+   CFLAGS:=-O2
+endif
+
+pkg=sbcl
+TARGET=debian/sbcl
+SOURCE_TARGET=debian/sbcl-source
+DOC_TARGET=debian/sbcl-doc
+DESTDIR=$(CURDIR)/debian/tmp/usr
+FEATURES=--fancy
+
+ARCH=$(shell dpkg-architecture -qDEB_BUILD_ARCH)
+
+ifeq (,$(BOOTSTRAPLISP))
+	BOOTSTRAPLISP=/usr/bin/sbcl --disable-debugger --no-sysinit --no-userinit
+endif
+
+ifneq (,$(filter kfreebsd-%,$(sbcl_arch)))
+	FEATURES += --with-os-provides-dlopen --with-sb-pthread-futex
+endif
+
+configure: configure-stamp
+configure-stamp:
+	dh_testdir
+	touch configure-stamp
+
+build: configure-stamp build-arch build-indep
+
+build-arch: build-arch-stamp
+build-arch-stamp: configure-stamp
+	dh_testdir
+#   create the locale:
+	mkdir -p ${LOCALE_PATH}
+	localedef -i "${LOCALE_NAME}" -f "${LOCALE_CHARSET}" "${LOCALE_PATH}/${LOCALE_NAME}.${LOCALE_CHARSET}"
+	export LC_ALL=${LOCALE_NAME}.${LOCALE_CHARSET}
+	export LANG=en_US.UTF-8
+	export LOCPATH=${LOCALE_PATH} 
+
+	+echo environment:
+	env
+	+echo
+
+#   make scripts runable
+	chmod a+x ./src/runtime/linux-nm ./make.sh ./install.sh ./clean.sh ./tools-for-build/canonicalize-whitespace
+	chmod a+x ./tools-for-build/whitespacely-canonical-filenames ./tools-for-build/grep-noncanonical-whitespace  
+	chmod a+x ./tools-for-build/check-canonical-whitespace ./tools-for-build/canonicalize-whitespace-1
+
+	./make.sh --xc-host="$(BOOTSTRAPLISP)" --prefix=$(CURDIR)/stage1 $(FEATURES)
+	./install.sh
+	chmod 100 stage1
+	./clean.sh
+	./make.sh --prefix="/usr/" --xc-host="$(CURDIR)/stage1/bin/sbcl --no-sysinit --no-userinit --disable-debugger" $(FEATURES)
+	chmod 700 stage1
+
+	make -C doc/internals all html
+
+#   start running tests
+	-GNUMAKE=make sh -c 'cd tests && sh ./run-tests.sh' || printf "the tests failed\n"
+
+	src/runtime/sbcl --core output/sbcl.core --eval '(sb-ext:set-sbcl-source-location "/usr/share/sbcl-source/")' \
+	                 --eval '(sb-ext:save-lisp-and-die "output/sbcl.core")'
+
+	touch build-arch-stamp
+
+build-indep: build-indep-stamp
+build-indep-stamp: build-arch
+	dh_testdir
+	cd doc/manual && make docstrings && make
+	touch build-indep-stamp
+
+clean:
+	dh_testdir
+	dh_testroot
+
+	rm -rf target || true
+	-chmod 700 stage1
+	rm -rf stage1 || true
+	rm -rf debian/tmpdir || true
+	rm -rf .fontconfig || true
+#   Add here commands to clean up after the build process.
+	GNUMAKE=make sh clean.sh || true
+	(cd src/runtime ; touch Config ; make clean ) || true
+#   clean up CVS stuff
+	rmdir contrib/systems/ obj/ output/ || true
+
+	make -C doc/internals clean
+
+	dh_clean
+	rm -fr .texmf-var
+
+install:  build
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_installdirs
+
+	INSTALL_ROOT="$(DESTDIR)" sh install.sh
+
+	dh_install
+
+	cp debian/binfmt $(TARGET)/usr/share/binfmts/sbcl
+	cp debian/sbcl-run $(TARGET)/usr/lib/sbcl
+	chmod a+x $(TARGET)/usr/lib/sbcl/sbcl-run
+
+	find $(TARGET)/usr/lib/sbcl/ -type f -name \*.c -exec chmod -x '{}' \;
+
+#   move the indep stuff
+	dh_installinfo -psbcl-doc $(DESTDIR)/share/info/sbcl.info 
+	rm $(DESTDIR)/share/info/asdf.info $(DESTDIR)/share/info/sbcl.info
+	rm $(DESTDIR)/share/doc/sbcl/asdf.pdf
+
+	cp debian/index-docs.html \
+		$(DOC_TARGET)/usr/share/doc/sbcl-doc/html/index.html
+
+	rm -f $(SOURCE_TARGET)/usr/share/sbcl-source/contrib/asdf-install/asdf-install	
+	rm -f $(SOURCE_TARGET)/usr/share/sbcl-source/contrib/asdf/LICENSE
+
+
+	find $(SOURCE_TARGET)/usr/share/sbcl-source -type f -name \*.fasl -or -name \*.o -or -name \*.log \
+		-or -name \*.so -or -name a.out | xargs rm
+	find $(SOURCE_TARGET)/usr/share/sbcl-source/ -type f -name \*.c -exec chmod -x '{}' \;
+	rm $(SOURCE_TARGET)/usr/share/sbcl-source/src/runtime/sbcl  
+	rm $(SOURCE_TARGET)/usr/share/sbcl-source/src/runtime/sbcl.nm 
+
+# Build architecture-independent files here.
+binary-indep: build install
+	dh_testdir -i
+	dh_testroot -i
+	dh_installchangelogs -i
+	dh_installdocs -i
+	dh_installexamples -i
+	dh_installdebconf -i
+	dh_installcron -i
+	dh_installinfo -i
+	dh_installman -i
+	dh_link -i
+	dh_lintian -i
+	dh_compress -i -X *.html
+	dh_fixperms -i
+#	find $(TARGET) $(SOURCE_TARGET) $(DOC_TARGET) -name .cvsignore -print0 | xargs -t0 rm -rf || true
+#	find $(TARGET) $(SOURCE_TARGET) $(DOC_TARGET) -name CVS -print0 | xargs -t0 rm -rf || true
+	dh_installdeb -i
+	dh_gencontrol -i
+	dh_md5sums -i
+	dh_builddeb -i
+
+# Build architecture-dependent files here.
+binary-arch: build install
+	dh_testdir -a
+	dh_testroot -a
+	dh_installchangelogs -a
+	dh_installdocs -a
+	dh_installexamples -a
+#	find $(TARGET) $(SOURCE_TARGET) $(DOC_TARGET) -name CVS -or -name .cvsignore -print0 | xargs -t0 rm -rf || true
+	dh_installman -a
+	dh_strip -a
+	dh_link -a
+	dh_lintian -a
+	dh_compress -a
+	dh_fixperms -a
+	dh_lisp sbcl
+	dh_installdeb -a
+	dh_shlibdeps -a
+
+#   add the FASL version of this release to substvars
+	stage1/bin/sbcl --load "debian/fasl-version.lisp"
+
+	dh_gencontrol -a
+	dh_md5sums -a
+	dh_builddeb -a
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install
