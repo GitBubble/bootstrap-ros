@@ -134,13 +134,29 @@ pip install pycrypto>=2.1,!=2.4
 python setup.py install
 
 
-
 ## pillow 3.1.2
 yum install libjpeg-turbo-devel
 yum install zlib  ( zlib-1.2.7-17.e17
 yum install zlib-devel  ( 1.2.7-17.el7
 python setup.py install
 
+## pyyaml-3.11
+python setup.py install
+
+# Now ready to using catkin tools....
+pip install catkin-tools
+ ...collecting  catkin_tools-0.4.4.tar.gz   
+ ...collecting  catkin_pkg-0.4.9.tar.gz  
+ ...collecting  osrf-pycommon>0.1.1 -> osrf-pycommon-0.1.5.tar.gz   
+ ...collecting  docutils-0.14-py2-none-any.whl   
+ ...collecting  python_dateutil-2.7.5-py2.py3-none-any.whl   
+ ...collecting  pyparsing-2.3.0-py2.py3-none-any.whl  
+ ...collecting  trollius-2.2.tar.gz  
+ ...collecting  six>=1.5 -> six-1.11.0-py2.py3-none-any.whl  
+ ...collecting  futures-3.2.0-py2-none-any.whl  
+ 
+ 
+ 
 I have done some port test on centos. the following work has been done
  
 1, python packages are portable on most of the linux platform.
