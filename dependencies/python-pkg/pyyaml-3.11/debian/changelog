@@ -1,0 +1,226 @@
+pyyaml (3.11-3build1) xenial; urgency=medium
+
+  * No-change rebuild to drop python3.4 support.
+
+ -- Matthias Klose <doko@ubuntu.com>  Tue, 19 Jan 2016 00:43:24 +0000
+
+pyyaml (3.11-3) unstable; urgency=medium
+
+  * Team upload.
+  * d/control: Bump Standards-Version with no other changes necessary.
+  * d/patches/support-high-codepoints.patch: Added to fix support for
+    codepoints above 0xffff.  Given by John R. Lenton.  (Closes: #806826)
+  * d/tests/{control,python2.sh,python3.sh}: Added to test the above patch
+    since a unittest is problematic.
+
+ -- Barry Warsaw <barry@debian.org>  Wed, 02 Dec 2015 16:29:22 -0500
+
+pyyaml (3.11-2) unstable; urgency=medium
+
+  * Backport security fix for Reachable Assertion security issue (potential
+    remote DoS) - CVE-2014-9130 (Closes: #772815)
+    - Add debian/patches/CVE-2014-9130-invalid-key-assert.diff
+
+ -- Scott Kitterman <scott@kitterman.com>  Fri, 12 Dec 2014 08:35:37 -0500
+
+pyyaml (3.11-1) unstable; urgency=medium
+
+  [ Jakub Wilk ]
+  * Use canonical URIs for Vcs-* fields.
+
+  [ Scott Kitterman ]
+  * New upstream release
+  * Remove empty directory usr/lib/python3/dist-packages/yaml from python3-
+    yaml-dbg
+  * Bump standards version to 3.9.5 without further change
+  * Remove unneeded X-Python-Version/X-Python3-Version from debian/control
+
+ -- Scott Kitterman <scott@kitterman.com>  Fri, 18 Apr 2014 22:37:37 -0400
+
+pyyaml (3.10-4) unstable; urgency=low
+
+  * Bump debian/compat and minimum debhelper version to 9 for dpkg-buildflags
+    and hardening support
+  * Drop unneeded XB-Python-Version from python-yaml
+
+ -- Scott Kitterman <scott@kitterman.com>  Tue, 26 Jun 2012 11:19:50 -0400
+
+pyyaml (3.10-3) unstable; urgency=low
+
+  * Regenerate ext_yaml.c during build
+    - Update debian/rules to move the upstream file aside during build
+    - Add cython and cython-dbg to build-depends
+  * Add quilt patch system
+    - Add quilt to build-depends
+    - Add --with quilt to debian/rules
+    - Add README.source
+  * Add debian/patches/size_t_not_int.diff to fix FTBFS on S390x
+    (Closes: #676536)
+    - Thanks to Julien Cristau for the patch
+  * Rework debian/rules to support DEB_BUILD_OPTIONS nocheck
+  * Bump standards version to 3.9.3 without further change
+
+ -- Scott Kitterman <scott@kitterman.com>  Fri, 08 Jun 2012 16:36:33 -0400
+
+pyyaml (3.10-2) unstable; urgency=low
+
+  * Remove python3-yaml-dbg find rule in debian/rules so python3 debug package
+    is built correctly (Closes: #650950)
+  * Remove similar rule for python-yaml-dbg since it is not needed
+  * Fix short descriptions for debug packages so they are not the same as
+    non-debug packages
+  * Also ship upstream changelog in python-yaml
+  * Add python3-yaml.docs to README/CHANGES are shipped in python3-yaml
+  * Bump standards version to 3.9.2 without further change
+
+ -- Scott Kitterman <scott@kitterman.com>  Sun, 04 Dec 2011 13:48:42 -0500
+
+pyyaml (3.10-1) unstable; urgency=low
+
+  * New upstream release (LP: #770895)
+  * Override dh_auto_test to run tests in the right part of the build
+  * Protect for loops in debian/rules with set -e
+  * Use install-layout=deb to avoid files landing in /usr/local
+  * Drop XB-Python-Version from python-yaml (obsolete)
+
+ -- Scott Kitterman <scott@kitterman.com>  Tue, 31 May 2011 16:18:44 -0400
+
+pyyaml (3.09-5) unstable; urgency=low
+
+  * Team upload.
+  * Bump minimum required python3-all-dev version to 3.1.2-10
+    (and rebuild for /usr/lib/python3/dist-packages transtion)
+
+ -- Piotr Ożarowski <piotr@debian.org>  Sun, 26 Sep 2010 22:15:21 +0200
+
+pyyaml (3.09-4) unstable; urgency=low
+
+  * Switch from incorrect use of XS-Python-Version to X-Python-Version and
+    X-Python3-Version to work with current pyversions/py3versions
+  * Use ${python3:Depends} instead of ${python:Depends} for python3-yaml
+    (Closes: #591957)
+  * Rebuild with recent dh_python3 to fix pre-removal script (Closes: #591652)
+  * Drop XB-Python-Version from python3 packages (only relates to Python)
+  * Bump standards version to 3.9.1 without further change
+
+ -- Scott Kitterman <scott@kitterman.com>  Fri, 13 Aug 2010 23:48:51 -0400
+
+pyyaml (3.09-3) unstable; urgency=low
+
+  * Convert from CDBS to Debhelper
+    - Port rules from cdbs to debhelper
+    - Drop cdbs from build-depends
+  * Convert from python-support to dh_python2
+    - Drop python-central from build-depends
+    - Switch to --with python2 in debian/rules
+    - Bump python-all-dev build-depend version to 2.6.5-2~
+  * Add support for Python3
+    - Add python3-yaml and python3-yaml-dbg to debian/control
+    - Add python3-all-dev and python3-all-dbg to build-depends
+    - Add >= 3.0 to XS-Python-Version
+    - Adjust debian rules to build --with python3
+  * Change priority to optional to match override
+  * Bump standards version to 3.8.4 without further change
+  * Remove DM-Upload-Allowed
+
+ -- Scott Kitterman <scott@kitterman.com>  Sun, 20 Jun 2010 20:50:44 -0400
+
+pyyaml (3.09-2) unstable; urgency=low
+
+  * Update XB-Python-Version for Python 2.6 transition (closes: #556160)
+  * Move python-yaml-dbg to section debug
+  * Use correct © symbol in debian/copyright
+
+ -- Scott Kitterman <scott@kitterman.com>  Fri, 13 Nov 2009 18:22:57 -0500
+
+pyyaml (3.09-1) unstable; urgency=low
+
+  * New upstream release
+  * Update standards version to 3.8.3 without further change
+
+ -- Scott Kitterman <scott@kitterman.com>  Mon, 31 Aug 2009 10:02:36 -0400
+
+pyyaml (3.08-1) unstable; urgency=low
+
+  * New upstream release
+    - Change debian/rules to run new upstream test suite during build
+    - Version libyaml-dev build dep to 0.1.2~ due to test failures with 0.1.1
+  * Change priority to extra due to libyaml being extra
+  * Add ${misc:Depends} to python-yaml and python-yaml-dbg
+  * Update package description to mention being built against libyaml
+
+ -- Scott Kitterman <scott@kitterman.com>  Fri, 02 Jan 2009 23:57:37 -0500
+
+pyyaml (3.06-1) unstable; urgency=low
+
+  [ Sandro Tosi ]
+  * debian/control
+    - switch Vcs-Browser field to viewsvn
+
+  [ Scott Kitterman ]
+  * New upstream release
+    - Dropped build-dep on python-pyrex (no longer used)
+    - Update debian/rules to build with the new libyaml integration scheme 
+  * Comment out simple-patchsys.mk in debian/rules since it's not currently
+    needed
+
+ -- Scott Kitterman <scott@kitterman.com>  Mon, 03 Nov 2008 21:17:42 -0500
+
+pyyaml (3.05-2) unstable; urgency=low
+
+  [ Piotr Ożarowski ]
+  * Vcs-Browser and Homepage fields added
+  * XS-Vcs-Svn field renamed to Vcs-Svn
+  * DM-Upload-Allowed set to "yes"
+
+  [ Sandro Tosi ]
+  * debian/control
+    - uniforming Vcs-Browser field
+
+  [ Scott Kitterman ]
+  * Build with lib-yaml now that it is in the archive (Closes: #435410)
+    - Add build-dep on libyaml-dev and python-pyrex
+    - Add depends for ${shlibs:Depends} (Package falls back to pure Python
+      if libyaml is not present, but it's not worth splitting a small package)
+    - Install with setup_with_libyaml.py for all Python versions
+    - Switch from arch all to arch any
+  * Add debug package
+    - Add python-all-dbg to build-dep
+    - Add python-yaml-dbg to debian/control
+    - Update debian/rules
+  * Switch from python-support to python-central
+    - Update depends
+    - Remove pyversions
+    - Add XS/XB-python-versions to debian/control
+    - Update debian/rules
+  * Update package description
+  * Update standards version to 3.8.0.1
+
+ -- Scott Kitterman <scott@kitterman.com>  Tue, 24 Jun 2008 21:32:45 -0400
+
+pyyaml (3.05-1) unstable; urgency=low
+
+  [ Scott Kitterman ]
+  * New upstream version
+  * Removed obsolete patch and debian/patches
+  * debian/control:
+     - Added XS-Vcs-Svn field
+     - Remove build-dep on pacht-utils
+  * debian/rules:
+     - Comment out simple-patchsys
+
+  [ Piotr Ożarowski ]
+  * Added debian/watch file
+
+ -- Scott Kitterman <scott@kitterman.com>  Sun, 13 May 2007 22:38:17 -0400
+
+pyyaml (3.04-1) unstable; urgency=low
+
+  * Initial Debian package (Closes: #413720)
+  * Include upstream recommended patches from the development tree:
+    - fix loading an empty stream: changeset 233
+    - fix the !timestamp constructor: changeset 234
+    - fix an obscure issue with yaml_path_resolver: changeset 246
+
+ -- Scott Kitterman <scott@kitterman.com>  Wed,  4 Apr 2007 15:50:36 -0400
+

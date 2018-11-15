@@ -1,0 +1,26 @@
+Source: gtest
+Homepage: http://code.google.com/p/googletest/
+Section: devel
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Maintainer: Steve M. Robbins <smr@debian.org>
+Uploaders: Giuseppe Iuculano <iuculano@debian.org>
+Priority: optional
+Build-Depends: debhelper (>= 9), autotools-dev, cmake, python
+Standards-Version: 3.9.5
+Vcs-Git: git://git.debian.org/git/collab-maint/gtest.git
+Vcs-Browser: http://git.debian.org/?p=collab-maint/gtest.git
+
+Package: libgtest-dev
+Architecture: any
+Multi-Arch: same
+Section: libdevel
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Google's framework for writing C++ tests - header files
+ Google's framework for writing C++ tests on a variety of platforms. Based on
+ the xUnit architecture. Supports automatic test discovery, a rich set of
+ assertions, user-defined assertions, death tests, fatal and non-fatal failures,
+ value- and type-parameterized tests, various options for running the tests, and
+ XML test report generation.
+ .
+ This package contains the header files needed to link programs against
+ gtest.

@@ -1,0 +1,62 @@
+Description: Make death tests conditional
+ Two tests should have been included in the conditionally-compiled section. 
+Author: Steve M. Robbins <smr@debian.org>
+Forwarded: https://groups.google.com/forum/#!topic/googletestframework/c595nuPdiNo
+Last-Update: 2013-04-21
+
+--- alioth.orig/test/gtest-death-test_test.cc
++++ alioth/test/gtest-death-test_test.cc
+@@ -1238,6 +1238,26 @@
+   EXPECT_FATAL_FAILURE(ASSERT_DEATH_IF_SUPPORTED(;, ""), "");
+ }
+ 
++TEST(InDeathTestChildDeathTest, ReportsDeathTestCorrectlyInFastStyle) {
++  testing::GTEST_FLAG(death_test_style) = "fast";
++  EXPECT_FALSE(InDeathTestChild());
++  EXPECT_DEATH({
++    fprintf(stderr, InDeathTestChild() ? "Inside" : "Outside");
++    fflush(stderr);
++    _exit(1);
++  }, "Inside");
++}
++
++TEST(InDeathTestChildDeathTest, ReportsDeathTestCorrectlyInThreadSafeStyle) {
++  testing::GTEST_FLAG(death_test_style) = "threadsafe";
++  EXPECT_FALSE(InDeathTestChild());
++  EXPECT_DEATH({
++    fprintf(stderr, InDeathTestChild() ? "Inside" : "Outside");
++    fflush(stderr);
++    _exit(1);
++  }, "Inside");
++}
++
+ #else
+ 
+ using testing::internal::CaptureStderr;
+@@ -1288,26 +1308,6 @@
+   EXPECT_EQ(1, n);
+ }
+ 
+-TEST(InDeathTestChildDeathTest, ReportsDeathTestCorrectlyInFastStyle) {
+-  testing::GTEST_FLAG(death_test_style) = "fast";
+-  EXPECT_FALSE(InDeathTestChild());
+-  EXPECT_DEATH({
+-    fprintf(stderr, InDeathTestChild() ? "Inside" : "Outside");
+-    fflush(stderr);
+-    _exit(1);
+-  }, "Inside");
+-}
+-
+-TEST(InDeathTestChildDeathTest, ReportsDeathTestCorrectlyInThreadSafeStyle) {
+-  testing::GTEST_FLAG(death_test_style) = "threadsafe";
+-  EXPECT_FALSE(InDeathTestChild());
+-  EXPECT_DEATH({
+-    fprintf(stderr, InDeathTestChild() ? "Inside" : "Outside");
+-    fflush(stderr);
+-    _exit(1);
+-  }, "Inside");
+-}
+-
+ #endif  // GTEST_HAS_DEATH_TEST
+ 
+ // Tests that the death test macros expand to code which may or may not

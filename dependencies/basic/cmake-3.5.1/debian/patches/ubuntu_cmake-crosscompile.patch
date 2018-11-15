@@ -1,0 +1,82 @@
+Description: support cross-compilation on multi-arch systems
+Author: Dimitri John Ledkov <xnox@ubuntu.com>
+Author: Jose Luis Rivero <jrivero@osrfoundation.org>
+Last-Update: 2015-03-22
+
+diff --git a/Modules/AutogenInfo.cmake.in b/Modules/AutogenInfo.cmake.in
+index 7d89420..f4a0cc0 100644
+--- a/Modules/AutogenInfo.cmake.in
++++ b/Modules/AutogenInfo.cmake.in
+@@ -13,6 +13,9 @@ set(AM_CMAKE_SOURCE_DIR "@CMAKE_SOURCE_DIR@/")
+ set(AM_QT_MOC_EXECUTABLE "@_qt_moc_executable@")
+ set(AM_QT_UIC_EXECUTABLE "@_qt_uic_executable@")
+ set(AM_QT_RCC_EXECUTABLE "@_qt_rcc_executable@")
++if(DEFINED ENV{DEB_BUILD_MULTIARCH} AND DEFINED ENV{DEB_HOST_MULTIARCH} AND "@_qt_moc_executable@" MATCHES "/usr/lib/$ENV{DEB_HOST_MULTIARCH}/qt5/bin/moc")
++  set(AM_QT_MOC_EXECUTABLE "/usr/lib/$ENV{DEB_BUILD_MULTIARCH}/qt5/bin/moc")
++endif()
+ set(AM_CMAKE_CURRENT_SOURCE_DIR "@CMAKE_CURRENT_SOURCE_DIR@/")
+ set(AM_CMAKE_CURRENT_BINARY_DIR "@CMAKE_CURRENT_BINARY_DIR@/")
+ set(AM_QT_VERSION_MAJOR "@_target_qt_version@")
+diff --git a/Modules/CMakeDetermineCompiler.cmake b/Modules/CMakeDetermineCompiler.cmake
+index 85c8662..b8abae4 100644
+--- a/Modules/CMakeDetermineCompiler.cmake
++++ b/Modules/CMakeDetermineCompiler.cmake
+@@ -12,6 +12,10 @@
+ # (To distribute this file outside of CMake, substitute the full
+ #  License text for the above reference.)
+ 
++if(EXISTS "/etc/debian_version")
++  include(${CMAKE_ROOT}/Modules/MultiArchCross.cmake OPTIONAL RESULT_VARIABLE _INCLUDED_MULTIARCH_TOOLCHAIN_FILE)
++endif()
++
+ macro(_cmake_find_compiler lang)
+   # Use already-enabled languages for reference.
+   get_property(_languages GLOBAL PROPERTY ENABLED_LANGUAGES)
+diff --git a/Modules/CMakeDetermineSystem.cmake b/Modules/CMakeDetermineSystem.cmake
+index d9f7579..e7194b7 100644
+--- a/Modules/CMakeDetermineSystem.cmake
++++ b/Modules/CMakeDetermineSystem.cmake
+@@ -104,6 +104,13 @@ if(CMAKE_TOOLCHAIN_FILE)
+     message(FATAL_ERROR "Could not find toolchain file: ${CMAKE_TOOLCHAIN_FILE}")
+     set(CMAKE_TOOLCHAIN_FILE "NOTFOUND" CACHE FILEPATH "The CMake toolchain file" FORCE)
+   endif()
++else()
++  # on multiarch debian systems cross-compilation has standard names &
++  # paths thus we can auto-detect all settings required to enable
++  # cross-compilation on debian systems out of the box
++  if(EXISTS "/etc/debian_version")
++    include(${CMAKE_ROOT}/Modules/MultiArchCross.cmake OPTIONAL RESULT_VARIABLE _INCLUDED_MULTIARCH_TOOLCHAIN_FILE)
++  endif()
+ endif()
+ 
+ 
+diff --git a/Modules/FindPkgConfig.cmake b/Modules/FindPkgConfig.cmake
+index 4f50e38..c742f3a 100644
+--- a/Modules/FindPkgConfig.cmake
++++ b/Modules/FindPkgConfig.cmake
+@@ -30,6 +30,10 @@
+ ### Common stuff ####
+ set(PKG_CONFIG_VERSION 1)
+ 
++if(EXISTS "/etc/debian_version")
++  include(${CMAKE_ROOT}/Modules/MultiArchCross.cmake OPTIONAL RESULT_VARIABLE _INCLUDED_MULTIARCH_TOOLCHAIN_FILE)
++endif()
++
+ # find pkg-config, use PKG_CONFIG if set
+ if((NOT PKG_CONFIG_EXECUTABLE) AND (NOT "$ENV{PKG_CONFIG}" STREQUAL ""))
+   set(PKG_CONFIG_EXECUTABLE "$ENV{PKG_CONFIG}" CACHE FILEPATH "pkg-config executable")
+diff --git a/Modules/GNUInstallDirs.cmake b/Modules/GNUInstallDirs.cmake
+index b42084e..bd07fe4 100644
+--- a/Modules/GNUInstallDirs.cmake
++++ b/Modules/GNUInstallDirs.cmake
+@@ -117,6 +117,10 @@
+ 
+ # Installation directories
+ #
++if(EXISTS "/etc/debian_version")
++  include(${CMAKE_ROOT}/Modules/MultiArchCross.cmake OPTIONAL RESULT_VARIABLE _INCLUDED_MULTIARCH_TOOLCHAIN_FILE)
++endif()
++
+ if(NOT DEFINED CMAKE_INSTALL_BINDIR)
+   set(CMAKE_INSTALL_BINDIR "bin" CACHE PATH "user executables (bin)")
+ endif()

@@ -1,0 +1,15 @@
+Description: make boost look into multiarch locations as well
+Author: Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>
+Author: Jose Luis Rivero <jrivero@osrfoundation.org>
+Last-Update: 2015-03-22
+
+--- cmake/Modules/FindBoost.cmake	2016-03-22 16:13:19.036641144 +0100
++++ cmake/Modules/FindBoost.cmake	2016-03-22 16:13:13.048641411 +0100
+@@ -1256,6 +1256,7 @@
+     list(APPEND _boost_LIBRARY_SEARCH_DIRS_${c}
+       ${Boost_INCLUDE_DIR}/lib
+       ${Boost_INCLUDE_DIR}/../lib
++      ${Boost_INCLUDE_DIR}/../lib/${CMAKE_LIBRARY_ARCHITECTURE}
+       ${Boost_INCLUDE_DIR}/stage/lib
+       )
+     if( Boost_NO_SYSTEM_PATHS )

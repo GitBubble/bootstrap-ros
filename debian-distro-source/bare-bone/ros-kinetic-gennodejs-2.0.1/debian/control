@@ -1,0 +1,12 @@
+Source: ros-kinetic-gennodejs
+Section: misc
+Priority: extra
+Maintainer: Chris Smith <csmith@rethinkrobotics.com>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-catkin, ros-kinetic-genmsg
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-gennodejs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kinetic-genmsg
+Description: Javascript ROS message and service generators.

@@ -1,0 +1,59 @@
+ros-kinetic-gennodejs (2.0.1-0xenial) xenial; urgency=high
+
+  * Fix an issue uncovered in checking fixed size message fields
+  * Contributors: Chris Smith
+
+ -- Chris Smith <csmith@rethinkrobotics.com>  Thu, 16 Feb 2017 05:00:00 -0000
+
+ros-kinetic-gennodejs (2.0.0-0xenial) xenial; urgency=high
+
+  * The following changes make 2.0 incompatible with JavaScript
+  messages objects generated in gennodejs 1.x
+  * Bundled updates
+  * Contributors: Chris Smith, Ian McMahon
+
+ -- Chris Smith <csmith@rethinkrobotics.com>  Wed, 18 Jan 2017 05:00:00 -0000
+
+ros-kinetic-gennodejs (1.0.3-0xenial) xenial; urgency=high
+
+  * Removed extraneous base file installs
+  * Revert install space fix that re-used base js files per package
+  * Added install space fix that copies base js files per package
+  * Contributors: Ian McMahon, Rob Linsalata
+
+ -- Chris Smith <csmith@rethinkrobotics.com>  Wed, 18 May 2016 04:00:00 -0000
+
+ros-kinetic-gennodejs (1.0.2-0xenial) xenial; urgency=high
+
+  * Fixed gennodejs file deployment in install space
+  * Fixed a python3 incompatibility in generate.py
+  * Contributors: Chris Smith, Ian McMahon, Maarten de Vries
+
+ -- Chris Smith <csmith@rethinkrobotics.com>  Wed, 18 May 2016 04:00:00 -0000
+
+ros-kinetic-gennodejs (1.0.1-0xenial) xenial; urgency=high
+
+  * Package name-switch from genjs to gennodejs based on feedback
+  * When deserializing, creates an instance of the message
+    rather than using json.
+  * Update genjs for install
+    -No longer includes hardcoded paths in generated message files
+    -Actually install stuff
+  * Contributors: Chris Smith, Ian McMahon, chris-smith
+
+ -- Chris Smith <csmith@rethinkrobotics.com>  Wed, 27 Apr 2016 04:00:00 -0000
+
+ros-kinetic-gennodejs (1.0.0-0xenial) xenial; urgency=high
+
+  * Initial Release
+  * ROS JS Message Generation
+  * Builds automatically with catkin
+  * Include support for ROS Services
+  * Constants, Msg instances
+    -generated msgs are now classes
+    -msgs have constants included
+  * Contributors: Chris Smith, Ian McMahon
+
+ -- Chris Smith <csmith@rethinkrobotics.com>  Tue, 19 Apr 2016 04:00:00 -0000
+
+

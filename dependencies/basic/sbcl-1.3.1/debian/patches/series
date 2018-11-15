@@ -1,0 +1,11 @@
+set-debian-version.patch
+dont-split-doc.patch
+#debian-changes-1:1.0.45.0-1
+#sbcl-kfreebsd.patch
+disable-version-build.patch
+#texinfo5-eca54df9cd4917ddf1edf485d6beed0e2fad681f.diff
+#update-asdf.patch
+#Adding-curly-braces-around-subgraphs-to-make-things-.patch
+kfreebsd-pthread-futex.patch
+powerpc-concurrency-fix.patch
+fix-texinfo-ftbfs

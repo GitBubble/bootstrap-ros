@@ -1,0 +1,5 @@
+no-lib64-hack.diff
+toplevel-setup.py
+generate-webp-file
+CVE-2016-9189.patch
+CVE-2016-9190.patch

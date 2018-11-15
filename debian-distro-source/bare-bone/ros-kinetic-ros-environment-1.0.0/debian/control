@@ -1,0 +1,12 @@
+Source: ros-kinetic-ros-environment
+Section: misc
+Priority: extra
+Maintainer: Dirk Thomas <dthomas@osrfoundation.org>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-catkin
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-ros-environment
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, 
+Description: The package provides the environment variables `ROS_VERSION`, `ROS_DISTRO`, `ROS_PACKAGE_PATH`, and `ROS_ETC_DIR`.

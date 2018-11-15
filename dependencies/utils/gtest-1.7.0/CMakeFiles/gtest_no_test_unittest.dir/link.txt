@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/gtest_no_test_unittest.dir/test/gtest_no_test_unittest.cc.o  -o gtest_no_test_unittest  -L/home/arthur/ros_varient/sim-install/gtest-1.7.0/src -rdynamic libgtest.so -lpthread -Wl,-rpath,/home/arthur/ros_varient/sim-install/gtest-1.7.0/src:/home/arthur/ros_varient/sim-install/gtest-1.7.0 

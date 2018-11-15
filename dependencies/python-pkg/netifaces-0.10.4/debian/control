@@ -1,0 +1,59 @@
+Source: netifaces
+Section: python
+Priority: optional
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Maintainer: Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>
+Uploaders: Mario Izquierdo (mariodebian) <mariodebian@gmail.com>, Thomas Goirand <zigo@debian.org>
+Build-Depends: debhelper (>= 9), python-setuptools, python3-setuptools, python-all-dev (>= 2.6.6-3~), python-all-dbg, python3-all-dev, python3-all-dbg
+Standards-Version: 3.9.5
+Homepage: http://alastairs-place.net/projects/netifaces/
+Vcs-Git: git://anonscm.debian.org/collab-maint/netifaces.git
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/netifaces.git
+
+Package: python-netifaces
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}
+Provides: ${python:Provides}
+XB-Python-Version: ${python:Versions}
+Description: portable network interface information - Python 2.x
+ netifaces provides a (hopefully portable-ish) way for Python programmers to
+ get access to a list of the network interfaces on the local machine, and to
+ obtain the addresses of those network interfaces.
+ .
+ This package contains the module for Python 2.x.
+
+Package: python-netifaces-dbg
+Section: debug
+Priority: extra
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, python-netifaces (= ${binary:Version}), python-dbg
+XB-Python-Version: ${python:Versions}
+Description: portable network interface information - Python 2.x debug extension
+ netifaces provides a (hopefully portable-ish) way for Python programmers to
+ get access to a list of the network interfaces on the local machine, and to
+ obtain the addresses of those network interfaces.
+ .
+ This package contains debug symbols of python-netifaces.
+
+Package: python3-netifaces
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python3:Depends}
+Provides: ${python:Provides}
+Description: portable network interface information - Python 3.x
+ netifaces provides a (hopefully portable-ish) way for Python programmers to
+ get access to a list of the network interfaces on the local machine, and to
+ obtain the addresses of those network interfaces.
+ .
+ This package contains the module for Python 3.x.
+
+Package: python3-netifaces-dbg
+Section: debug
+Priority: extra
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, python3-netifaces (= ${binary:Version}), python3-dbg
+Description: portable network interface information - Python 3.x debug extension
+ netifaces provides a (hopefully portable-ish) way for Python programmers to
+ get access to a list of the network interfaces on the local machine, and to
+ obtain the addresses of those network interfaces.
+ .
+ This package contains debug symbols of python3-netifaces.

@@ -1,0 +1,4 @@
+include/gtest usr/include
+src usr/src/gtest
+CMakeLists.txt usr/src/gtest
+cmake usr/src/gtest

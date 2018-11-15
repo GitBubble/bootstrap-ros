@@ -1,0 +1,13 @@
+Source: ros-kinetic-roslib
+Section: misc
+Priority: extra
+Maintainer: Dirk Thomas <dthomas@osrfoundation.org>
+Build-Depends: debhelper (>= 9.0.0), libboost-all-dev, ros-kinetic-catkin (>= 0.6.7), ros-kinetic-rospack
+Homepage: http://ros.org/wiki/roslib
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-roslib
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, python-rospkg (>= 1.0.37), ros-kinetic-catkin, ros-kinetic-ros-environment, ros-kinetic-rospack
+Description: Base dependencies and support libraries for ROS.
+ roslib contains many of the common data structures and tools that are shared across ROS client library implementations.

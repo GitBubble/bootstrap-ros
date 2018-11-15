@@ -1,0 +1,25 @@
+Tests: python2
+Depends: build-essential, python-numpy, python-all, python-nose, python-tz
+
+Tests: python3
+Depends: build-essential, python3-numpy, python3-all, python3-nose, python3-tz
+
+#needs root for update-alternatives
+Tests: openblas
+Restrictions: needs-root
+Depends: python-numpy, python-all, python-nose, python-tz, libopenblas-base
+
+#needs root for update-alternatives
+Tests: atlas
+Restrictions: needs-root
+Depends: python-numpy, python-all, python-nose, python-tz, libatlas3-base
+
+Tests: f2py
+Depends: build-essential, gfortran, python-numpy, python-numpy-dbg, python-all, python-all-dbg, python-all-dev, python3-numpy, python3-numpy-dbg, python3-all, python3-all-dbg, python3-all-dev
+
+Tests: distutils
+Restrictions: allow-stderr
+Depends: build-essential, libfftw3-dev, python-numpy
+
+Tests: capi
+Depends: build-essential, python-all-dev, python-all-dbg, python3-all-dev, python3-all-dbg, python-numpy, python-numpy-dbg, python3-numpy, python3-numpy-dbg

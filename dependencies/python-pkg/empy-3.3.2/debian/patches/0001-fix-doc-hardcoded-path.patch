@@ -1,0 +1,20 @@
+From: Jose Luis Rivero <jrivero@osrfoundation.org>
+Date: Thu, 09 Oct 2014 22:49:04 +0000
+Subject: remove hardcoded path
+
+Forwarded: No
+---
+
+diff --git a/doc/index.html b/doc/index.html
+index 18471f2..e6c8491 100644
+--- a/doc/index.html
++++ b/doc/index.html
+@@ -2222,7 +2222,7 @@
+         <td>
+         
+ <table border="0" cellpadding="3" cellspacing="0">
+-<tr><td valign="top" align="left"><p><a href="home/max/projects/empy/doc/em.html">em</a></p></td><td valign="top" align="left">
++<tr><td valign="top" align="left"><p><a href="em.html">em</a></p></td><td valign="top" align="left">
+ <p>A system for processing Python as markup embedded in text.</p>
+ </td></tr>
+ </table>

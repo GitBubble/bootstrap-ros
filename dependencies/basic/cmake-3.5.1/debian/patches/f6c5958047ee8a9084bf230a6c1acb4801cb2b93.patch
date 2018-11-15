@@ -1,0 +1,66 @@
+diff --git a/Source/cmLocalNinjaGenerator.cxx b/Source/cmLocalNinjaGenerator.cxx
+index 8a68af6..030b094 100644
+--- a/Source/cmLocalNinjaGenerator.cxx
++++ b/Source/cmLocalNinjaGenerator.cxx
+@@ -400,7 +400,7 @@ cmLocalNinjaGenerator::WriteCustomCommandBuildStatement(
+ 
+   bool symbolic = false;
+   for (std::vector<std::string>::const_iterator o = outputs.begin();
+-       o != outputs.end(); ++o)
++       !symbolic && o != outputs.end(); ++o)
+     {
+     if (cmSourceFile* sf = this->Makefile->GetSource(*o))
+       {
+@@ -444,7 +444,7 @@ cmLocalNinjaGenerator::WriteCustomCommandBuildStatement(
+       this->ConstructComment(ccg),
+       "Custom command for " + ninjaOutputs[0],
+       cc->GetUsesTerminal(),
+-      /*restat*/!symbolic,
++      /*restat*/!symbolic || !byproducts.empty(),
+       ninjaOutputs,
+       ninjaDeps,
+       orderOnlyDeps);
+diff --git a/Tests/RunCMake/BuildDepends/Custom-Symbolic-and-Byproduct.cmake b/Tests/RunCMake/BuildDepends/Custom-Symbolic-and-Byproduct.cmake
+new file mode 100644
+index 0000000..6948c35
+--- /dev/null
++++ b/Tests/RunCMake/BuildDepends/Custom-Symbolic-and-Byproduct.cmake
+@@ -0,0 +1,28 @@
++add_custom_command(
++  OUTPUT gen-byproduct gen-byproduct-stamp
++  BYPRODUCTS byproduct
++  COMMAND ${CMAKE_COMMAND} -E touch gen-byproduct-stamp
++  COMMAND ${CMAKE_COMMAND} -E copy_if_different gen-byproduct-stamp byproduct
++  )
++set_property(SOURCE gen-byproduct PROPERTY SYMBOLIC 1)
++add_custom_target(produce DEPENDS gen-byproduct)
++
++add_custom_command(
++  OUTPUT use-byproduct
++  DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/byproduct
++  COMMAND ${CMAKE_COMMAND} -E touch use-byproduct
++  )
++add_custom_target(drive ALL DEPENDS use-byproduct)
++add_dependencies(drive produce)
++
++file(GENERATE OUTPUT check-$<LOWER_CASE:$<CONFIG>>.cmake CONTENT "
++if (check_step EQUAL 1)
++  set(check_pairs
++    \"${CMAKE_CURRENT_BINARY_DIR}/use-byproduct|${CMAKE_CURRENT_BINARY_DIR}/gen-byproduct-stamp\"
++    )
++else()
++  set(check_pairs
++    \"${CMAKE_CURRENT_BINARY_DIR}/gen-byproduct-stamp|${CMAKE_CURRENT_BINARY_DIR}/use-byproduct\"
++    )
++endif()
++")
+diff --git a/Tests/RunCMake/BuildDepends/RunCMakeTest.cmake b/Tests/RunCMake/BuildDepends/RunCMakeTest.cmake
+index 6b2b85a..8541070 100644
+--- a/Tests/RunCMake/BuildDepends/RunCMakeTest.cmake
++++ b/Tests/RunCMake/BuildDepends/RunCMakeTest.cmake
+@@ -39,4 +39,5 @@ if(NOT RunCMake_GENERATOR MATCHES "Visual Studio 7|Xcode")
+   unset(run_BuildDepends_skip_step_2)
+ endif()
+ 
++run_BuildDepends(Custom-Symbolic-and-Byproduct)
+ run_BuildDepends(Custom-Always)

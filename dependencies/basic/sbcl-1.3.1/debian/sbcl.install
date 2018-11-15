@@ -1,0 +1,6 @@
+usr/bin/sbcl
+usr/lib/sbcl
+usr/lib/sbcl/sbcl.core
+usr/share/man/man1/sbcl.1
+debian/sbcl.rc /etc
+debian/install-clc.lisp /usr/lib/sbcl/

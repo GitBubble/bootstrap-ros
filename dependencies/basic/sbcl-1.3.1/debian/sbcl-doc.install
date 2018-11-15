@@ -1,0 +1,5 @@
+usr/share/doc/sbcl/html /usr/share/doc/sbcl-doc/
+usr/share/doc/sbcl/sbcl.html /usr/share/doc/sbcl-doc/html/
+usr/share/doc/sbcl/sbcl.pdf /usr/share/doc/sbcl-doc/
+doc/internals/sbcl-internals /usr/share/doc/sbcl-doc/html
+doc/internals/sbcl-internals.pdf /usr/share/doc/sbcl-doc/

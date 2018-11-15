@@ -1,0 +1,44 @@
+From 91b9249616cd0147944ff93fb2d508fac1e30524 Mon Sep 17 00:00:00 2001
+From: Jeff Forcier <jeff@bitprophet.org>
+Date: Mon, 12 Mar 2018 09:15:55 -0700
+Subject: [PATCH] Allow overriding test client connect kwargs in Transport test
+ suite
+
+---
+ tests/test_transport.py | 13 ++++++++++---
+ 1 file changed, 10 insertions(+), 3 deletions(-)
+
+diff --git a/tests/test_transport.py b/tests/test_transport.py
+index 3e35291..a61cc7a 100644
+--- a/tests/test_transport.py
++++ b/tests/test_transport.py
+@@ -129,7 +129,9 @@ class TransportTest(unittest.TestCase):
+         self.socks.close()
+         self.sockc.close()
+ 
+-    def setup_test_server(self, client_options=None, server_options=None):
++    def setup_test_server(
++        self, client_options=None, server_options=None, connect_kwargs=None,
++    ):
+         host_key = RSAKey.from_private_key_file(test_path('test_rsa.key'))
+         public_host_key = RSAKey(data=host_key.asbytes())
+         self.ts.add_server_key(host_key)
+@@ -143,8 +145,13 @@ class TransportTest(unittest.TestCase):
+         self.server = NullServer()
+         self.assertTrue(not event.is_set())
+         self.ts.start_server(event, self.server)
+-        self.tc.connect(hostkey=public_host_key,
+-                        username='slowdive', password='pygmalion')
++        if connect_kwargs is None:
++            connect_kwargs = dict(
++                hostkey=public_host_key,
++                username='slowdive',
++                password='pygmalion',
++            )
++        self.tc.connect(**connect_kwargs)
+         event.wait(1.0)
+         self.assertTrue(event.is_set())
+         self.assertTrue(self.ts.is_active())
+-- 
+2.7.4
+

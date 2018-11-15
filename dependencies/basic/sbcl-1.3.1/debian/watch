@@ -1,0 +1,4 @@
+version=3
+
+http://sf.net/sbcl/sbcl-([0-9.]*)-source\.tar\.bz2
+

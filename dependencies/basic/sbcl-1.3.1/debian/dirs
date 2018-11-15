@@ -1,0 +1,8 @@
+usr/bin
+usr/share/man/man1
+etc
+usr/lib/common-lisp/bin
+usr/lib/sbcl
+etc/common-lisp/sbcl
+usr/lib/sbcl
+usr/share/lintian/overrides

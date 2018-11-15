@@ -1,0 +1,696 @@
+ros-kinetic-catkin (0.7.14-0xenial) xenial; urgency=high
+
+  * terminal_color is now in catkin_pkg, regression from 0.7.13 (#943 <https://github.com/ros/catkin/issues/943>)
+  * fix permission of CMake file (#942 <https://github.com/ros/catkin/issues/942>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Wed, 06 Jun 2018 07:00:00 -0000
+
+ros-kinetic-catkin (0.7.13-0xenial) xenial; urgency=high
+
+  * add separate option CATKIN_INSTALL_INTO_PREFIX_ROOT (#940 <https://github.com/ros/catkin/issues/940>)
+  * find the Python version specified in ROS_PYTHON_VERSION (#939 <https://github.com/ros/catkin/issues/939>)
+  * move catkin_prepare_release script as well as dependencies to catkin_pkg (#941 <https://github.com/ros/catkin/issues/941>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Thu, 31 May 2018 07:00:00 -0000
+
+ros-kinetic-catkin (0.7.12-0xenial) xenial; urgency=high
+
+  * add CMake option for symlink install (#929 <https://github.com/ros/catkin/issues/929>)
+  * use verbatim on test target to fix testing with Ninja (#935 <https://github.com/ros/catkin/issues/935>)
+  * do not add_library() gmock and gtest if targets already exist (#927 <https://github.com/ros/catkin/issues/927>)
+  * modernize Python 2 code to get ready for Python 3 (#928 <https://github.com/ros/catkin/issues/928>)
+  * remove Python 3.3 specific code because it is end of life (#924 <https://github.com/ros/catkin/issues/924>)
+  * fix an error in the comment. (#930 <https://github.com/ros/catkin/issues/930>)
+  * fix typos (#934 <https://github.com/ros/catkin/issues/934>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Tue, 01 May 2018 07:00:00 -0000
+
+ros-kinetic-catkin (0.7.11-0xenial) xenial; urgency=high
+
+  * catkin_add_gtest: drop explicit add_dependencies(), rely on CMake. (#917 <https://github.com/ros/catkin/issues/917>)
+  * prevent reading non-whitelisted properties of interface targets (#916 <https://github.com/ros/catkin/issues/916>)
+  * fix logic when only gtest is present (#919 <https://github.com/ros/catkin/issues/919>)
+  * add option to pass specific version to catkin_prepare_release (#918 <https://github.com/ros/catkin/issues/918>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Fri, 02 Feb 2018 08:00:00 -0000
+
+ros-kinetic-catkin (0.7.10-0xenial) xenial; urgency=high
+
+  * support for googletest 1.8 and deduplicated code (#914 <https://github.com/ros/catkin/pull/914>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Wed, 24 Jan 2018 08:00:00 -0000
+
+ros-kinetic-catkin (0.7.9-0xenial) xenial; urgency=high
+
+  * add support for GMock (#897 <https://github.com/ros/catkin/pull/897>)
+  * provide default values to unbound variables in setup.sh.in (#907 <https://github.com/ros/catkin/pull/907>)
+  * cleanup environment changes reliably (#906 <https://github.com/ros/catkin/pull/906>)
+  * call the find PythonInterp with version in the arguments (#898 <https://github.com/ros/catkin/issues/898>)
+  * fix python3 support for builder.py (#903 <https://github.com/ros/catkin/pull/903>)
+  * fix Unicode write error (#902 <https://github.com/ros/catkin/pull/902>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Mon, 22 Jan 2018 08:00:00 -0000
+
+ros-kinetic-catkin (0.7.8-0xenial) xenial; urgency=high
+
+  * handle EOF on raw_input (#888 <https://github.com/ros/catkin/issues/888>)
+  * dynamically check gtest library type (#885 <https://github.com/ros/catkin/issues/885>)
+  * remove executable flag since file is not a script (#882 <https://github.com/ros/catkin/issues/882>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Fri, 27 Oct 2017 07:00:00 -0000
+
+ros-kinetic-catkin (0.7.7-0xenial) xenial; urgency=high
+
+  * fix warning in case devel space is nested in the build space (#880 <https://github.com/ros/catkin/pull/880>)
+  * remove workaround using -l:<libpath> necessary for older pkg-config versions (#879 <https://github.com/ros/catkin/issues/879>)
+  * replace exec call with runpy.run_path (#873 <https://github.com/ros/catkin/issues/873>)
+  * use environment variable to extend environment in plain shell (#862 <https://github.com/ros/catkin/issues/862>)
+  * prefer reporting problems to bugtracker / website before maintainer (#861 <https://github.com/ros/catkin/issues/861>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Thu, 27 Jul 2017 07:00:00 -0000
+
+ros-kinetic-catkin (0.7.6-0xenial) xenial; urgency=high
+
+  * skip gtest install rules for newer gtest versions (#857 <https://github.com/ros/catkin/issues/857>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Fri, 17 Feb 2017 08:00:00 -0000
+
+ros-kinetic-catkin (0.7.5-0xenial) xenial; urgency=high
+
+  * update --pkg help for catkin_make_isolated (#853 <https://github.com/ros/catkin/issues/853>)
+  * add skipped / disabled tests to catkin_test_results summary (#848 <https://github.com/ros/catkin/issues/848>)
+  * use functions instead of macros where possible to avoid leaking variables (#835 <https://github.com/ros/catkin/issues/835>)
+  * write output of parsing package xml as UTF-8 for Python 3 (#828 <https://github.com/ros/catkin/issues/828>)
+  * update documentation
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Tue, 14 Feb 2017 08:00:00 -0000
+
+ros-kinetic-catkin (0.7.4-0xenial) xenial; urgency=high
+
+  * fix regression in logic to select make / ninja for CMake packages from 0.7.2 (#826 <https://github.com/ros/catkin/issues/826>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Sun, 25 Sep 2016 07:00:00 -0000
+
+ros-kinetic-catkin (0.7.3-0xenial) xenial; urgency=high
+
+  * relax fixed DEPENDS check from last release (#825 <https://github.com/ros/catkin/issues/825>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Mon, 19 Sep 2016 07:00:00 -0000
+
+ros-kinetic-catkin (0.7.2-0xenial) xenial; urgency=high
+
+  * change warning to status when nosetests was not found (#823 <https://github.com/ros/catkin/issues/823>)
+  * maintain file context when invoking Python scripts through relay (#820 <https://github.com/ros/catkin/issues/820>)
+  * fix rollback logic for more than one value per environment variable and workspace (#819 <https://github.com/ros/catkin/issues/819>)
+  * add option to use NMake instead of Make (#816 <https://github.com/ros/catkin/pull/816>)
+  * fix check if DEPENDS was found (#813 <https://github.com/ros/catkin/issues/813>)
+  * fix quoting of paths to handle spaces (#808 <https://github.com/ros/catkin/issues/808>)
+  * update doc of catkin_package to clarify importance of case for variable names
+  * improve doc about catkin_package(CFG_EXTRAS) (#805 <https://github.com/ros/catkin/issues/805>)
+  * doc: fix format 2 howto to suggest to declare a build export dependency on "message_runtime"
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Fri, 02 Sep 2016 07:00:00 -0000
+
+ros-kinetic-catkin (0.7.1-0xenial) xenial; urgency=high
+
+  * expose format 2 style dependencies as CMake variables (#787 <https://github.com/ros/catkin/issues/787>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Fri, 18 Mar 2016 07:00:00 -0000
+
+ros-kinetic-catkin (0.7.0-0xenial) xenial; urgency=high
+
+  * remove CPATH from setup files (#783 <https://github.com/ros/catkin/issues/783>)
+  * use NO_MODULE to find exported catkin dependencies (#760 <https://github.com/ros/catkin/issues/760>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Fri, 04 Mar 2016 08:00:00 -0000
+
+ros-kinetic-catkin (0.6.17-0xenial) xenial; urgency=high
+
+  * fix docs: nosetest target names use periods (#781 <https://github.com/ros/catkin/issues/781>)
+  * add custom message explaining CMake find_package error messages (#780 <https://github.com/ros/catkin/issues/780>)
+  * fix regression with DESTDIR introduced in 0.6.16 (#755 <https://github.com/ros/catkin/issues/755>)
+  * avoid adding nonexistent paths to environment variables (#777 <https://github.com/ros/catkin/issues/777>)
+  * ensure that Python install destination exists (#775 <https://github.com/ros/catkin/issues/775>, https://github.com/ros/catkin/issues/776)
+  * set commonly predefines attributes when interrogating setup.py files (#770 <https://github.com/ros/catkin/issues/770>)
+  * align Python script directory recommendations with REP-0008 (#769 <https://github.com/ros/catkin/issues/769>)
+  * fix default value for _workspaces in find_in_workspaces (#768 <https://github.com/ros/catkin/issues/768>)
+  * improve robustness of exec call interogating setup.py files (#766 <https://github.com/ros/catkin/issues/766>)
+  * fix reinstalling Python files installed by catkin_install_python after modifying them (#764 <https://github.com/ros/catkin/issues/764>)
+  * fix project specific clean_test_results targets (#762 <https://github.com/ros/catkin/issues/762>)
+  * update generated CMake API
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Thu, 03 Mar 2016 08:00:00 -0000
+
+ros-kinetic-catkin (0.6.16-0xenial) xenial; urgency=high
+
+  * remove -x in Python distutils shell script (#755 <https://github.com/ros/catkin/issues/755>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Mon, 09 Nov 2015 08:00:00 -0000
+
+ros-kinetic-catkin (0.6.15-0xenial) xenial; urgency=high
+
+  * adding check to prevent tool cross talk (#743 <https://github.com/ros/catkin/issues/743>)
+  * only clean the test result ending with .xml of the current project (#737 <https://github.com/ros/catkin/issues/737>)
+  * fix regression in find_in_workspaces (#739 <https://github.com/ros/catkin/issues/739>)
+  * fix setup.py package_dir location logic (#751 <https://github.com/ros/catkin/issues/751>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Sat, 19 Sep 2015 07:00:00 -0000
+
+ros-kinetic-catkin (0.6.14-0xenial) xenial; urgency=high
+
+  * support zsh with NOCLOBBER enabled (#734 <https://github.com/ros/catkin/pull/734>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Mon, 20 Apr 2015 07:00:00 -0000
+
+ros-kinetic-catkin (0.6.13-0xenial) xenial; urgency=high
+
+  * allow setting CATKIN_GLOBAL_LIBEXEC_DESTINATION to libexec (#713 <https://github.com/ros/catkin/pull/713>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Fri, 17 Apr 2015 07:00:00 -0000
+
+ros-kinetic-catkin (0.6.12-0xenial) xenial; urgency=high
+
+  * remove CATKIN_TEST_RESULTS_DIR environment variable (#728 <https://github.com/ros/catkin/issues/728>)
+  * catkin_test_results will output skipped xml files only when --all is being passed (#733 <https://github.com/ros/catkin/pull/733>)
+  * extract catkin_add_executable_with_gtest() from catkin_add_gtest() (#726 <https://github.com/ros/catkin/issues/726>)
+  * separate download function from tests (#633 <https://github.com/ros/catkin/issues/633>)
+  * only install environment hooks for catkin_make(_isolated) completion in the catkin package (#732 <https://github.com/ros/catkin/issues/732>)
+  * avoid warning with CMake 3.1 and newer (#731 <https://github.com/ros/catkin/issues/731>)
+  * quote command in "Reproduce this error" instructions (#730 <https://github.com/ros/catkin/issues/730>)
+  * fix Python error when working with non-ascii characters in catkin workspace path (#724 <https://github.com/ros/catkin/issues/724>)
+  * use $TMPDIR for temporary _setup_util.py file if set (#710 <https://github.com/ros/catkin/issues/710>)
+  * fix regex for library config types (#723 <https://github.com/ros/catkin/issues/723>)
+  * fix potential race condition in download_checkmd5.py (#715 <https://github.com/ros/catkin/issues/715>)
+  * output package whitelist / blacklist if set (#714 <https://github.com/ros/catkin/issues/714>)
+  * add --verbose option to catkin_test_results to show the content of result files (#705 <https://github.com/ros/catkin/issues/705>)
+  * source in reset zsh emulation mode  (#686 <https://github.com/ros/catkin/issues/686>)
+  * improve help text for --only-pkg-with-deps (#706 <https://github.com/ros/catkin/issues/706>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Thu, 16 Apr 2015 07:00:00 -0000
+
+ros-kinetic-catkin (0.6.11-0xenial) xenial; urgency=high
+
+  * fix return code for tests run by ctest (#703 <https://github.com/ros/catkin/issues/703>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Mon, 29 Dec 2014 08:00:00 -0000
+
+ros-kinetic-catkin (0.6.10-0xenial) xenial; urgency=high
+
+  * check changes to -D args CATKIN_DEVEL_PREFIX / CMAKE_INSTALL_PREFIX when considering to reinvoke cmake (#700 <https://github.com/ros/catkin/issues/700>)
+  * add --use-ninja option to catkin_make(_isolated) to use ninja instead of make (#693 <https://github.com/ros/catkin/issues/693>)
+  * remove 'emulate sh' from setup.zsh (#686 <https://github.com/ros/catkin/issues/686>)
+  * set terminal title only when isatty (#687 <https://github.com/ros/catkin/issues/687>)
+  * add description to catkin_make for ignoring packages
+  * add suggestion to use catkin_make_isolated for non-homogeneous workspaces
+  * refactor code from run_tests.py into Python module (#678 <https://github.com/ros/catkin/issues/678>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Mon, 22 Dec 2014 08:00:00 -0000
+
+ros-kinetic-catkin (0.6.9-0xenial) xenial; urgency=high
+
+  * fix regression from 0.6.8 (#676 <https://github.com/ros/catkin/issues/676>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Fri, 11 Jul 2014 07:00:00 -0000
+
+ros-kinetic-catkin (0.6.8-0xenial) xenial; urgency=high
+
+  * make nosetests --xunit-file argument an absolute path to work around nose bug 779 (#659 <https://github.com/ros/catkin/issues/659>)
+  * fix handling of CMake packages which do not install any files (#665 <https://github.com/ros/catkin/issues/665>)
+  * fix gtest on Arch Linux and others (#663 <https://github.com/ros/catkin/issues/663>)
+  * improve generation of .catkin marker file (#671 <https://github.com/ros/catkin/issues/671>, #676 <https://github.com/ros/catkin/issues/676>)
+  * escape messages to avoid CMake warning (#667 <https://github.com/ros/catkin/issues/667>)
+  * fix CMake warning for doxygen target with CMake 3 (#660 <https://github.com/ros/catkin/issues/660>)
+  * avoid using ARGN for efficiency (#669 <https://github.com/ros/catkin/issues/669>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Thu, 10 Jul 2014 07:00:00 -0000
+
+ros-kinetic-catkin (0.6.7-0xenial) xenial; urgency=high
+
+  * reset CATKIN_SHELL in devel space generated env.sh files (#652 <https://github.com/ros/catkin/issues/652>, #655 <https://github.com/ros/catkin/issues/655>)
+  * ignore cd path echo when using CDPATH (#654 <https://github.com/ros/catkin/issues/654>)
+  * use PYTHON_EXECUTABLE for _setup_util.py (#646 <https://github.com/ros/catkin/issues/646>)
+  * expose PYTHON_EXECUTABLE to environment hook .em templates (#645 <https://github.com/ros/catkin/issues/645>)
+  * catkin_prepare_release:
+    
+      * add --no-push to catkin_prepare_release (#657 <https://github.com/ros/catkin/issues/657>)
+      * flush stdin before asking for input (#658 <https://github.com/ros/catkin/issues/658>)
+    
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Mon, 16 Jun 2014 07:00:00 -0000
+
+ros-kinetic-catkin (0.6.6-0xenial) xenial; urgency=high
+
+  * fix rollback of environment when workspace has been deleted (#641 <https://github.com/ros/catkin/issues/641>)
+  * fix argument handling when cm / cmi is invoked in a symlinked folder (#638 <https://github.com/ros/catkin/issues/638>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Mon, 02 Jun 2014 07:00:00 -0000
+
+ros-kinetic-catkin (0.6.5-0xenial) xenial; urgency=high
+
+  * fix regression in catkin_make_isolated from 0.6.4 (#624 <https://github.com//ros/catkin/issues/624>)
+  * fix problem when catkin_make / catkin_make_isolated is invoked in a symlinked folder (#638 <https://github.com//ros/catkin/issues/638>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Sun, 25 May 2014 07:00:00 -0000
+
+ros-kinetic-catkin (0.6.4-0xenial) xenial; urgency=high
+
+  * add architecture independent flag in package.xml (#625 <https://github.com/ros/catkin/issues/625>)
+  * add error message for circular dependencies in catkin_make_isolated and catkin_topological_order (#607 <https://github.com/ros/catkin/issues/607>, #608 <https://github.com/ros/catkin/issues/608>)
+  * add multiarch support for catkin environment files (#545 <https://github.com/ros/catkin/issues/545>)
+  * add workspace marker file for catkin_make / catkin_make_isolated (#304 <https://github.com/ros/catkin/issues/304>)
+  * allow better performance for repeated invocations of find_in_workspaces()
+  * consider test_depends for topolocial order (#612 <https://github.com/ros/catkin/issues/612>)
+  * invoke empy with specific Python interpreter (#620 <https://github.com/ros/catkin/issues/620>)
+  * support setting ${PROJECT_NAME}_LIBRARIES before invoking catkin_package() (#609 <https://github.com/ros/catkin/issues/609>)
+  * update package manifest to format 2 (#619 <https://github.com/ros/catkin/issues/619>)
+  * fixes:
+    
+      * fix catkin_find to not return path with '/.' suffix (#621 <https://github.com/ros/catkin/issues/621>)
+      * fix python path setting for plain cmake workspaces (#618 <https://github.com/ros/catkin/issues/618>)
+      * improve unicode handling (#615 <https://github.com/ros/catkin/issues/615>)
+      * replace CMake usage of IMPORTED_IMPLIB with IMPORTED_LOCATION (#616 <https://github.com/ros/catkin/issues/616>)
+      * do not call chpwd hooks in setup.zsh (#613 <https://github.com/ros/catkin/issues/613>)
+      * set catkin_* variables only when find_package(catkin COMPONENTS ...) (#629 <https://github.com/ros/catkin/issues/629>)
+    
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Wed, 07 May 2014 07:00:00 -0000
+
+ros-kinetic-catkin (0.6.3-0xenial) xenial; urgency=high
+
+  * allow passing absolute INCLUDE_DIRS via catkin_package() into CMake config file in install space (#600 <https://github.com/ros/catkin/issues/600>, #601 <https://github.com/ros/catkin/issues/601>)
+  * improve error messages for wrong include dirs
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Tue, 04 Mar 2014 08:00:00 -0000
+
+ros-kinetic-catkin (0.6.2-0xenial) xenial; urgency=high
+
+  * use underlay workspaces when calculating topological order (#590 <https://github.com/ros/catkin/issues/590>)
+  * remove restriction to run unit test single threaded (#597 <https://github.com/ros/catkin/issues/597>)
+  * support using nosetests with Python3 (#593 <https://github.com/ros/catkin/issues/593>)
+  * remove invalid symbolic links of workspace level CMakeLists.txt file (#591 <https://github.com/ros/catkin/issues/591>)
+  * remove debug_message usage from generated pkgConfig.cmake files (#583 <https://github.com/ros/catkin/issues/583>)
+  * use catkin_install_python() to install Python scripts (#596 <https://github.com/ros/catkin/issues/596>)
+  * fix unicode error with japanese LANG (#578 <https://github.com/ros/catkin/issues/578>)
+  * fix gtest include dir when using gtest inside the workspace (#585 <https://github.com/ros/catkin/issues/585>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Mon, 24 Feb 2014 08:00:00 -0000
+
+ros-kinetic-catkin (0.6.1-0xenial) xenial; urgency=high
+
+  * remove more obsolete files (#582 <https://github.com/ros/catkin/issues/582>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Wed, 29 Jan 2014 08:00:00 -0000
+
+ros-kinetic-catkin (0.6.0-0xenial) xenial; urgency=high
+
+  * remove deprecated functionality (#582 <https://github.com/ros/catkin/issues/582>)
+  * remove eigen CMake config files (#492 <https://github.com/ros/catkin/issues/492>)
+  * fix EXPORTED_TARGETS argument for catkin_package() (#581 <https://github.com/ros/catkin/issues/581>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Wed, 29 Jan 2014 08:00:00 -0000
+
+ros-kinetic-catkin (0.5.80-0xenial) xenial; urgency=high
+
+  * fix library deduplication (#565 <https://github.com/ros/catkin/issues/565>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Mon, 27 Jan 2014 08:00:00 -0000
+
+ros-kinetic-catkin (0.5.79-0xenial) xenial; urgency=high
+
+  * fix handling of not found imported libraries (#565 <https://github.com/ros/catkin/issues/565>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Thu, 09 Jan 2014 08:00:00 -0000
+
+ros-kinetic-catkin (0.5.78-0xenial) xenial; urgency=high
+
+  * add support for py_modules in setup.py (#399 <https://github.com/ros/catkin/issues/399>)
+  * fix order and deduplication of of catkin_LIBRARIES (#558 <https://github.com/ros/catkin/issues/558>)
+  * update handling of library deduplication to support build configuration keywords in the whole process (#565 <https://github.com/ros/catkin/issues/565>)
+  * Python 3 related:
+    
+      * python 3 compatibility (#544 <https://github.com/ros/catkin/issues/544>)
+      * add option to specify Python version (#570 <https://github.com/ros/catkin/issues/570>)
+      * add catkin_install_python function (#573 <https://github.com/ros/catkin/issues/573>)
+    
+  * catkin_make and catkin_make_isolated:
+    
+      * add --only-pkg-with-deps option
+      * fix completion for -DCMAKE_BUILD_TYPE and -DCATKIN_ENABLE_TESTING
+    
+  * catkin_make_isolated:
+    
+      * add empty line between packages for better readability
+      * update command line doc (#534 <https://github.com/ros/catkin/issues/534>)
+      * fix generated setup.sh for plain cmake package when path contains spaces
+      * fix to actually build run_depends before the things that depend on them
+      * fix check if environment exists with DESTDIR
+    
+  * update setup scripts to use builtin cd command (#542 <https://github.com/ros/catkin/issues/542>)
+  * improve docs on system library dependencies (#552 <https://github.com/ros/catkin/issues/552>)
+  * install scripts under bin via setup.py (#555 <https://github.com/ros/catkin/issues/555>)
+  * update download script to resume downloads when server supports it (#559 <https://github.com/ros/catkin/issues/559>)
+  * add error handling when _setup_util.py fails, e.g. due to disk full (#561 <https://github.com/ros/catkin/issues/561>)
+  * add atomic_configure_file to work support parallel builds better (#566 <https://github.com/ros/catkin/issues/566>)
+  * update catkin_test_results usage message to mention return code (#576 <https://github.com/ros/catkin/issues/576>)
+  * prefix invocation of python script with PYTHON_EXECUTABLE (ros/genpy#23 <https://github.com/ros/genpy/issues/23>)
+  * update toplevel.cmake to use catkin_find_pkg instead of trying a fixed location to find catkin in the workspace
+  * modify gtest message level to only warn if gtest is not available but a package trys to register a gtest
+  * update run_tests to work robustly in parallel
+  * use sys.exit and not just exit
+  * catkin_prepare_release: undo quoting of commit messages
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Tue, 07 Jan 2014 08:00:00 -0000
+
+ros-kinetic-catkin (0.5.77-0xenial) xenial; urgency=high
+
+  * catkin_prepare_release: show tag name explicitly when using tag prefix (#528 <https://github.com/ros/catkin/issues/528>)
+  * catkin_make_isolated:
+    
+      * separate devel and install build folders for plain cmake packages cleanly without polluting namespace (#532 <https://github.com/ros/catkin/issues/532>)
+      * fix build folder naming (regression from 0.5.75)
+      * fix setup generation if last package in workspace is plain cmake (#530 <https://github.com/ros/catkin/issues/530>)
+      * fix creating missing folder
+    
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Wed, 09 Oct 2013 07:00:00 -0000
+
+ros-kinetic-catkin (0.5.76-0xenial) xenial; urgency=high
+
+  * fix regression in catkin_make from 0.5.75
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Sun, 06 Oct 2013 07:00:00 -0000
+
+ros-kinetic-catkin (0.5.75-0xenial) xenial; urgency=high
+
+  * add --all option to catkin_test_results
+  * improve svn support in catkin_prepare_release
+  * keep build folder of plain CMake packages completely isolated between devel and install (#374 <https://github.com/ros/catkin/issues/374>)
+  * fix handling of spaces in path (#519 <https://github.com/ros/catkin/issues/519>)
+  * fix generated setup.bash|zsh for isolated devel space (#520 <https://github.com/ros/catkin/issues/520>)
+  * fix env.sh for plain cmake packages to not define _CATKIN_SETUP_DIR (#521 <https://github.com/ros/catkin/issues/521>)
+  * fix crash when DESTDIR is specified but install not asked for (#526 <https://github.com/ros/catkin/issues/526>)
+  * update doc for downloading test data from download.ros.org
+  * update environment hook doc (#516 <https://github.com/ros/catkin/issues/516>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Fri, 04 Oct 2013 07:00:00 -0000
+
+ros-kinetic-catkin (0.5.74-0xenial) xenial; urgency=high
+
+  * support multiple package names for catkin_make --pkg (#504 <https://github.com/ros/catkin/issues/504>)
+  * improve help message on catkin_make_isolated --from-pkg
+  * fix include path in generated .pc files to be absolute (#506 <https://github.com/ros/catkin/issues/506>, regression of 0.5.72)
+  * fix handling DESTDIR in catkin_make_isolated for plain cmake packages (#499 <https://github.com/ros/catkin/issues/499>)
+  * fix catkin_python_setup to consider actual package names inside setup.py when signaling that an __init__.py file is installed to genmsg/dynamic_reconfigure (ros/genmsg#34 <https://github.com/ros/genmsg/issues/34>)
+  * fix unsetting temporary variables - especially CATKIN_SETUP_DIR - to not influence next environment (#505 <https://github.com/ros/catkin/issues/505>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Wed, 18 Sep 2013 07:00:00 -0000
+
+ros-kinetic-catkin (0.5.73-0xenial) xenial; urgency=high
+
+  * fix include dirs in generated CMake config file when a non-catkin package depends on a catkin package (regression of #490 <https://github.com/ros/catkin/issues/490>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Fri, 23 Aug 2013 07:00:00 -0000
+
+ros-kinetic-catkin (0.5.72-0xenial) xenial; urgency=high
+
+  * make catkin packages relocatable (#490 <https://github.com/ros/catkin/issues/490>)
+  * catkin_prepare_release:
+    
+      * add tagging changelog sections (#489 <https://github.com/ros/catkin/issues/489>)
+      * add warning when trying to release non-catkin packages (#478 <https://github.com/ros/catkin/issues/478>)
+      * add --tag-prefix option (#447 <https://github.com/ros/catkin/issues/447>)
+    
+  * catkin_make_isolated:
+    
+      * support installation with DESTDIR (#490 <https://github.com/ros/catkin/issues/490>)
+      * handle missing install target gracefully
+      * fix message with command to reproduce (#496 <https://github.com/ros/catkin/issues/496>)
+    
+  * fix completion for catkin_make(_isolated) for older bash completion (#485 <https://github.com/ros/catkin/issues/485>)
+  * fix Python3.2 compatibility (#487 <https://github.com/ros/catkin/issues/487>)
+  * update documentation (#438 <https://github.com/ros/catkin/issues/438>, #467 <https://github.com/ros/catkin/issues/467>, #495 <https://github.com/ros/catkin/issues/495>, #497 <https://github.com/ros/catkin/issues/497>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Wed, 21 Aug 2013 07:00:00 -0000
+
+ros-kinetic-catkin (0.5.71-0xenial) xenial; urgency=high
+
+  * catkin_make_isolated: show progress in terminal title bar on Linux and Darwin (#482 <https://github.com/ros/catkin/issues/482>)
+  * catkin_prepare_release: add warning if package names contain upper case characters (#473 <https://github.com/ros/catkin/issues/473>)
+  * catkin_make: fix handling of non-ascii characters (#476 <https://github.com/ros/catkin/issues/476>)
+  * fix dry tests by disabling CTest for dry packages (#483 <https://github.com/ros/catkin/issues/483>)
+  * update documentation (#474 <https://github.com/ros/catkin/issues/474>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Sat, 20 Jul 2013 07:00:00 -0000
+
+ros-kinetic-catkin (0.5.70-0xenial) xenial; urgency=high
+
+  * add warning if versioned dependencies are not fulfilled (#472 <https://github.com/ros/catkin/issues/472>)
+  * catkin_prepare_release:
+    
+      * add checks for local changes in the working copy (#471 <https://github.com/ros/catkin/issues/471>)
+      * remove '--push' option in favor of interactive questions
+      * improve error message when branch is not tracked (#463 <https://github.com/ros/catkin/issues/463>)
+      * colorize output for improved readability
+    
+  * catkin_make_isolated:
+    
+      * suppress traceback when a package fails to build (#470 <https://github.com/ros/catkin/issues/470>)
+      * improve output to include 'cd' command to reproduce a failing command more easily
+    
+  * fix initialization issue with CATKIN_ENABLE_TESTING variable (#464 <https://github.com/ros/catkin/issues/464>)
+  * find nosetest under different name on QNX (#461 <https://github.com/ros/catkin/issues/461>)
+  * update documentation (#438 <https://github.com/ros/catkin/issues/438>, #465 <https://github.com/ros/catkin/issues/465>, #468 <https://github.com/ros/catkin/issues/468>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Sun, 14 Jul 2013 07:00:00 -0000
+
+ros-kinetic-catkin (0.5.69-0xenial) xenial; urgency=high
+
+  * disable CTest on the farm since it breaks the binarydeb build with the current Debian rules files (#460 <https://github.com/ros/catkin/issues/460>)
+  * skip generating CATKIN_IGNORE marker file when build space equals source space (#459 <https://github.com/ros/catkin/issues/459>)
+  * fix warning message if gtest is not found (#458 <https://github.com/ros/catkin/issues/458>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Fri, 05 Jul 2013 07:00:00 -0000
+
+ros-kinetic-catkin (0.5.68-0xenial) xenial; urgency=high
+
+  * add option CATKIN_ENABLE_TESTING to configure without tests
+  * add CTest support for all registered test types: gtest, nosetest, rostest
+  * add the --from-pkg option to catkin_make_isolated
+  * catkin_prepare_release:
+    
+      * fix if git repo has multiple remotes (#450 <https://github.com/ros/catkin/issues/450>)
+      * modify to not change the remote repo by default, add option --push for old behavior (#451 <https://github.com/ros/catkin/issues/451>)
+    
+  * add 'prefix' to generated pkg-config files (#444 <https://github.com/ros/catkin/issues/444>)
+  * add dummy target to catkin_EXPORTED_TARGETS if empty (#453 <https://github.com/ros/catkin/issues/453>)
+  * expose SETUPTOOLS_DEB_LAYOUT as option again (#418 <https://github.com/ros/catkin/issues/418>)
+  * suppress stacktrace when topologic_order raises within generating CMake files (#442 <https://github.com/ros/catkin/issues/442>)
+  * fixes:
+    
+      * update check in generated pkgConfig.cmake files to work independent of cmake policy CMD0012 (#452 <https://github.com/ros/catkin/issues/452>)
+      * fix generating pkg-config files with empty -I directives (#445 <https://github.com/ros/catkin/issues/445>)
+    
+  * update documentation, especially about testing
+  * for a complete list of changes see the commit log for 0.5.68 <https://github.com/ros/catkin/compare/0.5.67...0.5.68>
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Wed, 03 Jul 2013 07:00:00 -0000
+
+ros-kinetic-catkin (0.5.67-0xenial) xenial; urgency=high
+
+  * fix --build and --directory auto completion for catkin_make(_isolated) (#325 <https://github.com/ros/catkin/issues/325>)
+  * fix catkin_make(_isolated) auto completion on older versions of bash on OS X (#325 <https://github.com/ros/catkin/issues/325>)
+  * add how-to documentation
+  * for a complete list of changes see the commit log for 0.5.67 <https://github.com/ros/catkin/compare/0.5.66...0.5.67>
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Tue, 18 Jun 2013 07:00:00 -0000
+
+ros-kinetic-catkin (0.5.66-0xenial) xenial; urgency=high
+
+  * add new CMake function catkin_download_test_data, mark download_test_data as deprecated (#426 <https://github.com/ros/catkin/issues/426>, #431 <https://github.com/ros/catkin/issues/431>)
+  * catkin_make and catkin_make_isolated:
+    
+      * add bash autocompletion (#325 <https://github.com/ros/catkin/issues/325>)
+      * allow passing MAKEFLAGS (#402 <https://github.com/ros/catkin/issues/402>)
+    
+  * catkin_make_isolated:
+    
+      * allow building empty workspace (#423 <https://github.com/ros/catkin/issues/423>, #425 <https://github.com/ros/catkin/issues/425>)
+      * add --catkin-make-args which enables calling 'catkin_make_isolated run_tests' (#414 <https://github.com/ros/catkin/issues/414>)
+    
+  * catkin_prepare_release:
+    
+      * execute the commands rather than printing them (#417 <https://github.com/ros/catkin/issues/417>)
+      * warn about missing changelog files
+      * validate metapackages (#404 <https://github.com/ros/catkin/issues/404>)
+    
+  * auto detect former SETUPTOOLS_DEB_LAYOUT (#418 <https://github.com/ros/catkin/issues/418>)
+  * fixes:
+    
+      * fix error using sys.stdout.encoding without checking existance
+      * remove linker flag -lrt for Android (#430 <https://github.com/ros/catkin/issues/430>)
+      * fix resetting IFS shell variable when it was unset before (#427 <https://github.com/ros/catkin/issues/427>)
+      * ensure to only return unique source paths from a workspace marker file (#424 <https://github.com/ros/catkin/issues/424>)
+      * catkin_make_isolated:
+        
+          * fix chaining of plain cmake packages (#422 <https://github.com/ros/catkin/issues/422>)
+          * fix --install error for non-catkin packages (#411 <https://github.com/ros/catkin/issues/411>)
+          * only try to remove Makefile if it exists (#420 <https://github.com/ros/catkin/issues/420>, regression from 0.5.64)
+          * fix detection of python paths for plain cmake packages
+        
+    
+  * update documentation:
+    
+      * update API doc of several CMake functions and macros
+      * add generated CMake API to appear in the wiki (#384 <https://github.com/ros/catkin/issues/384>)
+    
+  * add and install LICENSE file (#398 <https://github.com/ros/catkin/issues/398>)
+  * for a complete list of changes see the commit log for 0.5.66 <https://github.com/ros/catkin/compare/0.5.65...0.5.66>
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Thu, 06 Jun 2013 07:00:00 -0000
+
+ros-kinetic-catkin (0.5.65-0xenial) xenial; urgency=high
+
+  * remove including workspace.cmake if it exists, use -C and/or -DCMAKE_USER_MAKE_RULES_OVERRIDE instead (#377 <https://github.com/ros/catkin/issues/377>)
+  * change catkin_test_results return code based on failing tests (#392 <https://github.com/ros/catkin/issues/392>)
+  * apply CATKIN_BUILD_BINARY_PACKAGE for catkin (#395 <https://github.com/ros/catkin/issues/395>)
+  * modify extra file handling to make the generated code relocatable (#369 <https://github.com/ros/catkin/issues/369>)
+  * various improvements and fixes for Windows (#388 <https://github.com/ros/catkin/issues/388>, #390 <https://github.com/ros/catkin/issues/390>, #391 <https://github.com/ros/catkin/issues/391>, #393 <https://github.com/ros/catkin/issues/393>, ros-infrastructure/catkin_pkg#35 <https://github.com/ros-infrastructure/catkin_pkg/issues/35>)
+  * fixes:
+    
+      * fix --force-cmake for catkin_make_isolation (regression from 0.5.64)
+      * fix catkin_package_version and catkin_prepare_release when no packages are found (#387 <https://github.com/ros/catkin/issues/387>)
+      * fix catkin_prepare_release bumping wrong part of the version (#386 <https://github.com/ros/catkin/issues/386>)
+      * handle dependencies that are imported libraries (#378 <https://github.com/ros/catkin/issues/378>)
+    
+  * for a complete list of changes see the commit log for 0.5.65 <https://github.com/ros/catkin/compare/0.5.64...0.5.65>
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Thu, 21 Mar 2013 07:00:00 -0000
+
+ros-kinetic-catkin (0.5.64-0xenial) xenial; urgency=high
+
+  * disable env.sh without args (#370 <https://github.com/ros/catkin/issues/370>)
+  * add --bump to catkin_prepare_release
+  * add EXPORTED_TARGETS to catkin_package() for cross-package target dependencies (#368 <https://github.com/ros/catkin/issues/368>)
+  * enable cfg extras with absolute path and devel/install space specific
+  * enable additional cfg extra files via project specific global variable
+  * allow overriding CATKIN_TEST_RESULTS_DIR via cmake argument (#365 <https://github.com/ros/catkin/issues/365>)
+  * add options to skip generation of cmake config and pkg-config files (#360 <https://github.com/ros/catkin/issues/360>)
+  * catkin_make and catkin_make_isolated:
+    
+      * add --(c)make-args options to pass arbitrary arguments (#376 <https://github.com/ros/catkin/issues/376>)
+    
+  * catkin_make:
+    
+      * enable to build individual package (#348 <https://github.com/ros/catkin/issues/348>)
+      * enable to build metapackages without CMakeLists.txt (#349 <https://github.com/ros/catkin/issues/349>)
+      * add colorization of several error messages
+    
+  * catkin_make_isolated:
+    
+      * requires metapackages to have a CMakeLists.txt (#349 <https://github.com/ros/catkin/issues/349>)
+      * force cmake for plain cmake packages when --install is toggled (#374 <https://github.com/ros/catkin/issues/374>)
+      * switched default output from quiet to verbose (#331 <https://github.com/ros/catkin/issues/331>)
+      * print full stacktrace to better diagnose internal problems (#373 <https://github.com/ros/catkin/issues/373>)
+    
+  * various improvements and fixes for Windows (#276 <https://github.com/ros/catkin/issues/276>, #351 <https://github.com/ros/catkin/issues/351>, #358 <https://github.com/ros/catkin/issues/358>, #359 <https://github.com/ros/catkin/issues/359>)
+  * fixes:
+    
+      * catkin_make and catkin_make_isolated:
+        
+          * ignore install space and any subspaces when searching packages (#361 <https://github.com/ros/catkin/issues/361>)
+        
+      * catkin_make_isolated:
+        
+          * ensure that install space exists before trying to create a env.sh file for cmake projects (#340 <https://github.com/ros/catkin/issues/340>)
+          * fix generated env.sh file if first package is plain cmake (#340 <https://github.com/ros/catkin/issues/340>)
+          * remove old Makefile when cmake fails
+        
+      * fix sourcing some environment hooks multiple times
+      * fix handling spaces in folder names (ros/catkin#375 <https://github.com/ros/catkin/issues/375>)
+      * fix usage of ROS_PARALLEL_JOBS (#335 <https://github.com/ros/catkin/issues/335>)
+      * prefix all temp variable in setup.sh (i.e. to not collide in zsh) (#338 <https://github.com/ros/catkin/issues/338>)
+      * setup.sh: check that temp file was created successfully, call rm command instead of potential alias (#343 <https://github.com/ros/catkin/issues/343>)
+    
+  * update documentation:
+    
+      * update doc on CFG_EXTRAS (#353 <https://github.com/ros/catkin/issues/353>)
+      * general catkin docs (#357 <https://github.com/ros/catkin/issues/357>)
+    
+  * for a complete list of changes see the commit log for 0.5.64 <https://github.com/ros/catkin/compare/0.5.63...0.5.64>
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Fri, 08 Mar 2013 08:00:00 -0000
+
+ros-kinetic-catkin (0.5.63-0xenial) xenial; urgency=high
+
+  * add sanity check to catkin_make that no CMakeLists.txt exists in the base path (#328 <https://github.com/ros/catkin/issues/328>)
+  * catkin_make and catkin_make_isolated:
+    
+      * add -lN besides -jN (#326 <https://github.com/ros/catkin/issues/326>)
+      * support inverted color scheme (#323 <https://github.com/ros/catkin/issues/323>)
+    
+  * catkin_make_isolated:
+    
+      * allow building individual packages (#322 <https://github.com/ros/catkin/issues/322>)
+      * add support for -D options (#306 <https://github.com/ros/catkin/issues/306>)
+      * generate setup.sh file (#327 <https://github.com/ros/catkin/issues/327>)
+      * print instructions how to reproduce errors in case a command returns non-zero return code
+    
+  * fixes:
+    
+      * readd old _setup_util.py to not break environment of workspaces built with 0.5.58 or older (#329 <https://github.com/ros/catkin/issues/329>)
+      * fix sourcing environment hooks
+      * improve several error messages in case of problems (#318 <https://github.com/ros/catkin/issues/318>, #320 <https://github.com/ros/catkin/issues/320>)
+    
+  * for a complete list of changes see the commit log for 0.5.63 <https://github.com/ros/catkin/compare/0.5.62...0.5.63>
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Thu, 24 Jan 2013 08:00:00 -0000
+
+ros-kinetic-catkin (0.5.62-0xenial) xenial; urgency=high
+
+  * fixes:
+    
+      * add check to catkin_make to force cmake when cmake-specific arguments change
+      * force cmake on workspace changes in catkin_make_isolated (#315 <https://github.com/ros/catkin/issues/315>)
+      * source environment hooks for all workspace in correct order (#316 <https://github.com/ros/catkin/issues/316>)
+      * fix PYTHON_PACKAGES_DIR and SETUPTOOLS_ARG_EXTRA to be up-to-date when passing -DSETUPTOOLS_DEB_LAYOUT=.. (#314 <https://github.com/ros/catkin/issues/314>)
+    
+  * for a complete list of changes see the commit log for 0.5.62 <https://github.com/ros/catkin/compare/0.5.61...0.5.62>
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Thu, 17 Jan 2013 08:00:00 -0000
+
+ros-kinetic-catkin (0.5.61-0xenial) xenial; urgency=high
+
+  * yet another workaround for pkg-config handling static libraries (#300 <https://github.com/ros/catkin/issues/300>)
+  * for a complete list of changes see the commit log for 0.5.61 <https://github.com/ros/catkin/compare/0.5.60...0.5.61>
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Wed, 16 Jan 2013 08:00:00 -0000
+
+ros-kinetic-catkin (0.5.60-0xenial) xenial; urgency=high
+
+  * work around for pkg-config reordering libs with no -l prefix (#300 <https://github.com/ros/catkin/issues/300>)
+  * fix colorizing of unicode text in catkin_make and catkin_make_isolated (#310 <https://github.com/ros/catkin/issues/310>)
+  * for a complete list of changes see the commit log for 0.5.60 <https://github.com/ros/catkin/compare/0.5.59...0.5.60>
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Tue, 15 Jan 2013 08:00:00 -0000
+
+ros-kinetic-catkin (0.5.59-0xenial) xenial; urgency=high
+
+  * improve performance to source setup.sh for nested workspaces (#289 <https://github.com/ros/catkin/issues/289>)
+  * remove obsolete BUILD variables and find_package(ROS)
+  * improve error message when command execution or colorization fails (#298 <https://github.com/ros/catkin/issues/298>)
+  * catkin_make keeps track of previously build packages and forces cmake on changes (#290 <https://github.com/ros/catkin/issues/290>)
+  * fix pkg-config for absolute libraries (#300 <https://github.com/ros/catkin/issues/300>)
+  * fix catkin_toplogical_order (#299 <https://github.com/ros/catkin/issues/299>)
+  * make plain cmake install to devel when --install not present (#302 <https://github.com/ros/catkin/issues/302>)
+  * fix creating test_results folder before trying to use it when running tests
+  * for a complete list of changes see the commit log for 0.5.59 <https://github.com/ros/catkin/compare/0.5.58...0.5.59>
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Sun, 13 Jan 2013 08:00:00 -0000
+
+ros-kinetic-catkin (0.5.58-0xenial) xenial; urgency=high
+
+  * first public release for Groovy
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Fri, 21 Dec 2012 08:00:00 -0000
+
+

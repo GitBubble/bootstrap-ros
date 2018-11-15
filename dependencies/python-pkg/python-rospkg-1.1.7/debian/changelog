@@ -1,0 +1,5 @@
+python-rospkg (1.1.7-100) oneiric precise quantal raring saucy trusty utopic vivid wily xenial yakkety zesty artful bionic wheezy jessie stretch buster; urgency=low
+
+  * source package automatically created by stdeb 0.8.5
+
+ -- Ken Conley <kwc@willowgarage.com>  Thu, 09 Aug 2018 11:26:09 -0700

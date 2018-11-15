@@ -1,0 +1,6 @@
+set-debian-version.patch
+dont-split-doc.patch
+disable-version-build.patch
+kfreebsd-pthread-futex.patch
+powerpc-concurrency-fix.patch
+fix-texinfo-ftbfs

@@ -1,0 +1,3 @@
+version=3
+http://pyyaml.org/download/pyyaml/PyYAML-(.*)\.tar\.gz debian uupdate
+

@@ -1,0 +1,9 @@
+FindBoost_add_-lpthread_#563479.diff
+qt_import_dir_variable.diff
+fix-ftbfs-on-kfreebsd.patch
+ubuntu_boost-multiarch.patch
+ubuntu_cmake-crosscompile.patch
+bc30f8b5e66cb9c15fd224f5e51454c0bc66c67e.patch
+0e44f4894f23d5eccd8d360f3420c832f9433a20.patch
+f6c5958047ee8a9084bf230a6c1acb4801cb2b93.patch
+FindLibArchive_Support_libarchive_3.2.patch

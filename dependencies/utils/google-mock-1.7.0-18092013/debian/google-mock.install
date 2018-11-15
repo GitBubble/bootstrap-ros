@@ -1,0 +1,5 @@
+scripts/generator/gmock_gen.py usr/bin
+scripts/generator/cpp usr/share/gmock/
+CMakeLists.txt usr/src/gmock
+include/gmock usr/include
+src/*.cc usr/src/gmock/src/

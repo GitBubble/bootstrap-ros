@@ -1,0 +1,48 @@
+From 89d0a4161276f29cafd7155e735c52c1777692f8 Mon Sep 17 00:00:00 2001
+From: Julian Taylor <jtaylor@ubuntu.com>
+Date: Sun, 11 Oct 2015 10:12:17 -0700
+Subject: adapt to python3 multiarch soabi
+
+ python3 soabi contains multiarch but does not export it via SOABI. So hardcode
+ it and disable a test. get_shared_lib_extension can't be properly fixed:
+ doko: we still want this as the default for people building extensions not
+        only for the distribution
+ Nothing in debian uses it to get the python extension.
+Forwarded: not-needed, debian specific
+Patch-Name: python3-soabi.patch
+---
+ numpy/ctypeslib.py            | 8 ++++++++
+ numpy/tests/test_ctypeslib.py | 1 +
+ 2 files changed, 9 insertions(+)
+
+diff --git a/numpy/ctypeslib.py b/numpy/ctypeslib.py
+index fa1dcad..d299e18 100644
+--- a/numpy/ctypeslib.py
++++ b/numpy/ctypeslib.py
+@@ -134,6 +134,14 @@ else:
+             so_ext2 = get_shared_lib_extension(is_python_ext=True)
+             if not so_ext2 == so_ext:
+                 libname_ext.insert(0, libname + so_ext2)
++            try:
++                import sysconfig
++                so_ext3 = '.%s-%s.so' % (sysconfig.get_config_var('SOABI'),
++                                         sysconfig.get_config_var('MULTIARCH'))
++                libname_ext.insert(0, libname + so_ext3)
++            except (KeyError, ImportError):
++                pass
++
+         else:
+             libname_ext = [libname]
+ 
+diff --git a/numpy/tests/test_ctypeslib.py b/numpy/tests/test_ctypeslib.py
+index 5e888eb..9e7fc2d 100644
+--- a/numpy/tests/test_ctypeslib.py
++++ b/numpy/tests/test_ctypeslib.py
+@@ -27,6 +27,7 @@ class TestLoadLibrary(TestCase):
+                    " (import error was: %s)" % str(e))
+             print(msg)
+ 
++    @dec.skipif(True, 'Skipped as per debian/patches/python3-soabi.patch')
+     @dec.skipif(not _HAS_CTYPE,
+                 "ctypes not available on this python installation")
+     @dec.knownfailureif(sys.platform ==

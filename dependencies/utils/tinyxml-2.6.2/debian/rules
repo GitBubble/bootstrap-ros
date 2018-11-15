@@ -1,0 +1,47 @@
+#!/usr/bin/make -f
+
+include /usr/share/dpkg/default.mk
+
+CXXFLAGS += -DTIXML_USE_STL
+
+OBJ_FILES := tinyxml.o tinyxmlparser.o tinyxmlerror.o
+
+%:
+	dh $@ --parallel
+
+override_dh_auto_build:
+	dh_auto_build -- CXXFLAGS="$(CXXFLAGS) $(CPPFLAGS)" LDFLAGS="$(LDFLAGS)"
+	ar rc libtinyxml.a $(OBJ_FILES)
+	rm *.o xmltest
+	
+	dh_auto_build -- CXXFLAGS="$(CXXFLAGS) $(CPPFLAGS) -fPIC" LDFLAGS="$(LDFLAGS)"
+	g++ -shared -Wl,-soname,libtinyxml.so.$(DEB_VERSION_UPSTREAM) \
+	  -o libtinyxml.so.$(DEB_VERSION_UPSTREAM) $(LDFLAGS) \
+	  $(OBJ_FILES)
+
+override_dh_auto_install:
+	mkdir -p debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/pkgconfig
+	mkdir -p debian/tmp/usr/include
+	install -m 644 -p libtinyxml.so.$(DEB_VERSION_UPSTREAM) debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/
+	ln -f -s libtinyxml.so.$(DEB_VERSION_UPSTREAM) debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/libtinyxml.so
+	install -m 644 -p libtinyxml.a debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/
+	install -m 644 -p tinyxml.h debian/tmp/usr/include/
+	sed -e 's/\$${DEB_HOST_MULTIARCH}/$(DEB_HOST_MULTIARCH)/' -e 's/\$${DEB_VERSION_UPSTREAM}/$(DEB_VERSION_UPSTREAM)/' \
+	  debian/tinyxml.pc.in > debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/pkgconfig/tinyxml.pc
+
+override_dh_auto_test:
+	mkdir xmltestdir
+	cp -a utf8test*.xml xmltestdir
+	cd xmltestdir && ../xmltest
+	rm -rf xmltestdir
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -f libtinyxml.so* libtinyxml.a
+	rm -rf xmltestdir
+
+override_dh_strip:
+	dh_strip --dbg-package=libtinyxml$(DEB_VERSION_UPSTREAM)v5-dbg
+
+override_dh_install:
+	dh_install --fail-missing

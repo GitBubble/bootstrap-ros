@@ -1,0 +1,16 @@
+Description: Returns to a standard requirements definition
+ Add patch to requirements.txt to avoid funky results not supported by
+    pkg_resources in the generated egg-info (Closes: #794461).   
+Author: Thomas Goirand <zigo@debian.org>
+Bug-Debian: https://bugs.debian.org/794461
+Forwarded: not-needed
+Last-Update: 2015-08-04
+
+--- python-mock-1.3.0.orig/requirements.txt
++++ python-mock-1.3.0/requirements.txt
+@@ -1,4 +1,4 @@
+-funcsigs;python_version<"3.3"
++funcsigs
+ # For runtime needs this is correct. For setup_requires needs, 1.2.0 is needed
+ # but setuptools can't cope with conflicts in setup_requires, so thats
+ # unversioned.

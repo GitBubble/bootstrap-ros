@@ -1,0 +1,13 @@
+Source: ros-kinetic-rosgraph-msgs
+Section: misc
+Priority: extra
+Maintainer: Dirk Thomas <dthomas@osrfoundation.org>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-catkin, ros-kinetic-message-generation, ros-kinetic-std-msgs
+Homepage: http://ros.org/wiki/rosgraph_msgs
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-rosgraph-msgs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kinetic-message-runtime, ros-kinetic-std-msgs
+Description: Messages relating to the ROS Computation Graph.
+ These are generally considered to be low-level messages that end users do not interact with.

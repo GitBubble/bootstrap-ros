@@ -1,0 +1,12 @@
+Source: ros-kinetic-rospack
+Section: misc
+Priority: extra
+Maintainer: Dirk Thomas <dthomas@osrfoundation.org>
+Build-Depends: debhelper (>= 9.0.0), libboost-all-dev, libgtest-dev, libtinyxml-dev, pkg-config, python-coverage, python-dev, ros-kinetic-catkin (>= 0.5.68), ros-kinetic-cmake-modules
+Homepage: http://wiki.ros.org/rospack
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-rospack
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libboost-all-dev, libtinyxml-dev, pkg-config, python-catkin-pkg, python-dev, python-rosdep
+Description: ROS Package Tool

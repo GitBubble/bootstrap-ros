@@ -1,0 +1,3 @@
+debian/pkg-config-crosswrapper usr/share
+debian/pkg-config-dpkghook usr/share
+debian/pkg-config-hook-config etc/dpkg/dpkg.cfg.d/

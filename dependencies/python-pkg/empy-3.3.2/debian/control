@@ -1,0 +1,75 @@
+Source: empy
+Section: python
+Priority: optional
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Maintainer: Jose Luis Rivero <jrivero@osrfoundation.org>
+Uploaders: Ana Beatriz Guerrero Lopez <ana@debian.org>
+Build-Depends: debhelper (>= 8.0.0), dh-python, python-all, python-setuptools, python3-all
+X-Python-Version: >= 2.6
+X-Python3-Version: >= 3.2
+Standards-Version: 3.9.6
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=users/jrivero-guest/empy.git
+Vcs-Git: git://git.debian.org/git/users/jrivero-guest/empy.git
+Homepage: http://www.alcyone.com/software/empy/
+
+Package: python-empy
+Architecture: all
+Depends: python, ${python:Depends}, ${misc:Depends}
+Provides: ${python:Provides}
+Conflicts: python3-empy (<= 3.3-8)
+Description: templating system for Python (Python 2)
+ EmPy is a system for embedding Python expressions and statements
+ in template text; it takes an EmPy source file, processes it, and
+ produces output.
+ This is accomplished via expansions, which are special signals
+ to the EmPy system and are set off by a special prefix (by default
+ the at sign, '@').  EmPy can expand arbitrary Python expressions
+ and statements in this way, as well as a variety of special forms.
+ Textual data not explicitly delimited in this way is sent unaffected
+ to the output, allowing Python to be used in effect as a markup
+ language.
+ Also supported are "hook" callbacks, recording and playback via
+ diversions, and dynamic, chainable filters.
+ The system is highly configurable via command line options and
+ embedded commands.
+ .
+ This is the Python 2 version of the package. This version installs
+ the empy executable under the name "empy"
+ .
+
+Package: python3-empy
+Architecture: all
+Depends: python3, ${python3:Depends}, ${misc:Depends}
+Provides: ${python3:Provides}
+Conflicts: python-empy (<= 3.3-8)
+Description: templating system for Python (Python 3)
+ EmPy is a system for embedding Python expressions and statements
+ in template text; it takes an EmPy source file, processes it, and
+ produces output.
+ This is accomplished via expansions, which are special signals
+ to the EmPy system and are set off by a special prefix (by default
+ the at sign, '@').  EmPy can expand arbitrary Python expressions
+ and statements in this way, as well as a variety of special forms.
+ Textual data not explicitly delimited in this way is sent unaffected
+ to the output, allowing Python to be used in effect as a markup
+ language.
+ Also supported are "hook" callbacks, recording and playback via
+ diversions, and dynamic, chainable filters.
+ The system is highly configurable via command line options and
+ embedded commands.
+ .
+ This is the Python 3 version of the package. This version installs
+ the empy executable under the name "empy3"
+
+Package: python-empy-doc
+Section: doc
+Architecture: all
+Suggests: python-empy
+Depends: ${misc:Depends}
+Description: documentation for python-empy
+ EmPy is a system for embedding Python expressions and statements
+ in template text; it takes an EmPy source file, processes it, and
+ produces output.
+ .
+ This package provides HTML documentation for EmPy.
+

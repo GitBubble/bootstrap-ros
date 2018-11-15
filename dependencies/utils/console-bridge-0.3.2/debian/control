@@ -1,0 +1,56 @@
+Source: console-bridge
+Maintainer: Debian Science Maintainers <debian-science-maintainers@lists.alioth.debian.org>
+Uploaders: Thomas Moulard <thomas.moulard@gmail.com>,
+           Jose Luis Rivero <jrivero@osrfoundation.org>
+Section: libs
+Priority: extra
+Build-Depends: debhelper (>= 9),
+               dh-exec (>=0.3),
+               cmake,
+               libgtest-dev
+Standards-Version: 3.9.6
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=debian-science/packages/console-bridge.git
+Vcs-Git: git://anonscm.debian.org/debian-science/packages/console-bridge.git
+Homepage: https://github.com/ros/console_bridge
+XS-Testsuite: autopkgtest
+
+Package: libconsole-bridge0.2v5
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Pre-Depends: ${misc:Pre-Depends}
+Multi-Arch: same
+Replaces: libconsole-bridge0.2
+Breaks: libconsole-bridge0.2
+Description: console bridge - library
+ ROS-independent, pure CMake (i.e. non-catkin and non-rosbuild
+ package) that provides logging calls that mirror those found in
+ rosconsole, but for applications that are not necessarily using ROS.
+ .
+ This package contains the dynamic library.
+
+Package: libconsole-bridge-dev
+Architecture: any
+Section: libdevel
+Depends: libconsole-bridge0.2v5 (= ${binary:Version}),
+	 pkg-config, ${misc:Depends}
+Multi-Arch: same
+Description: console bridge - development files
+ ROS-independent, pure CMake (i.e. non-catkin and non-rosbuild
+ package) that provides logging calls that mirror those found in
+ rosconsole, but for applications that are not necessarily using ROS.
+ .
+ This package contains the development files (headers, pkg-config and
+ CMake files).
+
+Package: libconsole-bridge0.2v5-dbg
+Architecture: any
+Section: debug
+Depends: libconsole-bridge0.2v5 (= ${binary:Version}),
+         ${misc:Depends}
+Multi-Arch: same
+Description: console bridge - debugging symbols
+ ROS-independent, pure CMake (i.e. non-catkin and non-rosbuild
+ package) that provides logging calls that mirror those found in
+ rosconsole, but for applications that are not necessarily using ROS.
+ .
+ This package contains the debugging symbols for the shared libraries.

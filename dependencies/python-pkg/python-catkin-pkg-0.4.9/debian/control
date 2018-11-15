@@ -1,0 +1,19 @@
+Source: python-catkin-pkg
+Maintainer: Dirk Thomas <dthomas@osrfoundation.org>
+Section: python
+Priority: optional
+Build-Depends: python-setuptools (>= 0.6b3), python-all (>= 2.6.6-3), debhelper (>= 7.4.3)
+Standards-Version: 3.9.1
+X-Python3-Version: >= 3.2
+
+
+
+Package: python-catkin-pkg
+Architecture: all
+Depends: ${misc:Depends}, ${python:Depends}, python-argparse, python-catkin-pkg-modules (>= 0.4.9), python-dateutil, python-docutils
+Conflicts: catkin, python3-catkin-pkg
+Description: catkin package library
+ Library for retrieving information about catkin packages.
+
+
+

@@ -1,0 +1,12 @@
+Source: ros-kinetic-std-srvs
+Section: misc
+Priority: extra
+Maintainer: Dirk Thomas <dthomas@osrfoundation.org>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-catkin, ros-kinetic-message-generation
+Homepage: http://ros.org/wiki/std_srvs
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-std-srvs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kinetic-message-runtime
+Description: Common service definitions.

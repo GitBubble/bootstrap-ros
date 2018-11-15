@@ -1,0 +1,129 @@
+From: Brad King <brad.king@kitware.com>
+Date: Fri, 1 Apr 2016 13:13:16 +0000 (-0400)
+Subject: Fix lookup of an ALIAS target outside aliased target's directory (#16044)
+X-Git-Url: https://cmake.org/gitweb?p=cmake.git;a=commitdiff_plain;h=bc30f8b5e66cb9c15fd224f5e51454c0bc66c67e
+
+Fix lookup of an ALIAS target outside aliased target's directory (#16044)
+
+Refactoring in commit v3.5.0-rc1~272^2~11 (cmTarget: Implement ALIAS in
+terms of name mapping, 2015-10-25) accidentally introduced logic that
+assumes ALIAS targets always reference targets in their own directory.
+Fix this and add a test case.
+
+The configure-step fix is that `cmMakefile::FindTarget` should not consider
+aliases.  The purpose of this method is just to look up targets local to
+a directory.  Since ALIAS and normal targets share a namespace we know a
+locally defined target will never collide with an ALIAS target anyway.
+The method has 3 call sites, and this change is safe for all of them:
+
+* `cmInstallCommand::HandleTargetsMode`: Rejects aliases before the call.
+* `cmFLTKWrapUICommand::FinalPass`: Should never have considered aliases.
+* `cmMakefile::FindTargetToUse`: Falls back to a global lookup anyway.
+
+The generate-step fix is that `cmLocalGenerator::FindGeneratorTarget`
+should not consider aliases.  This method is the generate-step
+equivalent to the above.  The method has 2 call sites, and this change
+is safe for both of them:
+
+* `cmInstallTargetGenerator::Compute`: Never uses an alias target name.
+* `cmLocalGenerator::FindGeneratorTargetToUse`: Falls back to global lookup.
+
+Reported-by: Matteo Settenvini <matteo@member.fsf.org>
+---
+
+diff --git a/Source/cmLocalGenerator.cxx b/Source/cmLocalGenerator.cxx
+index 912be0c..6153fbd 100644
+--- a/Source/cmLocalGenerator.cxx
++++ b/Source/cmLocalGenerator.cxx
+@@ -488,16 +488,6 @@ private:
+ cmGeneratorTarget* cmLocalGenerator::FindGeneratorTarget(
+     const std::string& name) const
+ {
+-  std::map<std::string, std::string>::const_iterator i =
+-      this->AliasTargets.find(name);
+-  if (i != this->AliasTargets.end())
+-    {
+-    std::vector<cmGeneratorTarget*>::const_iterator ai =
+-        std::find_if(this->GeneratorTargets.begin(),
+-                     this->GeneratorTargets.end(),
+-                     NamedGeneratorTargetFinder(i->second));
+-    return *ai;
+-    }
+   std::vector<cmGeneratorTarget*>::const_iterator ti =
+       std::find_if(this->GeneratorTargets.begin(),
+                    this->GeneratorTargets.end(),
+@@ -506,7 +496,6 @@ cmGeneratorTarget* cmLocalGenerator::FindGeneratorTarget(
+     {
+     return *ti;
+     }
+-
+   return 0;
+ }
+ 
+diff --git a/Source/cmMakefile.cxx b/Source/cmMakefile.cxx
+index 600c985..598f8c4 100644
+--- a/Source/cmMakefile.cxx
++++ b/Source/cmMakefile.cxx
+@@ -4058,25 +4058,13 @@ std::vector<std::string> cmMakefile::GetPropertyKeys() const
+   return this->StateSnapshot.GetDirectory().GetPropertyKeys();
+ }
+ 
+-cmTarget* cmMakefile::FindTarget(const std::string& name,
+-                                 bool excludeAliases) const
++cmTarget* cmMakefile::FindTarget(const std::string& name) const
+ {
+-  if (!excludeAliases)
+-    {
+-    std::map<std::string, std::string>::const_iterator i =
+-        this->AliasTargets.find(name);
+-    if (i != this->AliasTargets.end())
+-      {
+-      cmTargets::iterator ai = this->Targets.find(i->second);
+-      return &ai->second;
+-      }
+-    }
+   cmTargets::iterator i = this->Targets.find( name );
+   if ( i != this->Targets.end() )
+     {
+     return &i->second;
+     }
+-
+   return 0;
+ }
+ 
+@@ -4247,7 +4235,7 @@ cmTarget* cmMakefile::FindTargetToUse(const std::string& name,
+     }
+ 
+   // Look for a target built in this directory.
+-  if(cmTarget* t = this->FindTarget(name, excludeAliases))
++  if(cmTarget* t = this->FindTarget(name))
+     {
+     return t;
+     }
+diff --git a/Source/cmMakefile.h b/Source/cmMakefile.h
+index 362ea75..a69c705 100644
+--- a/Source/cmMakefile.h
++++ b/Source/cmMakefile.h
+@@ -388,8 +388,7 @@ public:
+     }
+   std::vector<cmTarget*> GetImportedTargets() const;
+ 
+-  cmTarget* FindTarget(const std::string& name,
+-                       bool excludeAliases = false) const;
++  cmTarget* FindTarget(const std::string& name) const;
+ 
+   /** Find a target to use in place of the given name.  The target
+       returned may be imported or built within the project.  */
+diff --git a/Tests/AliasTarget/subdir/CMakeLists.txt b/Tests/AliasTarget/subdir/CMakeLists.txt
+index 8c84aea..05a7d86 100644
+--- a/Tests/AliasTarget/subdir/CMakeLists.txt
++++ b/Tests/AliasTarget/subdir/CMakeLists.txt
+@@ -1,3 +1,8 @@
+ 
+ add_library(tgt STATIC empty.cpp)
+ add_library(Sub::tgt ALIAS tgt)
++
++# foo comes from the top-level CMakeLists.txt
++add_library(Top::foo ALIAS foo)
++get_target_property(some_prop Top::foo SOME_PROP)
++target_link_libraries(tgt Top::foo)

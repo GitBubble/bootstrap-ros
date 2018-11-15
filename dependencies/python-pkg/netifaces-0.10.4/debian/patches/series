@@ -1,0 +1,2 @@
+fix-hurd-build-AF_LINK.diff
+#build-in-python3.3.diff

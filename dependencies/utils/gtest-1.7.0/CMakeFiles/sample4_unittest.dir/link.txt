@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/sample4_unittest.dir/samples/sample4_unittest.cc.o CMakeFiles/sample4_unittest.dir/samples/sample4.cc.o  -o sample4_unittest  -L/home/arthur/ros_varient/sim-install/gtest-1.7.0/src -rdynamic libgtest_main.so libgtest.so -lpthread -Wl,-rpath,/home/arthur/ros_varient/sim-install/gtest-1.7.0/src:/home/arthur/ros_varient/sim-install/gtest-1.7.0 

@@ -1,0 +1,12 @@
+Source: ros-kinetic-rosmake
+Section: misc
+Priority: extra
+Maintainer: Dirk Thomas <dthomas@osrfoundation.org>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-catkin (>= 0.5.68)
+Homepage: http://ros.org/wiki/rosmake
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-rosmake
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, python-rospkg, ros-kinetic-catkin
+Description: rosmake is a ros dependency aware build tool which can be used to build all dependencies in the correct order.
