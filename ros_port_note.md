@@ -93,8 +93,13 @@ make -j32 && make install
 make -j32 && make install  
 
 ## lz4-0.0.r131 compiled:
-make -j32  
+cd ./lib && make -j32 
+cp liblz4.so /usr/lib
+cd ..
+make -j32  #make exec
 cp programs/lz4 /usr/bin   
+cp ./lib/*.h /usr/include
+
 
 ## google-mock-1.7.0 complied:  
 ./configure --prefix=/usr     
@@ -104,7 +109,7 @@ cp ./lib/.llibs/libgmock_main.so /usr/lib
 
 ## tinyxml 2.6.2 compiled:
 change makefile
-  
+the so is broken cannot be linked (TBD
 `${LIB}: ${OBJS}  
         ${CXX} -o $@ ${LDFLAGS} ${OBJS}`   
 make   
