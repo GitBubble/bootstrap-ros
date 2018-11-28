@@ -14,4 +14,7 @@ make -f Makefile-libbz2_so
 make
 
 make install
- 
+
+cp ./bzip2.h /usr/include 
+
+cp ./libbz2.so /usr/lib

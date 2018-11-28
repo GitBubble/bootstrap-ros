@@ -11,4 +11,4 @@ cp liblz4.so /usr/lib
 cd ..
 make -j32  #make exec
 cp programs/lz4 /usr/bin   
-cp ./lib/*.h /usr/include
+cp ./lib/lz4.h /usr/include

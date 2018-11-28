@@ -1,9 +1,9 @@
 # /usr/bin/bash
 
-cd (dirname "$0")
+cd $(dirname "$0")
 
-source env.sh
-
+source ./env.sh
+echo $DEP
 cd $DEP/utils/tinyxml-2.6.2
 
 make
