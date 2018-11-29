@@ -34,3 +34,14 @@ if [ ! -f ./gcc-4.8.0.tar.gz ]; then
    wget https://mirrors.ustc.edu.cn/gnu/gcc/gcc-4.8.0/gcc-4.8.0.tar.gz -O gcc-4.8.0.tar.gz
    tar xzvf gcc-4.8.0.tar.gz
 fi
+
+
+mkdir objdir
+
+cd objdir
+
+../gcc-4.8.0/configure --prefix=/opt/gcc --disable-multilib --enable-languages=c,c++
+#../gcc-4.8.0/contrib/
+make -j32
+make install
+
