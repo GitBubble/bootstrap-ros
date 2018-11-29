@@ -213,5 +213,11 @@ patch -p1 -i  pkg-config_0.29.1-0ubuntu1.diff
 currently use from rpm source include(to be compile from source)   
 
 
+if commit a big binary , we can use following command
+git filter-branch --index-filter "git rm -rf --ignore-unmatch toolchian/boost_1_58.tar.gz" HEAD
+rm -rf .git/refs/original/ && git reflog expire --all && git gc --aggressive --prune
+
+
+
 
 
