@@ -12,3 +12,6 @@
 .deps
 .libs
 .tox
+build
+devel
+release
