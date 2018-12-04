@@ -12,20 +12,24 @@ ROS software can be group to 4 parts
  -- ROS C/C++ package, we can utilize catkin tools to do some parallel compiling work.
  -- The toolchain,which include GCC,Steel-Bank Common Lisp,etc. 
 
-- prepare basic tools  
 
- ./script/init.sh  
+prepare basic tools  
 
-- build toolchain (optional)  
-./toolchain/gcc_download_build.sh  
+   *./script/init.sh*
 
-- build dependencies  
-./script/basic_build.sh   
-./script/python_pkg_build.sh   
-./script/utils_build.sh   
+build toolchain (optional)
 
-- build ROS
-./build.sh 
+*./toolchain/gcc_download_build.sh* 
+
+build dependencies  
+
+   *./script/basic_build.sh*    
+   *./script/python_pkg_build.sh*   
+   *./script/utils_build.sh*     
+
+build ROS
+
+*./build.sh*
 
 
 
