@@ -5,7 +5,7 @@ MPFR=mpfr-2.4.2
 GMP=gmp-4.3.2
 MPC=mpc-1.0.3
 
-
+# todo: check to see if we cant eliminate libc-devel
 yum -y install compat-glibc glibc-devel
 yum -y install gcc gcc-c++
 
@@ -27,3 +27,5 @@ cd objdir
 make -j32
 make install
 
+export CXX=/opt/bin/g++
+export CC=/opt/bin/gcc
