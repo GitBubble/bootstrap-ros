@@ -19,6 +19,6 @@ cd $DIR
 ./b2
 
 
-cp -r boost /usr/include/
+sudo cp -r boost /usr/include/
 
-cp -r stage/lib/ /usr/lib
+sudo cp -P stage/lib/* /usr/lib
