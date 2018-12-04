@@ -6,11 +6,10 @@ we can port the ROS to the non-official platform and architecture.
 
    The keypoint of porting work is figuring out dependency hell. it generally means the whole software should be built from source. Yeah,Cook By Yourself.
 
-ROS software can be group to 4 parts 
- -- python package , include compile utility and ROS python package.
- -- normal C/C++ package managed by CMake/AutoTools/Make, this could be complied by GCC/GMAKE.
- -- ROS C/C++ package, we can utilize catkin tools to do some parallel compiling work.
- -- The toolchain,which include GCC,Steel-Bank Common Lisp,etc. 
+ROS software can be group to 4 parts      
+ -- python package , include compile utility and ROS python package.  
+     -- ROS C/C++ package, we can utilize catkin tools to do some parallel compiling work.  
+ -- The toolchain,which include GCC,Steel-Bank Common Lisp,etc.    
 
 
 1, prepare basic tools  
