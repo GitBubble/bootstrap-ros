@@ -26,7 +26,7 @@ AR     := ar rc
 RANLIB := ranlib
 
 DEBUG_CFLAGS     := -Wall -Wno-format -g -DDEBUG
-RELEASE_CFLAGS   := -Wall -Wno-unknown-pragmas -Wno-format -O3
+RELEASE_CFLAGS   := -Wall -Wno-unknown-pragmas -Wno-format -O3 -fPIC
 # add LIB by dengwenbin
 LIBS		 := 
 LIB              := libtinyxml.so
@@ -93,12 +93,12 @@ all: ${OUTPUT} ${LIB}
 #****************************************************************************
 
 SRCS := tinyxml.cpp tinyxmlparser.cpp xmltest.cpp tinyxmlerror.cpp tinystr.cpp
-
+SO_SRCS := tinyxml.cpp tinyxmlparser.cpp tinyxmlerror.cpp
 # Add on the sources for libraries
 SRCS := ${SRCS}
-
+SO_SRCS :=${SO_SRCS}
 OBJS := $(addsuffix .o,$(basename ${SRCS}))
-
+SO_OBJS := $(addsuffix .o,$(basename ${SO_SRCS}))
 #****************************************************************************
 # Output
 #****************************************************************************
@@ -107,8 +107,8 @@ ${OUTPUT}: ${OBJS}
 	${LD} -o $@ ${LDFLAGS} ${OBJS} ${LIBS} ${EXTRA_LIBS}
 
 # added by dengwenbin, for libs generate
-${LIB}: ${OBJS}
-	${CXX} -o $@ ${LDFLAGS} ${OBJS}
+${LIB}: ${SO_OBJS}
+	${CXX} -shared -o $@ ${LDFLAGS} ${SO_OBJS}
 #****************************************************************************
 # common rules
 #****************************************************************************
