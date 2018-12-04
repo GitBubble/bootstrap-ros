@@ -1,6 +1,6 @@
 #! /usr/bin/bash
 
-cd (dirname "$0")
+cd $(dirname "$0")
 
 source env.sh
 
