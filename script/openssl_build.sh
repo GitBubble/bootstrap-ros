@@ -6,7 +6,7 @@ source env.sh
 
 cd $DEP/utils/openssl-1.0.2g
 
-./configure --prefix=/usr &&
+./Configure --prefix=/usr &&
 
 make depend -j32 &&
 

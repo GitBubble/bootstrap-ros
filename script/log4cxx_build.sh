@@ -1,8 +1,10 @@
 #! /usr/bin/bash
 
-cd (dirname "$0")
+cd $(dirname "$0")
 
-cd $DEP/utils/log4cxx_0.10.0
+source ./env.sh
+
+cd $DEP/utils/log4cxx-0.10.0
 
 ./configure --prefix=/usr
 

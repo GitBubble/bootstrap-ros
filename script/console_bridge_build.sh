@@ -1,6 +1,8 @@
 # /usr/bin/bash
 
-cd (dirname "$0")
+cd $(dirname "$0")
+
+source ./env.sh
 
 cd $DEP/utils/console-bridge-0.3.2
 

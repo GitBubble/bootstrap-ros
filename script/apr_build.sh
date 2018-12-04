@@ -2,7 +2,7 @@
 
 cd $(dirname "$0")
 
-source env.sh
+source ./env.sh
 
 cd $DEP/utils/apr-1.5.2
 ./configure --prefix=/usr --disable-static --with-installbuilddir=/usr/share/apr-1/build &&

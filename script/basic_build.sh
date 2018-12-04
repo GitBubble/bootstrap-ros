@@ -9,4 +9,4 @@ cd "$(dirname "$0")"
 ./cmake_build.sh
 # sbcl need zlib.sh
 ./zlib_build.sh
-./sbcl_bootstrap.sh
+#./sbcl_bootstrap.sh

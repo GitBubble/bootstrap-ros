@@ -2,7 +2,7 @@
 
 cd $(dirname "$0")
 
-source env.sh
+source ./env.sh
 
 cd $DEP/utils/bzip2-1.0.6
 
@@ -15,6 +15,6 @@ make
 
 make install
 
-cp ./bzip2.h /usr/include 
+cp ./bzlip.h /usr/include 
 
 cp ./libbz2.so /usr/lib
