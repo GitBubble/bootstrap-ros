@@ -9,3 +9,4 @@ cd $DEP/utils/tinyxml-2.6.2
 make
 
 cp libtinyxml.so /usr/lib
+cp tinyxml.h /usr/include 
