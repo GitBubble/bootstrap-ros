@@ -13,21 +13,21 @@ ROS software can be group to 4 parts
  -- The toolchain,which include GCC,Steel-Bank Common Lisp,etc. 
 
 
-prepare basic tools  
+1, prepare basic tools  
 
    *./script/init.sh*
 
-build toolchain (optional)
+2, build toolchain (optional)
 
 *./toolchain/gcc_download_build.sh* 
 
-build dependencies  
+3, build dependencies  
 
    *./script/basic_build.sh*    
    *./script/python_pkg_build.sh*   
    *./script/utils_build.sh*     
 
-build ROS
+4, build ROS
 
 *./build.sh*
 
