@@ -1,0 +1,35 @@
+JudgeOS()
+{
+  local platform=$(/bin/uname)
+  local os=""
+  case ${platform} in
+    HP-UX)
+      os=HP-UX ;;
+    AIX)
+      os=AIX ;;
+    SunOS)
+      os=SunOS ;;
+    Linux)
+      if [[ -s /etc/oracle-release ]]; then
+          os=Oracle
+      elif [[ -s /etc/SuSE-release ]]; then
+          os=SuSE
+      elif [[ -f /etc/centos-release ]]; then
+          os=CentOS
+      elif [[ -s /etc/redhat-release ]]; then
+          os=RedHat
+      elif [[ -r /etc/os-release ]]; then
+          grep 'NAME="Ubuntu"' /etc/os-release > /dev/null 2>&1
+          if [[ $? == 0 ]]; then
+              os=Ubuntu
+          fi
+      else
+          os="Unknown Linux"
+      fi ;;
+    *)
+      os="Unknown UNIX/Linux" ;;
+  esac
+
+  echo "${os}"
+}
+
