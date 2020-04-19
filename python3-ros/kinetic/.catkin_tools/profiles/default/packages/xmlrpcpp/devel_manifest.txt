@@ -1,0 +1,7 @@
+ros_comm/xmlrpcpp
+/home/parallels/Desktop/compare2/kinetic/devel/.private/xmlrpcpp/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/xmlrpcpp/share/xmlrpcpp/cmake/xmlrpcppConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/xmlrpcpp/cmake/xmlrpcppConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/xmlrpcpp/share/xmlrpcpp/cmake/xmlrpcppConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/xmlrpcpp/cmake/xmlrpcppConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/xmlrpcpp/share/xmlrpcpp/cmake/xmlrpcpp-extras.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/xmlrpcpp/cmake/xmlrpcpp-extras.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/xmlrpcpp/lib/libxmlrpcpp.so /home/parallels/Desktop/compare2/kinetic/devel/lib/libxmlrpcpp.so
+/home/parallels/Desktop/compare2/kinetic/devel/.private/xmlrpcpp/lib/pkgconfig/xmlrpcpp.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/xmlrpcpp.pc

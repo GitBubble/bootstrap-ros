@@ -1,0 +1,5 @@
+message_generation
+/home/parallels/Desktop/compare2/kinetic/devel/.private/message_generation/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/message_generation/share/message_generation/cmake/message_generationConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/message_generation/cmake/message_generationConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/message_generation/share/message_generation/cmake/message_generationConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/message_generation/cmake/message_generationConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/message_generation/lib/pkgconfig/message_generation.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/message_generation.pc

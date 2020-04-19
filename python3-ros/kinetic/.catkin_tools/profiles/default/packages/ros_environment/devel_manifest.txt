@@ -1,0 +1,11 @@
+ros_environment
+/home/parallels/Desktop/compare2/kinetic/devel/.private/ros_environment/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/ros_environment/share/ros_environment/cmake/ros_environmentConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/ros_environment/cmake/ros_environmentConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/ros_environment/share/ros_environment/cmake/ros_environmentConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/ros_environment/cmake/ros_environmentConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/ros_environment/lib/pkgconfig/ros_environment.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/ros_environment.pc
+/home/parallels/Desktop/compare2/kinetic/devel/.private/ros_environment/etc/catkin/profile.d/1.ros_package_path.sh /home/parallels/Desktop/compare2/kinetic/devel/etc/catkin/profile.d/1.ros_package_path.sh
+/home/parallels/Desktop/compare2/kinetic/devel/.private/ros_environment/etc/catkin/profile.d/1.ros_version.sh /home/parallels/Desktop/compare2/kinetic/devel/etc/catkin/profile.d/1.ros_version.sh
+/home/parallels/Desktop/compare2/kinetic/devel/.private/ros_environment/etc/catkin/profile.d/1.ros_distro.sh /home/parallels/Desktop/compare2/kinetic/devel/etc/catkin/profile.d/1.ros_distro.sh
+/home/parallels/Desktop/compare2/kinetic/devel/.private/ros_environment/etc/catkin/profile.d/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/etc/catkin/profile.d/cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/ros_environment/etc/catkin/profile.d/1.ros_python_version.sh /home/parallels/Desktop/compare2/kinetic/devel/etc/catkin/profile.d/1.ros_python_version.sh
+/home/parallels/Desktop/compare2/kinetic/devel/.private/ros_environment/etc/catkin/profile.d/1.ros_etc_dir.sh /home/parallels/Desktop/compare2/kinetic/devel/etc/catkin/profile.d/1.ros_etc_dir.sh

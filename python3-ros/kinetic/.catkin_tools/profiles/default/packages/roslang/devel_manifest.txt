@@ -1,0 +1,5 @@
+ros/roslang
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslang/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslang/share/roslang/cmake/roslangConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/roslang/cmake/roslangConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslang/share/roslang/cmake/roslangConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/roslang/cmake/roslangConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslang/lib/pkgconfig/roslang.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/roslang.pc

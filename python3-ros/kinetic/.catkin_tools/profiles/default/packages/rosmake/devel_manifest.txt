@@ -1,0 +1,8 @@
+ros/rosmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosmake/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosmake/bin/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/bin/cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosmake/bin/rosmake /home/parallels/Desktop/compare2/kinetic/devel/bin/rosmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosmake/share/rosmake/cmake/rosmakeConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosmake/cmake/rosmakeConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosmake/share/rosmake/cmake/rosmakeConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosmake/cmake/rosmakeConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosmake/lib/pkgconfig/rosmake.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/rosmake.pc
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosmake/lib/python3/dist-packages/rosmake/__init__.py /home/parallels/Desktop/compare2/kinetic/devel/lib/python3/dist-packages/rosmake/__init__.py

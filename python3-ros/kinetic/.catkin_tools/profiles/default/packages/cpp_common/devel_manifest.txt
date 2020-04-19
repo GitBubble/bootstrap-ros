@@ -1,0 +1,6 @@
+roscpp_core/cpp_common
+/home/parallels/Desktop/compare2/kinetic/devel/.private/cpp_common/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/cpp_common/share/cpp_common/cmake/cpp_commonConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/cpp_common/cmake/cpp_commonConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/cpp_common/share/cpp_common/cmake/cpp_commonConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/cpp_common/cmake/cpp_commonConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/cpp_common/lib/libcpp_common.so /home/parallels/Desktop/compare2/kinetic/devel/lib/libcpp_common.so
+/home/parallels/Desktop/compare2/kinetic/devel/.private/cpp_common/lib/pkgconfig/cpp_common.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/cpp_common.pc

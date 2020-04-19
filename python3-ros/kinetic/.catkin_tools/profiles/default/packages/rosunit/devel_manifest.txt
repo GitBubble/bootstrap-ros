@@ -1,0 +1,9 @@
+ros/rosunit
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosunit/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosunit/bin/rosunit /home/parallels/Desktop/compare2/kinetic/devel/bin/rosunit
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosunit/bin/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/bin/cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosunit/share/rosunit/cmake/rosunitConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosunit/cmake/rosunitConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosunit/share/rosunit/cmake/rosunitConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosunit/cmake/rosunitConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosunit/share/rosunit/cmake/rosunit-extras.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosunit/cmake/rosunit-extras.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosunit/lib/pkgconfig/rosunit.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/rosunit.pc
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosunit/lib/python3/dist-packages/rosunit/__init__.py /home/parallels/Desktop/compare2/kinetic/devel/lib/python3/dist-packages/rosunit/__init__.py

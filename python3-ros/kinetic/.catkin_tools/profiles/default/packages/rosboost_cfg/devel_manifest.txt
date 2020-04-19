@@ -1,0 +1,8 @@
+ros/rosboost_cfg
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosboost_cfg/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosboost_cfg/bin/rosboost-cfg /home/parallels/Desktop/compare2/kinetic/devel/bin/rosboost-cfg
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosboost_cfg/bin/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/bin/cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosboost_cfg/share/rosboost_cfg/cmake/rosboost_cfgConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosboost_cfg/cmake/rosboost_cfgConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosboost_cfg/share/rosboost_cfg/cmake/rosboost_cfgConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosboost_cfg/cmake/rosboost_cfgConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosboost_cfg/lib/pkgconfig/rosboost_cfg.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/rosboost_cfg.pc
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosboost_cfg/lib/python3/dist-packages/rosboost_cfg/__init__.py /home/parallels/Desktop/compare2/kinetic/devel/lib/python3/dist-packages/rosboost_cfg/__init__.py

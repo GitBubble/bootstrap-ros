@@ -1,0 +1,5 @@
+roscpp_core/roscpp_traits
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roscpp_traits/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roscpp_traits/share/roscpp_traits/cmake/roscpp_traitsConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/roscpp_traits/cmake/roscpp_traitsConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roscpp_traits/share/roscpp_traits/cmake/roscpp_traitsConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/roscpp_traits/cmake/roscpp_traitsConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roscpp_traits/lib/pkgconfig/roscpp_traits.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/roscpp_traits.pc

@@ -1,0 +1,14 @@
+ros_comm/roslaunch
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslaunch/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslaunch/bin/roslaunch-complete /home/parallels/Desktop/compare2/kinetic/devel/bin/roslaunch-complete
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslaunch/bin/roslaunch /home/parallels/Desktop/compare2/kinetic/devel/bin/roslaunch
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslaunch/bin/roscore /home/parallels/Desktop/compare2/kinetic/devel/bin/roscore
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslaunch/bin/roslaunch-deps /home/parallels/Desktop/compare2/kinetic/devel/bin/roslaunch-deps
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslaunch/bin/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/bin/cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslaunch/bin/roslaunch-logs /home/parallels/Desktop/compare2/kinetic/devel/bin/roslaunch-logs
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslaunch/share/roslaunch/cmake/roslaunchConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/roslaunch/cmake/roslaunchConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslaunch/share/roslaunch/cmake/roslaunchConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/roslaunch/cmake/roslaunchConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslaunch/share/roslaunch/cmake/roslaunch-extras.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/roslaunch/cmake/roslaunch-extras.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslaunch/lib/pkgconfig/roslaunch.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/roslaunch.pc
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslaunch/lib/python3/dist-packages/roslaunch/__init__.py /home/parallels/Desktop/compare2/kinetic/devel/lib/python3/dist-packages/roslaunch/__init__.py
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslaunch/etc/catkin/profile.d/10.roslaunch.sh /home/parallels/Desktop/compare2/kinetic/devel/etc/catkin/profile.d/10.roslaunch.sh

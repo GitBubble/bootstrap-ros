@@ -1,0 +1,8 @@
+ros_comm/rostopic
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rostopic/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rostopic/bin/rostopic /home/parallels/Desktop/compare2/kinetic/devel/bin/rostopic
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rostopic/bin/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/bin/cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rostopic/share/rostopic/cmake/rostopicConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rostopic/cmake/rostopicConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rostopic/share/rostopic/cmake/rostopicConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rostopic/cmake/rostopicConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rostopic/lib/pkgconfig/rostopic.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/rostopic.pc
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rostopic/lib/python3/dist-packages/rostopic/__init__.py /home/parallels/Desktop/compare2/kinetic/devel/lib/python3/dist-packages/rostopic/__init__.py

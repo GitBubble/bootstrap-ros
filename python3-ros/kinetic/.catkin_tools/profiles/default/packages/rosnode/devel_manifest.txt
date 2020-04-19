@@ -1,0 +1,8 @@
+ros_comm/rosnode
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosnode/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosnode/bin/rosnode /home/parallels/Desktop/compare2/kinetic/devel/bin/rosnode
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosnode/bin/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/bin/cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosnode/share/rosnode/cmake/rosnodeConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosnode/cmake/rosnodeConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosnode/share/rosnode/cmake/rosnodeConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosnode/cmake/rosnodeConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosnode/lib/pkgconfig/rosnode.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/rosnode.pc
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosnode/lib/python3/dist-packages/rosnode/__init__.py /home/parallels/Desktop/compare2/kinetic/devel/lib/python3/dist-packages/rosnode/__init__.py

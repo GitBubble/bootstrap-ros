@@ -1,0 +1,8 @@
+ros/roscreate
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roscreate/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roscreate/bin/roscreate-pkg /home/parallels/Desktop/compare2/kinetic/devel/bin/roscreate-pkg
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roscreate/bin/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/bin/cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roscreate/share/roscreate/cmake/roscreateConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/roscreate/cmake/roscreateConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roscreate/share/roscreate/cmake/roscreateConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/roscreate/cmake/roscreateConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roscreate/lib/pkgconfig/roscreate.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/roscreate.pc
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roscreate/lib/python3/dist-packages/roscreate/__init__.py /home/parallels/Desktop/compare2/kinetic/devel/lib/python3/dist-packages/roscreate/__init__.py

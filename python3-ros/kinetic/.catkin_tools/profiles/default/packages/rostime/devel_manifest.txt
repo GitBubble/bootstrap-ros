@@ -1,0 +1,6 @@
+roscpp_core/rostime
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rostime/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rostime/share/rostime/cmake/rostimeConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rostime/cmake/rostimeConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rostime/share/rostime/cmake/rostimeConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rostime/cmake/rostimeConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rostime/lib/librostime.so /home/parallels/Desktop/compare2/kinetic/devel/lib/librostime.so
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rostime/lib/pkgconfig/rostime.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/rostime.pc

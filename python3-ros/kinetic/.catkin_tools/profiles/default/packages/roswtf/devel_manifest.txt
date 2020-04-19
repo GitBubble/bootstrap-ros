@@ -1,0 +1,8 @@
+ros_comm/roswtf
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roswtf/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roswtf/bin/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/bin/cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roswtf/bin/roswtf /home/parallels/Desktop/compare2/kinetic/devel/bin/roswtf
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roswtf/share/roswtf/cmake/roswtfConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/roswtf/cmake/roswtfConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roswtf/share/roswtf/cmake/roswtfConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/roswtf/cmake/roswtfConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roswtf/lib/pkgconfig/roswtf.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/roswtf.pc
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roswtf/lib/python3/dist-packages/roswtf/__init__.py /home/parallels/Desktop/compare2/kinetic/devel/lib/python3/dist-packages/roswtf/__init__.py

@@ -1,0 +1,8 @@
+ros_comm/rosservice
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosservice/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosservice/bin/rosservice /home/parallels/Desktop/compare2/kinetic/devel/bin/rosservice
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosservice/bin/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/bin/cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosservice/share/rosservice/cmake/rosserviceConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosservice/cmake/rosserviceConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosservice/share/rosservice/cmake/rosserviceConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosservice/cmake/rosserviceConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosservice/lib/pkgconfig/rosservice.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/rosservice.pc
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosservice/lib/python3/dist-packages/rosservice/__init__.py /home/parallels/Desktop/compare2/kinetic/devel/lib/python3/dist-packages/rosservice/__init__.py

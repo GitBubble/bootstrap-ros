@@ -1,0 +1,8 @@
+ros/rosclean
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosclean/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosclean/bin/rosclean /home/parallels/Desktop/compare2/kinetic/devel/bin/rosclean
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosclean/bin/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/bin/cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosclean/share/rosclean/cmake/roscleanConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosclean/cmake/roscleanConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosclean/share/rosclean/cmake/roscleanConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosclean/cmake/roscleanConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosclean/lib/pkgconfig/rosclean.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/rosclean.pc
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosclean/lib/python3/dist-packages/rosclean/__init__.py /home/parallels/Desktop/compare2/kinetic/devel/lib/python3/dist-packages/rosclean/__init__.py

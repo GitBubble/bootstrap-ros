@@ -1,0 +1,9 @@
+geneus
+/home/parallels/Desktop/compare2/kinetic/devel/.private/geneus/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/geneus/share/roseus/rospack_nosubdirs /home/parallels/Desktop/compare2/kinetic/devel/share/roseus/rospack_nosubdirs
+/home/parallels/Desktop/compare2/kinetic/devel/.private/geneus/share/geneus/cmake/geneusConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/geneus/cmake/geneusConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/geneus/share/geneus/cmake/geneus-extras.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/geneus/cmake/geneus-extras.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/geneus/share/geneus/cmake/geneusConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/geneus/cmake/geneusConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/geneus/lib/pkgconfig/geneus.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/geneus.pc
+/home/parallels/Desktop/compare2/kinetic/devel/.private/geneus/lib/python3/dist-packages/geneus/__init__.py /home/parallels/Desktop/compare2/kinetic/devel/lib/python3/dist-packages/geneus/__init__.py
+/home/parallels/Desktop/compare2/kinetic/devel/.private/geneus/etc/ros/genmsg/geneus /home/parallels/Desktop/compare2/kinetic/devel/etc/ros/genmsg/geneus

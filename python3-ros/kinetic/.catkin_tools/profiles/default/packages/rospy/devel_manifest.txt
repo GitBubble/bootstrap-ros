@@ -1,0 +1,8 @@
+ros_comm/rospy
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rospy/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rospy/bin/rosconsole /home/parallels/Desktop/compare2/kinetic/devel/bin/rosconsole
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rospy/bin/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/bin/cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rospy/share/rospy/cmake/rospyConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rospy/cmake/rospyConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rospy/share/rospy/cmake/rospyConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rospy/cmake/rospyConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rospy/lib/pkgconfig/rospy.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/rospy.pc
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rospy/lib/python3/dist-packages/rospy/__init__.py /home/parallels/Desktop/compare2/kinetic/devel/lib/python3/dist-packages/rospy/__init__.py

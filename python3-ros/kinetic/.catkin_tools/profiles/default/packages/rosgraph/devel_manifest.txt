@@ -1,0 +1,8 @@
+ros_comm/rosgraph
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosgraph/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosgraph/bin/rosgraph /home/parallels/Desktop/compare2/kinetic/devel/bin/rosgraph
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosgraph/bin/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/bin/cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosgraph/share/rosgraph/cmake/rosgraphConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosgraph/cmake/rosgraphConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosgraph/share/rosgraph/cmake/rosgraphConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosgraph/cmake/rosgraphConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosgraph/lib/pkgconfig/rosgraph.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/rosgraph.pc
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosgraph/lib/python3/dist-packages/rosgraph/__init__.py /home/parallels/Desktop/compare2/kinetic/devel/lib/python3/dist-packages/rosgraph/__init__.py

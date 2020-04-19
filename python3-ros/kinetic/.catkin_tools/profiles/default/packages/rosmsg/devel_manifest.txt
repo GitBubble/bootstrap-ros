@@ -1,0 +1,10 @@
+ros_comm/rosmsg
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosmsg/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosmsg/bin/rossrv /home/parallels/Desktop/compare2/kinetic/devel/bin/rossrv
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosmsg/bin/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/bin/cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosmsg/bin/rosmsg /home/parallels/Desktop/compare2/kinetic/devel/bin/rosmsg
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosmsg/bin/rosmsg-proto /home/parallels/Desktop/compare2/kinetic/devel/bin/rosmsg-proto
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosmsg/share/rosmsg/cmake/rosmsgConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosmsg/cmake/rosmsgConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosmsg/share/rosmsg/cmake/rosmsgConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosmsg/cmake/rosmsgConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosmsg/lib/pkgconfig/rosmsg.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/rosmsg.pc
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosmsg/lib/python3/dist-packages/rosmsg/__init__.py /home/parallels/Desktop/compare2/kinetic/devel/lib/python3/dist-packages/rosmsg/__init__.py

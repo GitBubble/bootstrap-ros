@@ -1,0 +1,10 @@
+ros/rosbash
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbash/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbash/bin/rosrun /home/parallels/Desktop/compare2/kinetic/devel/bin/rosrun
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbash/share/rosbash/cmake/rosbashConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosbash/cmake/rosbashConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbash/share/rosbash/cmake/rosbashConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosbash/cmake/rosbashConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbash/lib/pkgconfig/rosbash.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/rosbash.pc
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbash/etc/catkin/profile.d/15.rosbash.tcsh /home/parallels/Desktop/compare2/kinetic/devel/etc/catkin/profile.d/15.rosbash.tcsh
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbash/etc/catkin/profile.d/15.rosbash.fish /home/parallels/Desktop/compare2/kinetic/devel/etc/catkin/profile.d/15.rosbash.fish
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbash/etc/catkin/profile.d/15.rosbash.bash /home/parallels/Desktop/compare2/kinetic/devel/etc/catkin/profile.d/15.rosbash.bash
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbash/etc/catkin/profile.d/15.rosbash.zsh /home/parallels/Desktop/compare2/kinetic/devel/etc/catkin/profile.d/15.rosbash.zsh

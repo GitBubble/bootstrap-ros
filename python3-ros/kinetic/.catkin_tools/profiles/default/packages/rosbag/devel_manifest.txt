@@ -1,0 +1,11 @@
+ros_comm/rosbag
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbag/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbag/bin/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/bin/cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbag/bin/rosbag /home/parallels/Desktop/compare2/kinetic/devel/bin/rosbag
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbag/share/rosbag/cmake/rosbagConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosbag/cmake/rosbagConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbag/share/rosbag/cmake/rosbagConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosbag/cmake/rosbagConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbag/lib/librosbag.so /home/parallels/Desktop/compare2/kinetic/devel/lib/librosbag.so
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbag/lib/pkgconfig/rosbag.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/rosbag.pc
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbag/lib/python3/dist-packages/rosbag/__init__.py /home/parallels/Desktop/compare2/kinetic/devel/lib/python3/dist-packages/rosbag/__init__.py
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbag/lib/rosbag/record /home/parallels/Desktop/compare2/kinetic/devel/lib/rosbag/record
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbag/lib/rosbag/play /home/parallels/Desktop/compare2/kinetic/devel/lib/rosbag/play

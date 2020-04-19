@@ -1,0 +1,5 @@
+ros/mk
+/home/parallels/Desktop/compare2/kinetic/devel/.private/mk/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/mk/share/mk/cmake/mkConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/mk/cmake/mkConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/mk/share/mk/cmake/mkConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/mk/cmake/mkConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/mk/lib/pkgconfig/mk.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/mk.pc

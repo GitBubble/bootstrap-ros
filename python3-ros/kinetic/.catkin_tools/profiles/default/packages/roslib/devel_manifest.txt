@@ -1,0 +1,9 @@
+ros/roslib
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslib/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslib/share/roslib/cmake/roslibConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/roslib/cmake/roslibConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslib/share/roslib/cmake/roslibConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/roslib/cmake/roslibConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslib/share/roslib/cmake/roslib-extras.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/roslib/cmake/roslib-extras.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslib/lib/libroslib.so /home/parallels/Desktop/compare2/kinetic/devel/lib/libroslib.so
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslib/lib/pkgconfig/roslib.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/roslib.pc
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslib/lib/python3/dist-packages/roslib/__init__.py /home/parallels/Desktop/compare2/kinetic/devel/lib/python3/dist-packages/roslib/__init__.py
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslib/lib/python3/dist-packages/ros/__init__.py /home/parallels/Desktop/compare2/kinetic/devel/lib/python3/dist-packages/ros/__init__.py

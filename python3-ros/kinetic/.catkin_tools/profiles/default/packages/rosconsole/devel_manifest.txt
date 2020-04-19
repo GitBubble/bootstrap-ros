@@ -1,0 +1,10 @@
+ros_comm/rosconsole
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosconsole/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosconsole/share/rosconsole/cmake/rosconsoleConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosconsole/cmake/rosconsoleConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosconsole/share/rosconsole/cmake/rosconsoleConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosconsole/cmake/rosconsoleConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosconsole/share/rosconsole/cmake/rosconsole-extras.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosconsole/cmake/rosconsole-extras.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosconsole/lib/librosconsole_backend_interface.so /home/parallels/Desktop/compare2/kinetic/devel/lib/librosconsole_backend_interface.so
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosconsole/lib/librosconsole_log4cxx.so /home/parallels/Desktop/compare2/kinetic/devel/lib/librosconsole_log4cxx.so
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosconsole/lib/librosconsole.so /home/parallels/Desktop/compare2/kinetic/devel/lib/librosconsole.so
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosconsole/lib/pkgconfig/rosconsole.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/rosconsole.pc
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosconsole/etc/catkin/profile.d/10.rosconsole.sh /home/parallels/Desktop/compare2/kinetic/devel/etc/catkin/profile.d/10.rosconsole.sh

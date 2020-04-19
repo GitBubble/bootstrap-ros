@@ -1,0 +1,6 @@
+cmake_modules
+/home/parallels/Desktop/compare2/kinetic/devel/.private/cmake_modules/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/cmake_modules/share/cmake_modules/cmake/cmake_modules-extras.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/cmake_modules/cmake/cmake_modules-extras.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/cmake_modules/share/cmake_modules/cmake/cmake_modulesConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/cmake_modules/cmake/cmake_modulesConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/cmake_modules/share/cmake_modules/cmake/cmake_modulesConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/cmake_modules/cmake/cmake_modulesConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/cmake_modules/lib/pkgconfig/cmake_modules.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/cmake_modules.pc

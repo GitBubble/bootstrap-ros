@@ -1,0 +1,6 @@
+ros/rosbuild
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbuild/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbuild/share/rosbuild/cmake/rosbuildConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosbuild/cmake/rosbuildConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbuild/share/rosbuild/cmake/rosbuildConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosbuild/cmake/rosbuildConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbuild/lib/pkgconfig/rosbuild.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/rosbuild.pc
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbuild/etc/catkin/profile.d/10.rosbuild.sh /home/parallels/Desktop/compare2/kinetic/devel/etc/catkin/profile.d/10.rosbuild.sh

@@ -1,0 +1,8 @@
+gennodejs
+/home/parallels/Desktop/compare2/kinetic/devel/.private/gennodejs/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/gennodejs/share/gennodejs/cmake/gennodejsConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/gennodejs/cmake/gennodejsConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/gennodejs/share/gennodejs/cmake/gennodejs-extras.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/gennodejs/cmake/gennodejs-extras.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/gennodejs/share/gennodejs/cmake/gennodejsConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/gennodejs/cmake/gennodejsConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/gennodejs/lib/pkgconfig/gennodejs.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/gennodejs.pc
+/home/parallels/Desktop/compare2/kinetic/devel/.private/gennodejs/lib/python3/dist-packages/gennodejs/__init__.py /home/parallels/Desktop/compare2/kinetic/devel/lib/python3/dist-packages/gennodejs/__init__.py
+/home/parallels/Desktop/compare2/kinetic/devel/.private/gennodejs/etc/ros/genmsg/gennodejs /home/parallels/Desktop/compare2/kinetic/devel/etc/ros/genmsg/gennodejs

@@ -1,0 +1,8 @@
+ros_comm/rosmaster
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosmaster/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosmaster/bin/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/bin/cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosmaster/bin/rosmaster /home/parallels/Desktop/compare2/kinetic/devel/bin/rosmaster
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosmaster/share/rosmaster/cmake/rosmasterConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosmaster/cmake/rosmasterConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosmaster/share/rosmaster/cmake/rosmasterConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosmaster/cmake/rosmasterConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosmaster/lib/pkgconfig/rosmaster.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/rosmaster.pc
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosmaster/lib/python3/dist-packages/rosmaster/__init__.py /home/parallels/Desktop/compare2/kinetic/devel/lib/python3/dist-packages/rosmaster/__init__.py

@@ -1,0 +1,6 @@
+ros_comm/rosbag_storage
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbag_storage/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbag_storage/share/rosbag_storage/cmake/rosbag_storageConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosbag_storage/cmake/rosbag_storageConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbag_storage/share/rosbag_storage/cmake/rosbag_storageConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosbag_storage/cmake/rosbag_storageConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbag_storage/lib/librosbag_storage.so /home/parallels/Desktop/compare2/kinetic/devel/lib/librosbag_storage.so
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbag_storage/lib/pkgconfig/rosbag_storage.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/rosbag_storage.pc

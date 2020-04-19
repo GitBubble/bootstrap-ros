@@ -1,0 +1,8 @@
+rospack
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rospack/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rospack/bin/rospack /home/parallels/Desktop/compare2/kinetic/devel/bin/rospack
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rospack/bin/rosstack /home/parallels/Desktop/compare2/kinetic/devel/bin/rosstack
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rospack/share/rospack/cmake/rospackConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rospack/cmake/rospackConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rospack/share/rospack/cmake/rospackConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rospack/cmake/rospackConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rospack/lib/librospack.so /home/parallels/Desktop/compare2/kinetic/devel/lib/librospack.so
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rospack/lib/pkgconfig/rospack.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/rospack.pc

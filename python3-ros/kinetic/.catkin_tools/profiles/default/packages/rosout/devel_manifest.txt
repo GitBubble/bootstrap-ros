@@ -1,0 +1,6 @@
+ros_comm/rosout
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosout/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosout/share/rosout/cmake/rosoutConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosout/cmake/rosoutConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosout/share/rosout/cmake/rosoutConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rosout/cmake/rosoutConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosout/lib/pkgconfig/rosout.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/rosout.pc
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosout/lib/rosout/rosout /home/parallels/Desktop/compare2/kinetic/devel/lib/rosout/rosout

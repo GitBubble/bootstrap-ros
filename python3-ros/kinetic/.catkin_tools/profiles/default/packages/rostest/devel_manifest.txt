@@ -1,0 +1,9 @@
+ros_comm/rostest
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rostest/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/./cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rostest/bin/rostest /home/parallels/Desktop/compare2/kinetic/devel/bin/rostest
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rostest/bin/cmake.lock /home/parallels/Desktop/compare2/kinetic/devel/bin/cmake.lock
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rostest/share/rostest/cmake/rostestConfig.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rostest/cmake/rostestConfig.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rostest/share/rostest/cmake/rostest-extras.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rostest/cmake/rostest-extras.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rostest/share/rostest/cmake/rostestConfig-version.cmake /home/parallels/Desktop/compare2/kinetic/devel/share/rostest/cmake/rostestConfig-version.cmake
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rostest/lib/pkgconfig/rostest.pc /home/parallels/Desktop/compare2/kinetic/devel/lib/pkgconfig/rostest.pc
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rostest/lib/python3/dist-packages/rostest/__init__.py /home/parallels/Desktop/compare2/kinetic/devel/lib/python3/dist-packages/rostest/__init__.py
