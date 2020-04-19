@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rostopic/lib/python3/dist-packages/rostopic/__init__.py

@@ -1,0 +1,8 @@
+prefix=/home/parallels/Desktop/compare2/kinetic/devel/.private/roscpp_serialization
+
+Name: roscpp_serialization
+Description: Description of roscpp_serialization
+Version: 0.6.11
+Cflags: -I/home/parallels/Desktop/compare2/kinetic/src/roscpp_core/roscpp_serialization/include
+Libs: -L${prefix}/lib -lroscpp_serialization
+Requires: cpp_common roscpp_traits rostime

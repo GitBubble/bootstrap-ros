@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosnode/share/rosnode/cmake/rosnodeConfig-version.cmake

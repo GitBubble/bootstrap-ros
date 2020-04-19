@@ -1,0 +1,8 @@
+prefix=/home/parallels/Desktop/compare2/kinetic/devel/.private/rosmaster
+
+Name: rosmaster
+Description: Description of rosmaster
+Version: 1.12.14
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

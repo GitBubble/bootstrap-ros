@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# generated from catkin/cmake/templates/script.bash.in
+
+"/home/parallels/Desktop/compare2/kinetic/src/ros/rosbash/scripts/rosrun" "$@"

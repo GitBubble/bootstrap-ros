@@ -1,0 +1,8 @@
+prefix=/home/parallels/Desktop/compare2/kinetic/devel/.private/rostime
+
+Name: rostime
+Description: Description of rostime
+Version: 0.6.11
+Cflags: -I/home/parallels/Desktop/compare2/kinetic/src/roscpp_core/rostime/include -I/usr/include
+Libs: -L${prefix}/lib -lrostime /usr/lib/x86_64-linux-gnu/libboost_date_time.so /usr/lib/x86_64-linux-gnu/libboost_system.so /usr/lib/x86_64-linux-gnu/libboost_thread.so /usr/lib/x86_64-linux-gnu/libboost_chrono.so /usr/lib/x86_64-linux-gnu/libboost_atomic.so /usr/lib/x86_64-linux-gnu/libpthread.so
+Requires: cpp_common

@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roscpp_serialization/lib/pkgconfig/roscpp_serialization.pc

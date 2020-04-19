@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/message_filters/lib/pkgconfig/message_filters.pc

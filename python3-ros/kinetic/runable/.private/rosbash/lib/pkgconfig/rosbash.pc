@@ -1,0 +1,8 @@
+prefix=/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbash
+
+Name: rosbash
+Description: Description of rosbash
+Version: 1.14.6
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

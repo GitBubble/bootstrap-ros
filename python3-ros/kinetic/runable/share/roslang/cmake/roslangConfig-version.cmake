@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslang/share/roslang/cmake/roslangConfig-version.cmake

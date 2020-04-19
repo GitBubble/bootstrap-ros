@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/topic_tools/etc/catkin/profile.d/20.transform.bash

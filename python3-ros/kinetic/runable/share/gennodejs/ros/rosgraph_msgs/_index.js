@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosgraph_msgs/share/gennodejs/ros/rosgraph_msgs/_index.js

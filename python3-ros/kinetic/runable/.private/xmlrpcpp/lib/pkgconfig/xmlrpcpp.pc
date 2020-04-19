@@ -1,0 +1,8 @@
+prefix=/home/parallels/Desktop/compare2/kinetic/devel/.private/xmlrpcpp
+
+Name: xmlrpcpp
+Description: Description of xmlrpcpp
+Version: 1.12.14
+Cflags: -I/home/parallels/Desktop/compare2/kinetic/src/ros_comm/xmlrpcpp/include
+Libs: -L${prefix}/lib -lxmlrpcpp
+Requires: cpp_common rostime

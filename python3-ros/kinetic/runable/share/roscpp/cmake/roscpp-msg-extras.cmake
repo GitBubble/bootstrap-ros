@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roscpp/share/roscpp/cmake/roscpp-msg-extras.cmake

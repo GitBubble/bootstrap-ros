@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roscpp_serialization/share/roscpp_serialization/cmake/roscpp_serializationConfig-version.cmake

@@ -1,0 +1,8 @@
+prefix=/home/parallels/Desktop/compare2/kinetic/devel/.private/roswtf
+
+Name: roswtf
+Description: Description of roswtf
+Version: 1.12.14
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

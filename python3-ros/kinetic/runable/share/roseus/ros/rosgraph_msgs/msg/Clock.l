@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosgraph_msgs/share/roseus/ros/rosgraph_msgs/msg/Clock.l

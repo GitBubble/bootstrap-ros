@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslib/lib/python3/dist-packages/roslib/__init__.py

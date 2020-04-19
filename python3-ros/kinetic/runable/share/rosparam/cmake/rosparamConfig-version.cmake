@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosparam/share/rosparam/cmake/rosparamConfig-version.cmake

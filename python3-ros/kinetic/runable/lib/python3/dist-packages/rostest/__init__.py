@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rostest/lib/python3/dist-packages/rostest/__init__.py

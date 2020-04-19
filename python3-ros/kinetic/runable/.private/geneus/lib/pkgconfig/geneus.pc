@@ -1,0 +1,8 @@
+prefix=/home/parallels/Desktop/compare2/kinetic/devel/.private/geneus
+
+Name: geneus
+Description: Description of geneus
+Version: 2.2.6
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: genmsg

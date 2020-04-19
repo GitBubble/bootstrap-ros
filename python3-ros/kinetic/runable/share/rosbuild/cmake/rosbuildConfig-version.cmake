@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbuild/share/rosbuild/cmake/rosbuildConfig-version.cmake

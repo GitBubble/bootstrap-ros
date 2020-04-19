@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roscpp_traits/lib/pkgconfig/roscpp_traits.pc

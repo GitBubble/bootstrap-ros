@@ -1,0 +1,8 @@
+prefix=/home/parallels/Desktop/compare2/kinetic/devel/.private/genpy
+
+Name: genpy
+Description: Description of genpy
+Version: 0.6.7
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: genmsg

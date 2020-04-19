@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roscreate/share/roscreate/cmake/roscreateConfig-version.cmake

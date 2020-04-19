@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslisp/share/roslisp/cmake/roslispConfig.cmake

@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/genpy/lib/python3/dist-packages/genpy/__init__.py

@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosmake/lib/python3/dist-packages/rosmake/__init__.py

@@ -1,0 +1,8 @@
+prefix=/home/parallels/Desktop/compare2/kinetic/devel/.private/rospack
+
+Name: rospack
+Description: Description of rospack
+Version: 2.5.5
+Cflags: -I/home/parallels/Desktop/compare2/kinetic/src/rospack/include -I/usr/include
+Libs: -L${prefix}/lib -lrospack /usr/lib/x86_64-linux-gnu/libpython3.6m.so /usr/lib/x86_64-linux-gnu/libboost_filesystem.so /usr/lib/x86_64-linux-gnu/libboost_program_options.so /usr/lib/x86_64-linux-gnu/libboost_system.so /usr/lib/x86_64-linux-gnu/libtinyxml2.so
+Requires: 

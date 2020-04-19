@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/std_srvs/share/std_srvs/cmake/std_srvs-msg-paths.cmake

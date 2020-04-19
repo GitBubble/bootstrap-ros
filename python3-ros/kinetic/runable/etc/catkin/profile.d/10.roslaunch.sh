@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslaunch/etc/catkin/profile.d/10.roslaunch.sh

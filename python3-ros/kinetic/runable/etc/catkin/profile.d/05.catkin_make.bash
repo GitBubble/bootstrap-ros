@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/catkin/etc/catkin/profile.d/05.catkin_make.bash

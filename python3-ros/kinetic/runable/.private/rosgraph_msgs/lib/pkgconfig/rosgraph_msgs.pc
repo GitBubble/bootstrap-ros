@@ -1,0 +1,8 @@
+prefix=/home/parallels/Desktop/compare2/kinetic/devel/.private/rosgraph_msgs
+
+Name: rosgraph_msgs
+Description: Description of rosgraph_msgs
+Version: 1.11.2
+Cflags: -I/home/parallels/Desktop/compare2/kinetic/devel/.private/rosgraph_msgs/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime std_msgs

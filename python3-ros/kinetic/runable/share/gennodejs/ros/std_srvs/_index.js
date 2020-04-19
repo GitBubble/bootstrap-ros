@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/std_srvs/share/gennodejs/ros/std_srvs/_index.js

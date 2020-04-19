@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/genmsg/share/genmsg/cmake/genmsg-extras.cmake

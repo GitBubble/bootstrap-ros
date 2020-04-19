@@ -1,0 +1,8 @@
+prefix=/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbag
+
+Name: rosbag
+Description: Description of rosbag
+Version: 1.12.14
+Cflags: -I/home/parallels/Desktop/compare2/kinetic/src/ros_comm/rosbag/include
+Libs: -L${prefix}/lib -lrosbag
+Requires: rosbag_storage rosconsole roscpp std_srvs topic_tools xmlrpcpp

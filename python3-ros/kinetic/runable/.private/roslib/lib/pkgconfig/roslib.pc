@@ -1,0 +1,8 @@
+prefix=/home/parallels/Desktop/compare2/kinetic/devel/.private/roslib
+
+Name: roslib
+Description: Description of roslib
+Version: 1.14.6
+Cflags: -I/home/parallels/Desktop/compare2/kinetic/src/ros/roslib/include
+Libs: -L${prefix}/lib -lroslib
+Requires: rospack

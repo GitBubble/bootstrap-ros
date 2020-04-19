@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/gennodejs/share/gennodejs/cmake/gennodejsConfig-version.cmake

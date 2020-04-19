@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rospy/share/rospy/cmake/rospyConfig-version.cmake

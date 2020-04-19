@@ -1,0 +1,8 @@
+prefix=/home/parallels/Desktop/compare2/kinetic/devel/.private/message_filters
+
+Name: message_filters
+Description: Description of message_filters
+Version: 1.12.14
+Cflags: -I/home/parallels/Desktop/compare2/kinetic/src/ros_comm/message_filters/include
+Libs: -L${prefix}/lib -lmessage_filters
+Requires: roscpp xmlrpcpp rosconsole

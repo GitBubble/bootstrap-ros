@@ -1,0 +1,8 @@
+prefix=/home/parallels/Desktop/compare2/kinetic/devel/.private/cpp_common
+
+Name: cpp_common
+Description: Description of cpp_common
+Version: 0.6.11
+Cflags: -I/home/parallels/Desktop/compare2/kinetic/src/roscpp_core/cpp_common/include -I/usr/include
+Libs: -L${prefix}/lib -lcpp_common /usr/lib/x86_64-linux-gnu/libboost_system.so /usr/lib/x86_64-linux-gnu/libboost_thread.so /usr/lib/x86_64-linux-gnu/libboost_chrono.so /usr/lib/x86_64-linux-gnu/libboost_date_time.so /usr/lib/x86_64-linux-gnu/libboost_atomic.so /usr/lib/x86_64-linux-gnu/libpthread.so /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
+Requires: 

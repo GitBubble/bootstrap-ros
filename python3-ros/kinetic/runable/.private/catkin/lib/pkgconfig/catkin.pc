@@ -1,0 +1,8 @@
+prefix=/home/parallels/Desktop/compare2/kinetic/devel/.private/catkin
+
+Name: catkin
+Description: Description of catkin
+Version: 0.7.20
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

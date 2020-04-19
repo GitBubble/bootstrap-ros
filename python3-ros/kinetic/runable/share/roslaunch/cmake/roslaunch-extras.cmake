@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/roslaunch/share/roslaunch/cmake/roslaunch-extras.cmake

@@ -1,0 +1,8 @@
+prefix=/home/parallels/Desktop/compare2/kinetic/devel/.private/rosservice
+
+Name: rosservice
+Description: Description of rosservice
+Version: 1.12.14
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

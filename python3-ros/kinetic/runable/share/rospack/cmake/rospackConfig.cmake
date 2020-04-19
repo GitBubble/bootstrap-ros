@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rospack/share/rospack/cmake/rospackConfig.cmake

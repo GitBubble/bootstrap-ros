@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/std_msgs/share/std_msgs/cmake/std_msgsConfig.cmake

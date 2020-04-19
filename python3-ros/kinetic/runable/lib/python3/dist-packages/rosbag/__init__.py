@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbag/lib/python3/dist-packages/rosbag/__init__.py

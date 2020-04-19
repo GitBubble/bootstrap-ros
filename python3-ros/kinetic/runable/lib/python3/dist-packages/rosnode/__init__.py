@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosnode/lib/python3/dist-packages/rosnode/__init__.py

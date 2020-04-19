@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosbuild/etc/catkin/profile.d/10.rosbuild.sh

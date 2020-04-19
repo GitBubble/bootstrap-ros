@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/ros_environment/share/ros_environment/cmake/ros_environmentConfig-version.cmake

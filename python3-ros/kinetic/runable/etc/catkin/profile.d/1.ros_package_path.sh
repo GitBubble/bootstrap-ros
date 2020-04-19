@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/ros_environment/etc/catkin/profile.d/1.ros_package_path.sh

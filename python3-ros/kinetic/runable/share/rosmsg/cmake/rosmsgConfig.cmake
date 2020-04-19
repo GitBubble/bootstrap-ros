@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosmsg/share/rosmsg/cmake/rosmsgConfig.cmake

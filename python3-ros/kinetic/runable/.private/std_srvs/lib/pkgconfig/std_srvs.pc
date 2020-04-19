@@ -1,0 +1,8 @@
+prefix=/home/parallels/Desktop/compare2/kinetic/devel/.private/std_srvs
+
+Name: std_srvs
+Description: Description of std_srvs
+Version: 1.11.2
+Cflags: -I/home/parallels/Desktop/compare2/kinetic/devel/.private/std_srvs/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime

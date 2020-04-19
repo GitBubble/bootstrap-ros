@@ -1,0 +1,1 @@
+/home/parallels/Desktop/compare2/kinetic/devel/.private/rosout/share/rosout/cmake/rosoutConfig.cmake
